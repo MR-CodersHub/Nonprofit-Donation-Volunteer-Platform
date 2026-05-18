@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HopeFund | Home 2 - Premium Impact Platform</title>
+    <meta name="description"
+        content="Experience the new standard of nonprofit transparency and social impact. Fund campaign milestones, meet our active volunteers, and join the mission.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home2.css">
+    <link rel="stylesheet" href="css/mobile.css">
+</head>
+
+<body class="home2-body">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    
+    <!-- Nav Overlay (mobile) -->
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-hands-holding-child"></i>
+                Hope<span>Fund</span>
+            </a>
+
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="home2.html" class="nav-link active">Home 2</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="campaigns.html" class="nav-link">Campaigns</a></li>
+                    <li><a href="volunteer.html" class="nav-link">Volunteer</a></li>
+                    <li><a href="events.html" class="nav-link">Events</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <button class="btn btn-primary" onclick="openModal('donateModal')">Donate Now</button>
+                </div>
+            </div>
+
+            <div class="header-icons">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                    <div class="user-dropdown-wrapper">
+                        <button id="user-menu-btn" class="user-menu-btn" aria-label="User Account">
+                            <i class="fa-solid fa-circle-user"></i>
+                        </button>
+                        <div id="user-dropdown" class="user-dropdown-menu">
+                            <div class="dropdown-header">
+                                <h5>Guest User</h5>
+                                <p>Welcome to HopeFund</p>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <a href="login.html" class="dropdown-item"><i class="fa-solid fa-right-to-bracket"></i> Login / Sign Up</a>
+                            <a href="user-dashboard.html" class="dropdown-item"><i class="fa-solid fa-sliders"></i> User Dashboard</a>
+                            <a href="admin-dashboard.html" class="dropdown-item"><i class="fa-solid fa-user-shield"></i> Admin Dashboard</a>
+                        </div>
+                    </div>
+                    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero2" id="home2-hero">
+        <div class="container">
+            <div class="hero2-grid">
+                <div class="hero2-content">
+                    <div class="hero2-badge">
+                        <span class="live-dot"></span>
+                        Active Global Impact Projects
+                    </div>
+                    <h1 class="hero2-title">Nurturing Hope.<br><span class="gradient-text">Restoring Dignity.</span></h1>
+                    <p class="hero2-desc">We bridge the gap between global generosity and grassroot implementation. Every donation targets specific community milestones, providing water, nourishment, healthcare, and education where it’s desperately needed.</p>
+                    <div class="hero2-actions">
+                        <button class="btn btn-primary btn-premium btn-lg" onclick="openModal('donateModal')">Make an Instant Impact</button>
+                        <button class="btn btn-outline-primary btn-lg" onclick="openModal('volunteerModal')">Join Our Cohort</button>
+                    </div>
+                </div>
+                
+                <div class="hero2-mosaic">
+                    <!-- Mosaic Grid -->
+                    <div class="mosaic-item mosaic-main">
+                        <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sustainable organic farm community planting">
+                    </div>
+                    <div class="mosaic-item mosaic-sub1">
+                        <img src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Rural children studying and smiling">
+                    </div>
+                    <div class="mosaic-item mosaic-sub2">
+                        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Volunteers distributing nutritional aid">
+                    </div>
+                    <!-- Floating Card -->
+                    <div class="mosaic-card-floating">
+                        <div class="mcf-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                        <div class="mcf-info">
+                            <h5>10K+ Volunteers</h5>
+                            <p>Active in 40+ countries</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Statistics Overlapping -->
+    <section class="impact-stats2">
+        <div class="container">
+            <div class="stats2-wrapper">
+                <div class="stats2-grid">
+                    <!-- Card 1 -->
+                    <div class="stat2-card">
+                        <div class="stat2-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                        <div class="stat2-value">$32M+</div>
+                        <div class="stat2-label">Total Funds Deployed</div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="stat2-card">
+                        <div class="stat2-icon"><i class="fa-solid fa-people-group"></i></div>
+                        <div class="stat2-value">12K+</div>
+                        <div class="stat2-label">Global Helpers Registered</div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="stat2-card">
+                        <div class="stat2-icon"><i class="fa-solid fa-earth-americas"></i></div>
+                        <div class="stat2-value">450+</div>
+                        <div class="stat2-label">Completed Ecosystem Projects</div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="stat2-card">
+                        <div class="stat2-icon"><i class="fa-solid fa-face-smile-wink"></i></div>
+                        <div class="stat2-value">3.5M</div>
+                        <div class="stat2-label">Empowered Lives Reached</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Goals & Live Dashboard -->
+    <section class="live-dashboard-section section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">Real-Time Transparency</span>
+                <h2 class="section-title">Ecosystem Milestone Dashboard</h2>
+                <p class="section-desc">We track every cent. Follow our primary active milestone goal and watch live donor transactions flowing into global communities.</p>
+            </div>
+
+            <div class="live-dashboard">
+                <div class="container dashboard-grid">
+                    <div class="dashboard-graphic">
+                        <div class="circle-progress-wrapper">
+                            <svg class="circle-progress-svg" width="250" height="250" viewBox="0 0 250 250">
+                                <circle class="circle-progress-bg" cx="125" cy="125" r="110"></circle>
+                                <circle class="circle-progress-bar" cx="125" cy="125" r="110"></circle>
+                            </svg>
+                            <div class="circle-text-center">
+                                <div class="circle-percent">70%</div>
+                                <div class="circle-label">Funded</div>
+                            </div>
+                        </div>
+                        <div class="dashboard-graphic-content">
+                            <h4 class="dashboard-graphic-title">Primary Drive: Clean Water Haiti</h4>
+                            <p class="dashboard-graphic-desc">Deploying solar-filtration wells to the Nippes department, providing safe hydration to 15,000 citizens.</p>
+                            <div class="dashboard-graphic-stats">
+                                <div class="dashboard-stat-item"><span class="dashboard-stat-label">RAISED</span> $420,000</div>
+                                <div class="dashboard-stat-item"><span class="dashboard-stat-label">GOAL</span> $600,000</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Live Feed list -->
+                    <div class="live-feed-card">
+                        <div class="live-feed-header">
+                            <h4><span class="live-pulse"></span> Live Donation Stream</h4>
+                            <span style="font-size:0.8rem; color:var(--clr-secondary); font-weight:600;">Ticker Active</span>
+                        </div>
+                        <div class="feed-items">
+                            <div class="feed-item">
+                                <div class="feed-avatar">AR</div>
+                                <div class="feed-details">
+                                    <h5>Ananya Ray</h5>
+                                    <p>to Clean Water Haiti</p>
+                                </div>
+                                <div class="feed-amount">+$150</div>
+                            </div>
+                            <div class="feed-item">
+                                <div class="feed-avatar">JS</div>
+                                <div class="feed-details">
+                                    <h5>Jonathan S.</h5>
+                                    <p>to Rural Uganda School</p>
+                                </div>
+                                <div class="feed-amount">+$50</div>
+                            </div>
+                            <div class="feed-item">
+                                <div class="feed-avatar">LH</div>
+                                <div class="feed-details">
+                                    <h5>Lucas H.</h5>
+                                    <p>to Amazon Trees Fund</p>
+                                </div>
+                                <div class="feed-amount">+$25</div>
+                            </div>
+                            <div class="feed-item">
+                                <div class="feed-avatar">MR</div>
+                                <div class="feed-details">
+                                    <h5>Maria Rossi</h5>
+                                    <p>to Disaster Relief</p>
+                                </div>
+                                <div class="feed-amount">+$100</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Campaigns (Asymmetrical layout) -->
+    <section class="campaigns2 section-padding bg-light" id="home2-campaigns">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">Urgent Drives</span>
+                <h2 class="section-title">Ecosystem Milestones Seeking Support</h2>
+                <p class="section-desc">Unlike general collections, HopeFund coordinates targeted community milestones. Select a specific goal to support today.</p>
+            </div>
+
+            <div class="campaigns2-grid">
+                <!-- Large Featured Card -->
+                <div class="campaign2-card-large">
+                    <div class="c2-large-img">
+                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sustainable organic farm community planting tree">
+                        <span class="c2-badge">Environment & Nourishment</span>
+                    </div>
+                    <div class="c2-large-content">
+                        <h3 class="c2-large-title">Amazonian Reforestation & Family Agro-Farms</h3>
+                        <p class="c2-large-desc">We are partnering with local indigenous communities to plant 10,000 native cacao and acai trees. This project restores canopy cover while establishing sustainable, long-term trade revenue for 120 rural farming families.</p>
+                        
+                        <div class="c2-progress-wrapper">
+                            <div class="c2-progress-stats">
+                                <div><span>Raised:</span> $90,000</div>
+                                <div><span>Milestone Goal:</span> $100,000</div>
+                            </div>
+                            <div class="c2-progress-bar-container">
+                                <div class="c2-progress-bar-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-primary mt-3" onclick="openModal('donateModal')">Pledge Support to Reforestation</button>
+                    </div>
+                </div>
+
+                <!-- Column of 2 Mini Cards -->
+                <div class="campaigns2-list">
+                    <!-- Mini Card 1 -->
+                    <div class="campaign2-card-mini">
+                        <div class="c2-mini-img">
+                            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Rural children studying and smiling">
+                        </div>
+                        <div class="c2-mini-content">
+                            <div>
+                                <h3 class="c2-mini-title">Solar Digital Labs in Uganda</h3>
+                                <p class="c2-mini-desc">Furnishing two community schools in Jinja with solar panels and 30 computing tablets for technology learning.</p>
+                            </div>
+                            <div class="c2-progress-wrapper">
+                                <div class="c2-progress-bar-container">
+                                    <div class="c2-progress-bar-fill" style="width: 60%"></div>
+                                </div>
+                                <div class="c2-progress-stats" style="margin-top: 5px; font-size:0.75rem;">
+                                    <div>$18,000 / $30,000</div>
+                                    <div>60%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mini Card 2 -->
+                    <div class="campaign2-card-mini">
+                        <div class="c2-mini-img">
+                            <img src="https://images.unsplash.com/photo-1593113630400-ea4288922497?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Elders receiving clean food kits">
+                        </div>
+                        <div class="c2-mini-content">
+                            <div>
+                                <h3 class="c2-mini-title">Elderly Nutrition Supply</h3>
+                                <p class="c2-mini-desc">Providing weekly organic agricultural supplies and health supplements to lonely elders in isolated mountain villages.</p>
+                            </div>
+                            <div class="c2-progress-wrapper">
+                                <div class="c2-progress-bar-container">
+                                    <div class="c2-progress-bar-fill" style="width: 45%"></div>
+                                </div>
+                                <div class="c2-progress-stats" style="margin-top: 5px; font-size:0.75rem;">
+                                    <div>$9,000 / $20,000</div>
+                                    <div>45%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Highlights (Interactive Grid) -->
+    <section class="volunteers2 section-padding" id="home2-volunteers">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">Real Champions</span>
+                <h2 class="section-title">Humanity Heroes in the Field</h2>
+                <p class="section-desc">Generosity is nothing without execution. Meet some of our incredible global cohort volunteers driving impact on the frontlines.</p>
+            </div>
+
+            <div class="volunteers2-grid">
+                <!-- Vol 1 -->
+                <div class="vol2-card">
+                    <div class="vol2-avatar-wrapper">
+                        <img class="vol2-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Amelia Rose, Educator">
+                        <span class="vol2-badge"><i class="fa-solid fa-graduation-cap"></i></span>
+                    </div>
+                    <h3 class="vol2-name">Amelia Rose</h3>
+                    <div class="vol2-role">Volunteer Educator</div>
+                    <p class="vol2-quote">"Teaching local children Jinja’s first computer science classes is a gift. Watch their eyes light up as they write their very first line of code."</p>
+                    <div class="vol2-hours-badge">
+                        <i class="fa-solid fa-award"></i> 280 Field Hours
+                    </div>
+                </div>
+
+                <!-- Vol 2 -->
+                <div class="vol2-card">
+                    <div class="vol2-avatar-wrapper">
+                        <img class="vol2-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Marcus Chen, Disaster Responder">
+                        <span class="vol2-badge"><i class="fa-solid fa-kit-medical"></i></span>
+                    </div>
+                    <h3 class="vol2-name">Marcus Chen</h3>
+                    <div class="vol2-role">Disaster Responder</div>
+                    <p class="vol2-quote">"Delivering critical supply kits right after high-intensity floods requires rapid focus. Seeing immediate relief in families makes every long night worth it."</p>
+                    <div class="vol2-hours-badge">
+                        <i class="fa-solid fa-award"></i> 420 Field Hours
+                    </div>
+                </div>
+
+                <!-- Vol 3 -->
+                <div class="vol2-card">
+                    <div class="vol2-avatar-wrapper">
+                        <img class="vol2-avatar" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Dr. Aisha Bello, Clinical Lead">
+                        <span class="vol2-badge"><i class="fa-solid fa-stethoscope"></i></span>
+                    </div>
+                    <h3 class="vol2-name">Dr. Aisha Bello</h3>
+                    <div class="vol2-role">Mobile Clinical Lead</div>
+                    <p class="vol2-quote">"Providing basic diagnostics and vaccinations in mountainous terrain is challenging, but healthcare is a fundamental right that must be delivered."</p>
+                    <div class="vol2-hours-badge">
+                        <i class="fa-solid fa-award"></i> 310 Field Hours
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <button class="btn btn-secondary btn-lg" onclick="openModal('volunteerModal')">Join Our Frontline Cohort</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories Timeline -->
+    <section class="stories2 section-padding bg-light" id="home2-stories">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">Real Journeys</span>
+                <h2 class="section-title">Milestones of Hope Restored</h2>
+                <p class="section-desc">HopeFund projects build self-reliance. Explore the chronological milestones accomplished in our priority centers.</p>
+            </div>
+
+            <div class="stories2-grid">
+                <!-- Video/Photo Showcase -->
+                <div class="stories2-visual">
+                    <img src="https://images.unsplash.com/photo-1541976844346-f18aeac57b06?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Smiling children surrounding a fresh solar water well pump">
+                    <div class="stories2-play-btn"><i class="fa-solid fa-play"></i></div>
+                    <div class="stories2-visual-overlay">
+                        <h4>Water Flows in La Guajira</h4>
+                        <p>Watch how 2,500 families gained clean drinking water and established community gardens.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Milestones -->
+                <div class="timeline2">
+                    <!-- Item 1 -->
+                    <div class="timeline2-item">
+                        <div class="timeline2-marker"></div>
+                        <div class="timeline2-content">
+                            <span class="timeline2-year">January 2024</span>
+                            <h4 class="timeline2-title">Clean Water Nippes, Haiti</h4>
+                            <p class="timeline2-desc">Successfully drilled and deployed three solar-powered water filtration hubs, providing 6,000 people with perpetual daily safe hydration.</p>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="timeline2-item">
+                        <div class="timeline2-marker"></div>
+                        <div class="timeline2-content">
+                            <span class="timeline2-year">August 2024</span>
+                            <h4 class="timeline2-title">Organic Farm Co-Op Established</h4>
+                            <p class="timeline2-desc">Provided agricultural training, tool kits, and high-yield seeds to 200 women, establishing a localized agricultural market grid.</p>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="timeline2-item">
+                        <div class="timeline2-marker"></div>
+                        <div class="timeline2-content">
+                            <span class="timeline2-year">December 2025</span>
+                            <h4 class="timeline2-title">Solar Tech Classroom Completed</h4>
+                            <p class="timeline2-desc">Built three classrooms equipped with state-of-the-art solar banks, and hired full-time IT instructors to foster digital learning.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partner Organizations Logo Marquee scrolling -->
+    <section class="partners-marquee" id="home2-partners">
+        <div class="container">
+            <div class="marquee-container">
+                <div class="marquee-track">
+                    <div class="marquee-item">
+                        <img src="https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=80&q=80" alt="UNICEF logo placeholder">
+                    </div>
+                    <div class="marquee-item">
+                        <img src="https://images.unsplash.com/photo-1614028674026-a65e31bfd27c?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=80&q=80" alt="WWF logo placeholder">
+                    </div>
+                    <div class="marquee-item">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=80&q=80" alt="Red Cross logo placeholder">
+                    </div>
+                    <div class="marquee-item">
+                        <img src="https://images.unsplash.com/photo-1618005198143-e5283b519a7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=80&q=80" alt="UNESCO logo placeholder">
+                    </div>
+                    <div class="marquee-item">
+                        <img src="https://images.unsplash.com/photo-1557200134-90327ee9fafa?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=80&q=80" alt="Greenpeace logo placeholder">
+                    </div>
+                    <div class="marquee-item">
+                        <img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=80&q=80" alt="World Bank logo placeholder">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Engagement & Call-To-Action -->
+    <section class="community-engagement section-padding" id="home2-contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="section-header left-aligned">
+                        <span class="section-subtitle">Get Involved Nearby</span>
+                        <h2 class="section-title">Join Local Hope circles</h2>
+                    </div>
+                    <p>HopeFund isn’t just global; it’s local. Hope Circles are community-led volunteer collectives meeting monthly to arrange cleanups, food distribution, and community support in local regions.</p>
+                    
+                    <ul class="contact-details">
+                        <li>
+                            <i class="fa-solid fa-people-carry-box"></i>
+                            <div>
+                                <h4>Next Monthly HopeCircle Gathering</h4>
+                                <p>Saturday, June 6th at 10:00 AM - Community Center</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-shield-heart"></i>
+                            <div>
+                                <h4>Eco-Friendly Packaging Drive</h4>
+                                <p>Help pack nutrition and medical kits for rapid deploying.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <h4 style="font-size:1.4rem; margin-bottom:10px;">Pledge Your Local Circle</h4>
+                    <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:25px;">Register your interest below and receive meeting invitations for local circles in your postal code.</p>
+                    <form id="contactForm" class="form">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" required placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" required placeholder="john@example.com">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="zip">Postal Zip Code</label>
+                                <input type="text" id="zip" required placeholder="10001">
+                            </div>
+                            <div class="form-group half">
+                                <label for="interest">Core Interest</label>
+                                <select id="interest" required style="height:48px;">
+                                    <option value="nourish">Nutrition Packing</option>
+                                    <option value="educate">Local Mentorship</option>
+                                    <option value="environment">Cleanups</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Send Circle Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-widget brand-widget">
+                        <a href="index.html" class="logo footer-logo">
+                            <i class="fa-solid fa-hands-holding-child"></i>
+                            Hope<span>Fund</span>
+                        </a>
+                        <p>Empowering communities and changing lives through sustainable development, education, and healthcare.</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-widget links-widget">
+                        <h3>Ecosystem Navigation</h3>
+                        <ul>
+                            <li><a href="index.html">Home 1 (Classic)</a></li>
+                            <li><a href="#home2-hero">Home 2 (Premium)</a></li>
+                            <li><a href="blog.html">Blog Insights</a></li>
+                            <li><a href="#home2-campaigns">Ecosystem Campaigns</a></li>
+                            <li><a href="#home2-volunteers">Helpers Cohort</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-widget links-widget">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="blog.html">News & Deep Dives</a></li>
+                            <li><a href="index.html#faq">FAQ & Support</a></li>
+                            <li><a href="home2.html">Home 2 Demo</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-widget newsletter-widget">
+                        <h3>Newsletter Pledge</h3>
+                        <p>Subscribe to our newsletter to receive the latest updates and stories of impact.</p>
+                        <form id="newsletterForm" class="newsletter-form">
+                            <input type="email" placeholder="Email Address" required>
+                            <button type="submit" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 HopeFund Organization. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+
+    <!-- Donation Modal -->
+    <div class="modal" id="donateModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('donateModal')">&times;</span>
+            <h2 class="modal-title">Make a Donation</h2>
+            <p class="modal-subtitle">Your contribution helps us create a better world.</p>
+
+            <form id="donationForm">
+                <div class="amount-selection">
+                    <button type="button" class="amount-btn" data-amount="25">$25</button>
+                    <button type="button" class="amount-btn active" data-amount="50">$50</button>
+                    <button type="button" class="amount-btn" data-amount="100">$100</button>
+                    <button type="button" class="amount-btn" data-amount="500">$500</button>
+                    <button type="button" class="amount-btn custom-amount-btn" id="customAmountBtn">Custom</button>
+                </div>
+
+                <div class="form-group custom-amount-input hidden" id="customAmountWrapper">
+                    <label for="customAmount">Enter Custom Amount ($)</label>
+                    <input type="number" id="customAmount" min="1" placeholder="e.g. 75">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="donorName">Full Name</label>
+                        <input type="text" id="donorName" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group half">
+                        <label for="donorEmail">Email Address</label>
+                        <input type="email" id="donorEmail" required placeholder="john@example.com">
+                    </div>
+                </div>
+
+                <div class="payment-methods">
+                    <label>Payment Method</label>
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="credit" checked>
+                            <span class="pay-btn"><i class="fa-regular fa-credit-card"></i> Card</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="paypal">
+                            <span class="pay-btn"><i class="fa-brands fa-paypal"></i> PayPal</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="applepay">
+                            <span class="pay-btn"><i class="fa-brands fa-apple"></i> Pay</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 mt-3">Donate <span id="donateBtnAmount">$50</span></button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Volunteer Modal -->
+    <div class="modal" id="volunteerModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('volunteerModal')">&times;</span>
+            <h2 class="modal-title">Join Our Volunteers</h2>
+            <p class="modal-subtitle">Register to become a volunteer and help us make a difference.</p>
+
+            <form id="volunteerForm">
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="volName">Full Name</label>
+                        <input type="text" id="volName" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group half">
+                        <label for="volEmail">Email Address</label>
+                        <input type="email" id="volEmail" required placeholder="john@example.com">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="volPhone">Phone Number</label>
+                    <input type="tel" id="volPhone" required placeholder="+1 (555) 000-0000">
+                </div>
+
+                <div class="form-group">
+                    <label for="volInterest">Area of Interest</label>
+                    <select id="volInterest" required style="height:48px;">
+                        <option value="">Select an area</option>
+                        <option value="education">Education & Teaching</option>
+                        <option value="health">Healthcare & Medical</option>
+                        <option value="environment">Environmental Conservation</option>
+                        <option value="events">Event Organization</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="volMessage">Why do you want to volunteer?</label>
+                    <textarea id="volMessage" rows="3" required placeholder="Tell us a bit about yourself..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Toast/Popup -->
+    <div id="toast" class="toast hidden">
+        <div class="toast-content">
+            <i class="fa-solid fa-circle-check toast-icon"></i>
+            <div class="toast-text">
+                <h4>Success!</h4>
+                <p id="toastMessage">Action completed successfully.</p>
+            </div>
+            <button class="toast-close" onclick="closeToast()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script src="js/custom-pages.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HopeFund | Blog & Insights for Social Impact</title>
+    <meta name="description"
+        content="Read deep insights, expert stories, and strategies in charity events, environmental sustainability, digital education, volunteer experiences, and disaster relief.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/blog.css">
+    <link rel="stylesheet" href="css/mobile.css">
+</head>
+
+<body class="blog-body">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    
+    <!-- Nav Overlay (mobile) -->
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-transparent" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-hands-holding-child"></i>
+                Hope<span>Fund</span>
+            </a>
+
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="home2.html" class="nav-link">Home 2</a></li>
+                    <li><a href="blog.html" class="nav-link active">Blog</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="campaigns.html" class="nav-link">Campaigns</a></li>
+                    <li><a href="volunteer.html" class="nav-link">Volunteer</a></li>
+                    <li><a href="events.html" class="nav-link">Events</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <button class="btn btn-primary" onclick="openModal('donateModal')">Donate Now</button>
+                </div>
+            </div>
+
+            <div class="header-icons">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                    <div class="user-dropdown-wrapper">
+                        <button id="user-menu-btn" class="user-menu-btn" aria-label="User Account">
+                            <i class="fa-solid fa-circle-user"></i>
+                        </button>
+                        <div id="user-dropdown" class="user-dropdown-menu">
+                            <div class="dropdown-header">
+                                <h5>Guest User</h5>
+                                <p>Welcome to HopeFund</p>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <a href="login.html" class="dropdown-item"><i class="fa-solid fa-right-to-bracket"></i> Login / Sign Up</a>
+                            <a href="user-dashboard.html" class="dropdown-item"><i class="fa-solid fa-sliders"></i> User Dashboard</a>
+                            <a href="admin-dashboard.html" class="dropdown-item"><i class="fa-solid fa-user-shield"></i> Admin Dashboard</a>
+                        </div>
+                    </div>
+                    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Blog Hero Banner -->
+    <section class="blog-hero">
+        <div class="container blog-hero-content">
+            <h1 class="blog-hero-title">Insights for Global Change</h1>
+            <p class="blog-hero-desc">Expert strategies, frontline testimonials, and deep analyses on charity events, sustainability, digital learning, and humanitarian relief efforts.</p>
+            
+            <!-- Filter Categories -->
+            <div class="blog-filters">
+                <button class="blog-filter-btn active" data-filter="all">All Insights</button>
+                <button class="blog-filter-btn" data-filter="education">Education</button>
+                <button class="blog-filter-btn" data-filter="environment">Environment</button>
+                <button class="blog-filter-btn" data-filter="fundraising">Fundraising</button>
+                <button class="blog-filter-btn" data-filter="health">Healthcare</button>
+                <button class="blog-filter-btn" data-filter="relief">Disaster Relief</button>
+                <button class="blog-filter-btn" data-filter="volunteer">Volunteerism</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Container -->
+    <div class="container">
+        <!-- Featured Article Card -->
+        <section class="featured-blog-section">
+            <div class="featured-blog-card" data-category="education">
+                <div class="fbc-img">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Rural children studying and smiling">
+                </div>
+                <div class="fbc-content">
+                    <div class="fbc-meta">
+                        <span class="fbc-tag">Education</span>
+                        <span>May 14, 2026</span>
+                        <span>• 6 Min Read</span>
+                    </div>
+                    <h2 class="fbc-title"><a href="blog-education.html">Bridging the Digital Divide: A New Hope for Rural Classrooms</a></h2>
+                    <p class="fbc-desc">Explore how localized solar power micro-grids are enabling rural primary schools to adopt tablet learning, overcoming basic electricity constraints and opening global educational resources for youth.</p>
+                    <div class="fbc-author">
+                        <img class="fbc-author-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Amelia Rose">
+                        <div class="fbc-author-info">
+                            <h5>Amelia Rose</h5>
+                            <p>Global Educator & Researcher</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Blog Grid Area -->
+        <main class="blog-main-grid">
+            <!-- Left: Blog Posts List -->
+            <div class="blog-posts-grid" id="blogPostsGrid">
+                
+                <!-- Card 1 (Education) -->
+                <div class="blog-card" data-category="education">
+                    <div class="blog-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Students in school digital classroom">
+                        <span class="blog-category-tag">Education</span>
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-card-meta">
+                            <span><i class="fa-regular fa-calendar"></i> May 14, 2026</span>
+                            <span><i class="fa-regular fa-clock"></i> 6 Min Read</span>
+                        </div>
+                        <h3 class="blog-card-title"><a href="blog-education.html">Bridging the Digital Divide: A New Hope for Rural Classrooms</a></h3>
+                        <p class="blog-card-excerpt">Discover the deployment of portable tablet labs in rural Jinja, Uganda, and the quantitative impact on child retention rates.</p>
+                        <div class="blog-card-footer">
+                            <div class="bcf-author">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Amelia Rose">
+                                <span>Amelia Rose</span>
+                            </div>
+                            <a href="blog-education.html" class="read-more-link">Read Post <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 (Environment) -->
+                <div class="blog-card" data-category="environment">
+                    <div class="blog-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Community gardeners working together">
+                        <span class="blog-category-tag">Environment</span>
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-card-meta">
+                            <span><i class="fa-regular fa-calendar"></i> May 10, 2026</span>
+                            <span><i class="fa-regular fa-clock"></i> 8 Min Read</span>
+                        </div>
+                        <h3 class="blog-card-title"><a href="blog-sustainability.html">Green Roots: Scaling Community Agriculture in Deforested Zones</a></h3>
+                        <p class="blog-card-excerpt">How localized agroforestry grids in South American rainforest buffers are offering high-yield trade goods to eliminate logging incentives.</p>
+                        <div class="blog-card-footer">
+                            <div class="bcf-author">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Marcus Chen">
+                                <span>Marcus Chen</span>
+                            </div>
+                            <a href="blog-sustainability.html" class="read-more-link">Read Post <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 (Fundraising) -->
+                <div class="blog-card" data-category="fundraising">
+                    <div class="blog-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Saving and micro finance coins stacked">
+                        <span class="blog-category-tag">Fundraising</span>
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-card-meta">
+                            <span><i class="fa-regular fa-calendar"></i> April 28, 2026</span>
+                            <span><i class="fa-regular fa-clock"></i> 7 Min Read</span>
+                        </div>
+                        <h3 class="blog-card-title"><a href="blog-fundraising.html">The Philanthropy Revolution: Blockchain and Web3 Giving</a></h3>
+                        <p class="blog-card-excerpt">A deep-dive evaluation of micro-donations, cryptographic smart contract tracking, and total auditability in direct NGO capital deployment.</p>
+                        <div class="blog-card-footer">
+                            <div class="bcf-author">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Dr. Aisha Bello">
+                                <span>Dr. Aisha Bello</span>
+                            </div>
+                            <a href="blog-fundraising.html" class="read-more-link">Read Post <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 (Relief) -->
+                <div class="blog-card" data-category="relief">
+                    <div class="blog-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Rescue food kit distribution in flooded area">
+                        <span class="blog-category-tag">Disaster Relief</span>
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-card-meta">
+                            <span><i class="fa-regular fa-calendar"></i> April 15, 2026</span>
+                            <span><i class="fa-regular fa-clock"></i> 9 Min Read</span>
+                        </div>
+                        <h3 class="blog-card-title"><a href="blog-disaster-relief.html">First Responders: Hope and Swift Recovery After the Storm</a></h3>
+                        <p class="blog-card-excerpt">Tracking the logistical challenges and triumphs in delivering solar-filtration water kits within 48 hours of Category 5 coastal typhoons.</p>
+                        <div class="blog-card-footer">
+                            <div class="bcf-author">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Marcus Chen">
+                                <span>Marcus Chen</span>
+                            </div>
+                            <a href="blog-disaster-relief.html" class="read-more-link">Read Post <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 (Health) -->
+                <div class="blog-card" data-category="health">
+                    <div class="blog-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Doctors performing vaccine inoculation">
+                        <span class="blog-category-tag">Healthcare</span>
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-card-meta">
+                            <span><i class="fa-regular fa-calendar"></i> March 29, 2026</span>
+                            <span><i class="fa-regular fa-clock"></i> 7 Min Read</span>
+                        </div>
+                        <h3 class="blog-card-title"><a href="blog-healthcare.html">Healing on Wheels: Bringing Modern Medicine to Mountain Peaks</a></h3>
+                        <p class="blog-card-excerpt">An interview analysis with Dr. Aisha Bello details how off-grid utility trucks are transformed into high-accuracy vaccination chambers.</p>
+                        <div class="blog-card-footer">
+                            <div class="bcf-author">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Dr. Aisha Bello">
+                                <span>Dr. Aisha Bello</span>
+                            </div>
+                            <a href="blog-healthcare.html" class="read-more-link">Read Post <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 (Volunteer) -->
+                <div class="blog-card" data-category="volunteer">
+                    <div class="blog-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Group of volunteers waving hands">
+                        <span class="blog-category-tag">Volunteerism</span>
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-card-meta">
+                            <span><i class="fa-regular fa-calendar"></i> March 12, 2026</span>
+                            <span><i class="fa-regular fa-clock"></i> 10 Min Read</span>
+                        </div>
+                        <h3 class="blog-card-title"><a href="blog-volunteer.html">A Year of Hope: Connection and Purpose Through Service in Kenya</a></h3>
+                        <p class="blog-card-excerpt">A personal retrospective on the transformative mental health gains and deep bonds forged during a twelve-month teaching assignment.</p>
+                        <div class="blog-card-footer">
+                            <div class="bcf-author">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Amelia Rose">
+                                <span>Amelia Rose</span>
+                            </div>
+                            <a href="blog-volunteer.html" class="read-more-link">Read Post <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right: Sidebar widgets -->
+            <aside class="sidebar">
+                <!-- Search Widget -->
+                <div class="widget widget-search">
+                    <h3 class="widget-title">Search Articles</h3>
+                    <form class="search-form" onsubmit="event.preventDefault();">
+                        <input type="text" placeholder="Type keywords..." required style="height: 48px;">
+                        <button type="submit" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                </div>
+
+                <!-- Categories List Widget -->
+                <div class="widget widget-categories">
+                    <h3 class="widget-title">Categories</h3>
+                    <ul>
+                        <li><a href="#" onclick="event.preventDefault();">Education <span>2</span></a></li>
+                        <li><a href="#" onclick="event.preventDefault();">Environment <span>1</span></a></li>
+                        <li><a href="#" onclick="event.preventDefault();">Fundraising <span>1</span></a></li>
+                        <li><a href="#" onclick="event.preventDefault();">Healthcare <span>1</span></a></li>
+                        <li><a href="#" onclick="event.preventDefault();">Disaster Relief <span>1</span></a></li>
+                        <li><a href="#" onclick="event.preventDefault();">Volunteerism <span>1</span></a></li>
+                    </ul>
+                </div>
+
+                <!-- Recent Posts widget -->
+                <div class="widget widget-recent-posts">
+                    <h3 class="widget-title">Recent Insights</h3>
+                    <div class="recent-posts-list">
+                        <!-- Post 1 -->
+                        <div class="recent-post-item">
+                            <div class="rp-img">
+                                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Education">
+                            </div>
+                            <div class="rp-details">
+                                <h4><a href="blog-education.html">Bridging the Digital Divide: Rural Uganda</a></h4>
+                                <span>May 14, 2026</span>
+                            </div>
+                        </div>
+                        <!-- Post 2 -->
+                        <div class="recent-post-item">
+                            <div class="rp-img">
+                                <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Sustainability">
+                            </div>
+                            <div class="rp-details">
+                                <h4><a href="blog-sustainability.html">Green Roots: Scaling Deforestation Agriculture</a></h4>
+                                <span>May 10, 2026</span>
+                            </div>
+                        </div>
+                        <!-- Post 3 -->
+                        <div class="recent-post-item">
+                            <div class="rp-img">
+                                <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Fundraising">
+                            </div>
+                            <div class="rp-details">
+                                <h4><a href="blog-fundraising.html">Eecosystem Giving: Blockchain and Web3</a></h4>
+                                <span>April 28, 2026</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tag Cloud widget -->
+                <div class="widget widget-tags">
+                    <h3 class="widget-title">Trending Tags</h3>
+                    <div class="tag-cloud">
+                        <a href="#" onclick="event.preventDefault();">#Technology</a>
+                        <a href="#" onclick="event.preventDefault();">#Agroforestry</a>
+                        <a href="#" onclick="event.preventDefault();">#Auditability</a>
+                        <a href="#" onclick="event.preventDefault();">#FirstResponders</a>
+                        <a href="#" onclick="event.preventDefault();">#MobileClinics</a>
+                        <a href="#" onclick="event.preventDefault();">#Nourishment</a>
+                        <a href="#" onclick="event.preventDefault();">#HopeCircles</a>
+                    </div>
+                </div>
+
+                <!-- Newsletter Card -->
+                <div class="widget newsletter-widget-sidebar">
+                    <h3 class="widget-title">Join HopeLetters</h3>
+                    <p>Enter your email below to receive frontline journal pages from our volunteer coordinators directly to your inbox weekly.</p>
+                    <form id="newsletterForm2" class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed to HopeLetters!'); this.reset();">
+                        <input type="email" placeholder="Your Email Address" required style="border:none; background:none; padding:15px; color:#FFF;">
+                        <button type="submit" aria-label="Subscribe" style="background-color:var(--clr-primary); color:#FFF; padding:0 20px;"><i class="fa-solid fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </aside>
+        </main>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <a href="#" class="page-link active">1</a>
+            <a href="#" class="page-link">2</a>
+            <a href="#" class="page-link"><i class="fa-solid fa-angle-right"></i></a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer mt-5">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-widget brand-widget">
+                        <a href="index.html" class="logo footer-logo">
+                            <i class="fa-solid fa-hands-holding-child"></i>
+                            Hope<span>Fund</span>
+                        </a>
+                        <p>Empowering communities and changing lives through sustainable development, education, and healthcare.</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-widget links-widget">
+                        <h3>Ecosystem Navigation</h3>
+                        <ul>
+                            <li><a href="index.html">Home 1 (Classic)</a></li>
+                            <li><a href="home2.html">Home 2 (Premium)</a></li>
+                            <li><a href="blog.html">Blog Insights</a></li>
+                            <li><a href="index.html#campaigns">Ecosystem Campaigns</a></li>
+                            <li><a href="index.html#volunteer">Become Volunteer</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-widget links-widget">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="blog.html">News & Deep Dives</a></li>
+                            <li><a href="index.html#faq">FAQ & Support</a></li>
+                            <li><a href="home2.html">Home 2 Demo</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-widget newsletter-widget">
+                        <h3>Newsletter Pledge</h3>
+                        <p>Subscribe to our newsletter to receive the latest updates and stories of impact.</p>
+                        <form id="newsletterForm" class="newsletter-form">
+                            <input type="email" placeholder="Email Address" required>
+                            <button type="submit" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 HopeFund Organization. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+
+    <!-- Donation Modal -->
+    <div class="modal" id="donateModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('donateModal')">&times;</span>
+            <h2 class="modal-title">Make a Donation</h2>
+            <p class="modal-subtitle">Your contribution helps us create a better world.</p>
+
+            <form id="donationForm">
+                <div class="amount-selection">
+                    <button type="button" class="amount-btn" data-amount="25">$25</button>
+                    <button type="button" class="amount-btn active" data-amount="50">$50</button>
+                    <button type="button" class="amount-btn" data-amount="100">$100</button>
+                    <button type="button" class="amount-btn" data-amount="500">$500</button>
+                    <button type="button" class="amount-btn custom-amount-btn" id="customAmountBtn">Custom</button>
+                </div>
+
+                <div class="form-group custom-amount-input hidden" id="customAmountWrapper">
+                    <label for="customAmount">Enter Custom Amount ($)</label>
+                    <input type="number" id="customAmount" min="1" placeholder="e.g. 75">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="donorName">Full Name</label>
+                        <input type="text" id="donorName" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group half">
+                        <label for="donorEmail">Email Address</label>
+                        <input type="email" id="donorEmail" required placeholder="john@example.com">
+                    </div>
+                </div>
+
+                <div class="payment-methods">
+                    <label>Payment Method</label>
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="credit" checked>
+                            <span class="pay-btn"><i class="fa-regular fa-credit-card"></i> Card</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="paypal">
+                            <span class="pay-btn"><i class="fa-brands fa-paypal"></i> PayPal</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="applepay">
+                            <span class="pay-btn"><i class="fa-brands fa-apple"></i> Pay</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 mt-3">Donate <span id="donateBtnAmount">$50</span></button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Toast/Popup -->
+    <div id="toast" class="toast hidden">
+        <div class="toast-content">
+            <i class="fa-solid fa-circle-check toast-icon"></i>
+            <div class="toast-text">
+                <h4>Success!</h4>
+                <p id="toastMessage">Action completed successfully.</p>
+            </div>
+            <button class="toast-close" onclick="closeToast()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script src="js/custom-pages.js"></script>
+
+    <!-- Custom Category Filtering Inline for instant responsiveness -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const blogFilters = document.querySelectorAll('.blog-filter-btn');
+            const blogCards = document.querySelectorAll('.blog-card');
+            const featuredSection = document.querySelector('.featured-blog-section');
+
+            blogFilters.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    blogFilters.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const category = btn.getAttribute('data-filter');
+
+                    // Filter Featured Post
+                    if (featuredSection) {
+                        const featuredCategory = featuredSection.querySelector('.featured-blog-card').getAttribute('data-category');
+                        if (category === 'all' || featuredCategory === category) {
+                            featuredSection.style.display = 'block';
+                        } else {
+                            featuredSection.style.display = 'none';
+                        }
+                    }
+
+                    // Filter Normal Cards
+                    blogCards.forEach(card => {
+                        const cardCategory = card.getAttribute('data-category');
+                        if (category === 'all' || cardCategory === category) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

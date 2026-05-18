@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recurring Gifts Program | HopeFund NGO</title>
+    <meta name="description" content="Set up recurring monthly contributions to HopeFund ecosystem campaigns to build sustainable and reliable community transformation.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .feature-hero {
+            padding: 140px 20px 80px 20px;
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.08) 0%, rgba(22, 163, 74, 0.08) 100%);
+            text-align: center;
+        }
+
+        .feature-hero h1 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 15px;
+        }
+
+        .feature-hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .feature-content {
+            padding: 60px 0;
+        }
+
+        .gifts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        /* Calculator Widget */
+        .calculator-card {
+            background-color: var(--bg-main);
+            border: 1px solid var(--border-clr);
+            border-radius: var(--radius-xl);
+            padding: 35px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .calc-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .calc-tab {
+            flex: 1;
+            height: 48px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-clr);
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .calc-tab.active {
+            background-color: var(--clr-primary);
+            border-color: var(--clr-primary);
+            color: #FFF;
+        }
+
+        .projected-impact {
+            background-color: rgba(22, 163, 74, 0.05);
+            border: 1px solid rgba(22, 163, 74, 0.15);
+            border-radius: var(--radius-lg);
+            padding: 25px;
+            margin: 25px 0;
+            text-align: center;
+        }
+
+        .impact-val {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--clr-secondary);
+            font-family: var(--font-heading);
+            margin-bottom: 5px;
+        }
+
+        .impact-label {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        /* Program Tiers */
+        .tier-card {
+            background-color: var(--bg-main);
+            border: 1px solid var(--border-clr);
+            border-radius: var(--radius-lg);
+            padding: 25px;
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        .tier-card:hover {
+            border-color: var(--clr-primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .tier-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(30, 64, 175, 0.1);
+            color: var(--clr-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .tier-details h4 {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 5px;
+        }
+
+        .tier-details p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 991px) {
+            .gifts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="css/mobile.css">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    
+    <!-- Nav Overlay (mobile) -->
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-hands-holding-child"></i>
+                Hope<span>Fund</span>
+            </a>
+
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="home2.html" class="nav-link">Home 2</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="campaigns.html" class="nav-link">Campaigns</a></li>
+                    <li><a href="volunteer.html" class="nav-link">Volunteer</a></li>
+                    <li><a href="events.html" class="nav-link">Events</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <button class="btn btn-primary" onclick="openModal('donateModal')">Donate Now</button>
+                </div>
+            </div>
+
+            <div class="header-icons">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                    <div class="user-dropdown-wrapper">
+                        <button id="user-menu-btn" class="user-menu-btn" aria-label="User Account">
+                            <i class="fa-solid fa-circle-user"></i>
+                        </button>
+                        <div id="user-dropdown" class="user-dropdown-menu">
+                            <div class="dropdown-header">
+                                <h5>Guest User</h5>
+                                <p>Welcome to HopeFund</p>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <a href="login.html" class="dropdown-item"><i class="fa-solid fa-right-to-bracket"></i> Login / Sign Up</a>
+                            <a href="user-dashboard.html" class="dropdown-item"><i class="fa-solid fa-sliders"></i> User Dashboard</a>
+                            <a href="admin-dashboard.html" class="dropdown-item"><i class="fa-solid fa-user-shield"></i> Admin Dashboard</a>
+                        </div>
+                    </div>
+                    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Feature Hero -->
+    <header class="feature-hero">
+        <div class="container">
+            <h1>Recurring Monthly Gifts</h1>
+            <p>Become a HopeArchitect. Regular monthly pledges supply reliable capital to frontline coordinates, enabling permanent structural transformation.</p>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <div class="container feature-content">
+        <div class="gifts-grid">
+            
+            <!-- Left: Impact calculator -->
+            <div class="calculator-card">
+                <h3 style="font-size:1.4rem; margin-bottom:10px;">Select Monthly Pledge Tier</h3>
+                <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:25px;">Choose an amount below to evaluate your cumulative projected 1-year social impact metrics.</p>
+                
+                <div class="calc-tabs">
+                    <button class="calc-tab active" data-val="15">$15 / mo</button>
+                    <button class="calc-tab" data-val="35">$35 / mo</button>
+                    <button class="calc-tab" data-val="75">$75 / mo</button>
+                </div>
+
+                <div class="projected-impact">
+                    <div class="impact-val" id="impactVal">120,000 Liters</div>
+                    <div class="impact-label" id="impactLabel">Of Safe Clean Hydration Purified Yearly</div>
+                </div>
+
+                <form class="form" onsubmit="event.preventDefault(); showToast('Thank you! Recurring Monthly Gift successfully established.', 'success');">
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label>Cardholder Name</label>
+                            <input type="text" required placeholder="Ananya Ray" class="auth-input">
+                        </div>
+                        <div class="form-group half">
+                            <label>Preferred Milestone Campaign</label>
+                            <select class="auth-input" style="height:48px;">
+                                <option>Clean Water Wells</option>
+                                <option>Amazon Forestry</option>
+                                <option>Solar IT Uganda</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100" style="font-weight:700;">Establish Monthly Pledge</button>
+                </form>
+            </div>
+
+            <!-- Right: Why monthly program -->
+            <div>
+                <h3 style="font-size:1.5rem; font-family:var(--font-heading); font-weight:700; margin-bottom:20px; color:var(--text-main);">Why Join the Monthly Program?</h3>
+                
+                <!-- Tier 1 -->
+                <div class="tier-card">
+                    <div class="tier-icon"><i class="fa-solid fa-water"></i></div>
+                    <div class="tier-details">
+                        <h4>$15 monthly tier (Water Purifier)</h4>
+                        <p>Provides 10,000 liters of safe, perpetual solar-purified drinking water monthly to community schools in rural zones.</p>
+                    </div>
+                </div>
+
+                <!-- Tier 2 -->
+                <div class="tier-card">
+                    <div class="tier-icon" style="background-color:rgba(22,163,74,0.1); color:var(--clr-secondary);"><i class="fa-solid fa-tree"></i></div>
+                    <div class="tier-details">
+                        <h4>$35 monthly tier (Canopy Guardian)</h4>
+                        <p>Funds the planting and monitoring of 10 native agroforestry trees monthly, establishing food resources for local families.</p>
+                    </div>
+                </div>
+
+                <!-- Tier 3 -->
+                <div class="tier-card" style="background-color:var(--bg-light); border-color:var(--clr-primary);">
+                    <div class="tier-icon" style="background-color:rgba(249,115,22,0.1); color:var(--clr-accent);"><i class="fa-solid fa-laptop-code"></i></div>
+                    <div class="tier-details">
+                        <h4>$75 monthly tier (Digital Anchor)</h4>
+                        <p>Purchases one tech computing tablet monthly with pre-loaded education curriculums for Uganda digital solar classrooms.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-widget brand-widget">
+                        <a href="index.html" class="logo footer-logo">
+                            <i class="fa-solid fa-hands-holding-child"></i>
+                            Hope<span>Fund</span>
+                        </a>
+                        <p>Empowering communities and changing lives through sustainable development, education, and healthcare.</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-widget links-widget">
+                        <h3>Ecosystem Navigation</h3>
+                        <ul>
+                            <li><a href="index.html">Home 1 (Classic)</a></li>
+                            <li><a href="home2.html">Home 2 (Premium)</a></li>
+                            <li><a href="blog.html">Blog Insights</a></li>
+                            <li><a href="index.html#campaigns">Ecosystem Campaigns</a></li>
+                            <li><a href="index.html#volunteer">Become Volunteer</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-widget links-widget">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="blog.html">News & Deep Dives</a></li>
+                            <li><a href="index.html#faq">FAQ & Support</a></li>
+                            <li><a href="home2.html">Home 2 Demo</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-widget newsletter-widget">
+                        <h3>Newsletter Pledge</h3>
+                        <p>Subscribe to our newsletter to receive the latest updates and stories of impact.</p>
+                        <form id="newsletterForm" class="newsletter-form">
+                            <input type="email" placeholder="Email Address" required>
+                            <button type="submit" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 HopeFund Organization. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Toast/Popup -->
+    <div id="toast" class="toast hidden">
+        <div class="toast-content">
+            <i class="fa-solid fa-circle-check toast-icon"></i>
+            <div class="toast-text">
+                <h4>Success!</h4>
+                <p id="toastMessage">Action completed successfully.</p>
+            </div>
+            <button class="toast-close" onclick="closeToast()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+    </div>
+
+    <!-- Modals -->
+
+    <!-- Donation Modal -->
+    <div class="modal" id="donateModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('donateModal')">&times;</span>
+            <h2 class="modal-title">Make a Donation</h2>
+            <p class="modal-subtitle">Your contribution helps us create a better world.</p>
+
+            <form id="donationForm">
+                <div class="amount-selection">
+                    <button type="button" class="amount-btn" data-amount="25">$25</button>
+                    <button type="button" class="amount-btn active" data-amount="50">$50</button>
+                    <button type="button" class="amount-btn" data-amount="100">$100</button>
+                    <button type="button" class="amount-btn" data-amount="500">$500</button>
+                    <button type="button" class="amount-btn custom-amount-btn" id="customAmountBtn">Custom</button>
+                </div>
+
+                <div class="form-group custom-amount-input hidden" id="customAmountWrapper">
+                    <label for="customAmount">Enter Custom Amount ($)</label>
+                    <input type="number" id="customAmount" min="1" placeholder="e.g. 75">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="donorName">Full Name</label>
+                        <input type="text" id="donorName" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group half">
+                        <label for="donorEmail">Email Address</label>
+                        <input type="email" id="donorEmail" required placeholder="john@example.com">
+                    </div>
+                </div>
+
+                <div class="payment-methods">
+                    <label>Payment Method</label>
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="credit" checked>
+                            <span class="pay-btn"><i class="fa-regular fa-credit-card"></i> Card</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="paypal">
+                            <span class="pay-btn"><i class="fa-brands fa-paypal"></i> PayPal</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="applepay">
+                            <span class="pay-btn"><i class="fa-brands fa-apple"></i> Pay</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 mt-3">Donate <span id="donateBtnAmount">$50</span></button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.calc-tab');
+            const impactVal = document.getElementById('impactVal');
+            const impactLabel = document.getElementById('impactLabel');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+
+                    const value = parseInt(tab.getAttribute('data-val'));
+                    if (value === 15) {
+                        impactVal.textContent = "120,000 Liters";
+                        impactLabel.textContent = "Of Safe Clean Hydration Purified Yearly";
+                    } else if (value === 35) {
+                        impactVal.textContent = "120 Native Trees";
+                        impactLabel.textContent = "Agroforestry Canopy Plants Planted and Audited Yearly";
+                    } else if (value === 75) {
+                        impactVal.textContent = "12 IT Tablets";
+                        impactLabel.textContent = "Technology Computing tablets deployed to Uganda classrooms";
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

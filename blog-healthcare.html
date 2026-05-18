@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healing Wheels: Off-Grid Clinics | HopeFund Insights</title>
+    <meta name="description"
+        content="Read our exclusive Q&A interview with Dr. Aisha Bello details how off-grid mobile clinics are delivering high-accuracy primary healthcare and vaccination to remote villages.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/blog.css">
+
+    <style>
+        .patient-quote {
+            background-color: var(--bg-light);
+            border-radius: var(--radius-xl);
+            padding: 30px;
+            margin: 35px 0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border: 1px solid var(--border-clr);
+        }
+
+        .pq-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--clr-secondary);
+            flex-shrink: 0;
+        }
+
+        .pq-text {
+            font-style: italic;
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .pq-text span {
+            display: block;
+            margin-top: 10px;
+            font-weight: 700;
+            color: var(--text-main);
+            font-style: normal;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 576px) {
+            .patient-quote {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="css/mobile.css">
+</head>
+
+<body class="blog-body">
+    <!-- Reading Progress Bar -->
+    <div class="progress-bar-container">
+        <div id="reading-progress"></div>
+    </div>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    
+    <!-- Nav Overlay (mobile) -->
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-transparent" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-hands-holding-child"></i>
+                Hope<span>Fund</span>
+            </a>
+
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="home2.html" class="nav-link">Home 2</a></li>
+                    <li><a href="blog.html" class="nav-link active">Blog</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="campaigns.html" class="nav-link">Campaigns</a></li>
+                    <li><a href="volunteer.html" class="nav-link">Volunteer</a></li>
+                    <li><a href="events.html" class="nav-link">Events</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <button class="btn btn-primary" onclick="openModal('donateModal')">Donate Now</button>
+                </div>
+            </div>
+
+            <div class="header-icons">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                    <div class="user-dropdown-wrapper">
+                        <button id="user-menu-btn" class="user-menu-btn" aria-label="User Account">
+                            <i class="fa-solid fa-circle-user"></i>
+                        </button>
+                        <div id="user-dropdown" class="user-dropdown-menu">
+                            <div class="dropdown-header">
+                                <h5>Guest User</h5>
+                                <p>Welcome to HopeFund</p>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <a href="login.html" class="dropdown-item"><i class="fa-solid fa-right-to-bracket"></i> Login / Sign Up</a>
+                            <a href="user-dashboard.html" class="dropdown-item"><i class="fa-solid fa-sliders"></i> User Dashboard</a>
+                            <a href="admin-dashboard.html" class="dropdown-item"><i class="fa-solid fa-user-shield"></i> Admin Dashboard</a>
+                        </div>
+                    </div>
+                    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Article Detail Hero -->
+    <header class="article-detail-hero" style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(22, 163, 74, 0.4) 100%), url('https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;">
+        <div class="container article-hero-content">
+            <span class="article-category" style="background-color: var(--clr-secondary);">Healthcare</span>
+            <h1 class="article-title">Healing on Wheels: Bringing Modern Medicine to Mountain Peaks</h1>
+            
+            <div class="article-meta-bar">
+                <div class="article-meta-item">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Dr. Aisha Bello">
+                    <span>By Dr. Aisha Bello</span>
+                </div>
+                <div class="article-meta-item">
+                    <i class="fa-regular fa-calendar"></i>
+                    <span>Published March 29, 2026</span>
+                </div>
+                <div class="article-meta-item">
+                    <i class="fa-regular fa-clock"></i>
+                    <span>7 Min Read</span>
+                </div>
+                <div class="article-meta-item">
+                    <i class="fa-regular fa-comment"></i>
+                    <span>0 Comments</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container with Floating Share -->
+    <div class="container article-container">
+        <!-- Sticky Share Bar -->
+        <div class="share-bar">
+            <a href="#" class="share-btn share-fb" aria-label="Share on Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="share-btn share-tw" aria-label="Share on Twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" class="share-btn share-ln" aria-label="Share on LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="share-btn share-copy" aria-label="Copy Link"><i class="fa-solid fa-link"></i></a>
+        </div>
+
+        <!-- Q&A Structured Long-Form Article -->
+        <article class="article-content">
+            <p class="dropcap" style="color:var(--clr-secondary);">P</p>
+            <p>rimary healthcare is the cornerstone of human dignity, yet geographic isolation locks millions of families out of standard clinical infrastructure. In the high Andean foothills and isolated African highlands, the journey to a regional hospital can require up to twelve hours of hiking across complex dirt trails, rendering preventative care, vaccinations, and basic maternal checkups non-existent. We sat down with <strong>Dr. Aisha Bello</strong>, Director of HopeFund’s Mobile Health Program, to discuss how modular off-road trucks are bypassing topography barriers to bring clean medicine directly to village centers.</p>
+
+            <!-- Interview Q&A Cards -->
+            <div class="interview-box">
+                <!-- QA 1 -->
+                <div class="qa-card">
+                    <div class="qa-question"><span>Q:</span> What inspired the Mobile Clinic strategy rather than building permanent brick-and-mortar clinics in these villages?</div>
+                    <p class="qa-answer">"Building permanent clinics in highly scattered mountain villages is economically unsustainable and operationally inefficient. A permanent clinic in one village remains empty five days a week because neighboring citizens cannot hike there. By putting high-grade diagnostics and medical supplies on customized off-road utility beds, a single team can cycle through six different regional villages weekly, establishing a reliable, recurring health calendar that serves 12,000 citizens instead of 500."</p>
+                </div>
+                <!-- QA 2 -->
+                <div class="qa-card">
+                    <div class="qa-question"><span>Q:</span> How do you manage clinical temperature requirements (the cold chain) for critical vaccines in places without power?</div>
+                    <p class="qa-answer">"This was our most significant hurdle. Standard vaccines denature instantly if temperatures rise above 8°C. We retrofitted our off-road vehicles with high-density polyurethane vaccine refrigerators wired directly to flexible roof-mounted monocrystalline solar panels. These panels feed smart lithium batteries that keep temperatures at a perpetual 4°C, even when parked in direct tropical sun. We also utilize digital remote cellular sensors that alert our regional hub immediately if battery voltages fluctuate."</p>
+                </div>
+                <!-- QA 3 -->
+                <div class="qa-card">
+                    <div class="qa-question"><span>Q:</span> Can you describe a recent clinical interaction that captures the deep human value of this program?</div>
+                    <p class="qa-answer">"Last month, we reached a high village at 3,200 meters. A mother brought in her twelve-month-old infant who was experiencing extreme breathing difficulty. In our truck, we had a portable, solar-charged nebulizer. Within ten minutes, we cleared the airway and administered preventative pediatric antibiotics. Had she hiked twelve hours down the mountain in that condition, the baby would not have survived. We monitored him, taught her basic therapeutic guidelines, and drove back knowing we saved a beautiful life."</p>
+                </div>
+            </div>
+
+            <!-- Patient Testimonial Quote -->
+            <div class="patient-quote">
+                <img class="pq-img" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Lucia M.">
+                <div class="pq-text">
+                    "Before Dr. Aisha's truck began arriving monthly, we had to carry sick children on wooden stretchers down the steep cliffs in the rain. Now, we know when the truck arrives, and my daughters have received all their vaccinations. It has given our village peace of mind."
+                    <span>— Lucia M., Mother of three, Mountain Cohort Beneficiary</span>
+                </div>
+            </div>
+
+            <h2>Scaling Off-Grid Diagnostic Capability</h2>
+            <p>Our mobile units aren't simple transport vans; they are fully functional diagnostic chambers. Each truck carries digital ultrasound wands that link via Bluetooth to tablets, enabling field clinicians to screen expectant mothers and catalog high-resolution imaging data. If anomalous prenatal developments are detected, images are instantly uploaded via satellite nodes to regional surgical hubs, allowing proactive emergency planning weeks before delivery.</p>
+
+            <div class="article-callout" style="border-color: rgba(22, 163, 74, 0.2); background-color: rgba(22, 163, 74, 0.02);">
+                <h4 style="color:var(--clr-secondary);">Mobile Clinical Operational Data Summary</h4>
+                <p>Since mobilizing our first two off-road units in early 2025, we have completed 240 village cycles, conducting over 14,000 primary consultations, 1,200 prenatal screening scans, and 6,200 childhood immunizations. Local child mortality indicators in target zones dropped by 45%.</p>
+            </div>
+
+            <!-- Tags & Social Share Footer -->
+            <div class="article-footer">
+                <div class="article-tags">
+                    <a href="#">#MobileClinics</a>
+                    <a href="#">#ColdChainSafety</a>
+                    <a href="#">#AndeanHealth</a>
+                </div>
+                <div style="font-weight:600; font-size:0.95rem;">
+                    Support healthcare equity. Share this interview!
+                </div>
+            </div>
+
+            <!-- Prev / Next Navigation -->
+            <div class="post-navigation">
+                <a href="blog-disaster-relief.html" class="nav-box prev-nav">
+                    <span>Previous Post</span>
+                    <h4>First Responders: Rapid Crisis Action</h4>
+                </a>
+                <a href="blog-volunteer.html" class="nav-box next-nav">
+                    <span>Next Post</span>
+                    <h4>A Journey of Hope: Volunteer Diaries</h4>
+                </a>
+            </div>
+
+            <!-- Comments Section -->
+            <section class="comments-section">
+                <h3 class="comments-title">Comments (0)</h3>
+                
+                <div class="comment-list" style="margin-bottom: 20px;">
+                    <p style="color:var(--text-muted); font-style:italic;">No comments yet. Be the first to share your thoughts below!</p>
+                </div>
+
+                <!-- Comment Form -->
+                <div class="comment-form-wrapper">
+                    <h4>Leave a Comment</h4>
+                    <p>Your email address will not be published. Required fields are marked *</p>
+                    
+                    <form id="commentForm">
+                        <div class="form-group">
+                            <label for="commentMessage">Comment *</label>
+                            <textarea id="commentMessage" rows="5" required placeholder="Write your thoughts..."></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="commentName">Full Name *</label>
+                                <input type="text" id="commentName" required placeholder="John Doe">
+                            </div>
+                            <div class="form-group half">
+                                <label for="commentEmail">Email Address *</label>
+                                <input type="email" id="commentEmail" required placeholder="john@example.com">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Post Comment</button>
+                    </form>
+                </div>
+            </section>
+        </article>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer mt-5">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-widget brand-widget">
+                        <a href="index.html" class="logo footer-logo">
+                            <i class="fa-solid fa-hands-holding-child"></i>
+                            Hope<span>Fund</span>
+                        </a>
+                        <p>Empowering communities and changing lives through sustainable development, education, and healthcare.</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-widget links-widget">
+                        <h3>Ecosystem Navigation</h3>
+                        <ul>
+                            <li><a href="index.html">Home 1 (Classic)</a></li>
+                            <li><a href="home2.html">Home 2 (Premium)</a></li>
+                            <li><a href="blog.html">Blog Insights</a></li>
+                            <li><a href="index.html#campaigns">Ecosystem Campaigns</a></li>
+                            <li><a href="index.html#volunteer">Become Volunteer</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-widget links-widget">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="blog.html">News & Deep Dives</a></li>
+                            <li><a href="index.html#faq">FAQ & Support</a></li>
+                            <li><a href="home2.html">Home 2 Demo</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-widget newsletter-widget">
+                        <h3>Newsletter Pledge</h3>
+                        <p>Subscribe to our newsletter to receive the latest updates and stories of impact.</p>
+                        <form id="newsletterForm" class="newsletter-form">
+                            <input type="email" placeholder="Email Address" required>
+                            <button type="submit" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 HopeFund Organization. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+
+    <!-- Donation Modal -->
+    <div class="modal" id="donateModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('donateModal')">&times;</span>
+            <h2 class="modal-title">Make a Donation</h2>
+            <p class="modal-subtitle">Your contribution helps us create a better world.</p>
+
+            <form id="donationForm">
+                <div class="amount-selection">
+                    <button type="button" class="amount-btn" data-amount="25">$25</button>
+                    <button type="button" class="amount-btn active" data-amount="50">$50</button>
+                    <button type="button" class="amount-btn" data-amount="100">$100</button>
+                    <button type="button" class="amount-btn" data-amount="500">$500</button>
+                    <button type="button" class="amount-btn custom-amount-btn" id="customAmountBtn">Custom</button>
+                </div>
+
+                <div class="form-group custom-amount-input hidden" id="customAmountWrapper">
+                    <label for="customAmount">Enter Custom Amount ($)</label>
+                    <input type="number" id="customAmount" min="1" placeholder="e.g. 75">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="donorName">Full Name</label>
+                        <input type="text" id="donorName" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group half">
+                        <label for="donorEmail">Email Address</label>
+                        <input type="email" id="donorEmail" required placeholder="john@example.com">
+                    </div>
+                </div>
+
+                <div class="payment-methods">
+                    <label>Payment Method</label>
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="credit" checked>
+                            <span class="pay-btn"><i class="fa-regular fa-credit-card"></i> Card</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="paypal">
+                            <span class="pay-btn"><i class="fa-brands fa-paypal"></i> PayPal</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="applepay">
+                            <span class="pay-btn"><i class="fa-brands fa-apple"></i> Pay</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 mt-3">Donate <span id="donateBtnAmount">$50</span></button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Toast/Popup -->
+    <div id="toast" class="toast hidden">
+        <div class="toast-content">
+            <i class="fa-solid fa-circle-check toast-icon"></i>
+            <div class="toast-text">
+                <h4>Success!</h4>
+                <p id="toastMessage">Action completed successfully.</p>
+            </div>
+            <button class="toast-close" onclick="closeToast()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script src="js/custom-pages.js"></script>
+</body>
+
+</html>

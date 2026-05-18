@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | HopeFund NGO</title>
+    <meta name="description" content="Discover HopeFund's organization history, foundational mission, core vision, award-winning achievements, and leadership team.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/mobile.css">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    
+    <!-- Nav Overlay (mobile) -->
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-hands-holding-child"></i>
+                Hope<span>Fund</span>
+            </a>
+
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="home2.html" class="nav-link">Home 2</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="about.html" class="nav-link active">About</a></li>
+                    <li><a href="campaigns.html" class="nav-link">Campaigns</a></li>
+                    <li><a href="volunteer.html" class="nav-link">Volunteer</a></li>
+                    <li><a href="events.html" class="nav-link">Events</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <button class="btn btn-primary" onclick="openModal('donateModal')">Donate Now</button>
+                </div>
+            </div>
+
+            <div class="header-icons">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                    <div class="user-dropdown-wrapper">
+                        <button id="user-menu-btn" class="user-menu-btn" aria-label="User Account">
+                            <i class="fa-solid fa-circle-user"></i>
+                        </button>
+                        <div id="user-dropdown" class="user-dropdown-menu">
+                            <div class="dropdown-header">
+                                <h5>Guest User</h5>
+                                <p>Welcome to HopeFund</p>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <a href="login.html" class="dropdown-item"><i class="fa-solid fa-right-to-bracket"></i> Login / Sign Up</a>
+                            <a href="user-dashboard.html" class="dropdown-item"><i class="fa-solid fa-sliders"></i> User Dashboard</a>
+                            <a href="admin-dashboard.html" class="dropdown-item"><i class="fa-solid fa-user-shield"></i> Admin Dashboard</a>
+                        </div>
+                    </div>
+                    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <header class="feature-hero">
+        <!-- Floating abstract shapes -->
+        <div class="hero-shape hero-shape-1"></div>
+        <div class="hero-shape hero-shape-2"></div>
+        
+        <div class="container">
+            <span class="tagline">Our Pillars of Integrity</span>
+            <h1>About Our <span>Journey</span></h1>
+            <div class="breadcrumb-container">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                    <span>About Us</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main About Content -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="about-grid-redesigned">
+                <!-- Image showcase column with premium hover glow and floating trust badge -->
+                <div class="about-image-showcase">
+                    <div class="image-frame-glow"></div>
+                    <div class="primary-image-wrapper">
+                         <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="About HopeFund">
+                    </div>
+                    <div class="floating-impact-badge">
+                        <div class="badge-icon">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+                        <span class="badge-number">15+</span>
+                        <span class="badge-text">Years of Trust</span>
+                    </div>
+                </div>
+                
+                <!-- Narrative / Copy / Mission Vision column -->
+                <div class="about-text-content">
+                    <div class="section-header left-aligned" style="margin-bottom: 25px;">
+                        <span class="section-subtitle">Who We Are</span>
+                        <h2 class="section-title" style="font-size: 2.8rem; line-height: 1.1; letter-spacing: -0.02em;">Pioneering Change with Ultimate Integrity</h2>
+                    </div>
+                    <p class="about-intro-lead">Founded in 2011, HopeFund has grown from a micro-volunteer circle to a globally recognized nonprofit organization.</p>
+                    <p class="about-paragraph">Our absolute core purpose is to tackle foundational inequality through clean water infrastructure projects, education empowerment setups, and robust eco-restoration buffers. We guarantee complete structural transparency by utilizing live outcomes verification widgets, automated tax receipt systems, and comprehensive micro-audit dashboards so that every financial pledge leads directly to validated frontline impact.</p>
+                    
+                    <!-- Interactive Key Highlights Row Grid -->
+                    <div class="highlight-row-grid">
+                        <div class="highlight-row-card">
+                            <div class="highlight-card-icon">
+                                <i class="fa-solid fa-hand-holding-dollar"></i>
+                            </div>
+                            <div class="highlight-card-info">
+                                <h4>Complete Audit Transparency</h4>
+                                <p>98% of all funds are direct-channeled straight into frontline community programs.</p>
+                            </div>
+                        </div>
+                        <div class="highlight-row-card">
+                            <div class="highlight-card-icon">
+                                <i class="fa-solid fa-seedling"></i>
+                            </div>
+                            <div class="highlight-card-info">
+                                <h4>Eco-Restoration Buffers</h4>
+                                <p>Enabling direct-tracked forest buffer zone rehabilitation grids with live survival metrics.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Redesigned Mission & Vision Side-by-Side Cards -->
+            <div class="mv-container-premium">
+                <div class="mv-card-redesigned mv-card-mission">
+                    <div class="mv-card-icon-premium">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>To deploy sustainable, high-trust community infrastructures that directly alleviate frontline poverty while empowering local populations with complete governance over resources.</p>
+                </div>
+                <div class="mv-card-redesigned mv-card-vision">
+                    <div class="mv-card-icon-premium">
+                         <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>A world powered by collaborative impact tracking, cryptographic giving models, and clean social welfare systems where every donor can track their change in real time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Journey -->
+    <section class="timeline-section" id="journey-timeline">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">Our Timeline</span>
+                <h2 class="section-title">Significant Milestones Tracked</h2>
+                <p class="section-desc">Trace our growth from a local grass-roots collective to an international standard-bearer of transparent charity.</p>
+            </div>
+            
+            <div class="timeline-container-premium">
+                <!-- Year 2011 -->
+                <div class="timeline-block-premium">
+                    <div class="timeline-node-dot"></div>
+                    <div class="timeline-content-wrapper">
+                        <div class="timeline-card-premium">
+                            <span class="timeline-card-badge">2011</span>
+                            <h3>Genesis Foundation</h3>
+                            <p>Established as a neighborhood volunteer collective in New York, initiating clean street clinics and basic health kit distribution panels.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Year 2016 -->
+                <div class="timeline-block-premium">
+                    <div class="timeline-node-dot"></div>
+                    <div class="timeline-content-wrapper">
+                        <div class="timeline-card-premium">
+                            <span class="timeline-card-badge">2016</span>
+                            <h3>Potable Water Program Launch</h3>
+                            <p>Initiated the clean water well infrastructure project, completing our first 10 solar-powered water pumps in the Nippes province, Haiti.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Year 2020 -->
+                <div class="timeline-block-premium">
+                    <div class="timeline-node-dot"></div>
+                    <div class="timeline-content-wrapper">
+                        <div class="timeline-card-premium">
+                            <span class="timeline-card-badge">2020</span>
+                            <h3>Agroforestry Shield</h3>
+                            <p>Launched forest buffer zone rehabilitation grids across deforested sectors in South America, introducing live tracking metrics for tree survival ratios.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Year 2026 -->
+                <div class="timeline-block-premium">
+                    <div class="timeline-node-dot"></div>
+                    <div class="timeline-content-wrapper">
+                        <div class="timeline-card-premium">
+                            <span class="timeline-card-badge">2026</span>
+                            <h3>Digital Impact Integrity</h3>
+                            <p>Deployed live outcome slider calculators and on-demand tax receipts, empowering community donors with perfect audit metrics.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">Honors & Ratios</span>
+                <h2 class="section-title">Achievements of Excellence</h2>
+                <p class="section-desc">Credibility validated through meticulous auditing, international recognition, and unparalleled operational compliance.</p>
+            </div>
+
+            <div class="achievements-grid-premium">
+                <!-- Achievement 1 -->
+                <div class="achievement-card-premium">
+                    <div class="achievement-card-icon-wrapper">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <div class="achievement-value-metric">98%</div>
+                    <h3>Efficiency Rating</h3>
+                    <p>Verified by leading third-party micro-auditors that 98% of all capital contributions go straight to field implementations.</p>
+                    
+                    <div class="ratio-meter-wrapper">
+                        <div class="ratio-meter-label">
+                            <span>Fund Flow</span>
+                            <span>98%</span>
+                        </div>
+                        <div class="ratio-meter-bar-track">
+                            <div class="ratio-meter-bar-fill" style="width: 98%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievement 2 -->
+                <div class="achievement-card-premium">
+                    <div class="achievement-card-icon-wrapper">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <div class="achievement-value-metric">10K+</div>
+                    <h3>Global Impact Award</h3>
+                    <p>Honored in 2024 for our off-grid solar-tablet education networks, facilitating lessons for thousands of remote community youth.</p>
+                    
+                    <div class="ratio-meter-wrapper">
+                        <div class="ratio-meter-label">
+                            <span>Reach target</span>
+                            <span>88%</span>
+                        </div>
+                        <div class="ratio-meter-bar-track">
+                            <div class="ratio-meter-bar-fill" style="width: 88%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievement 3 -->
+                <div class="achievement-card-premium">
+                    <div class="achievement-card-icon-wrapper">
+                         <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div class="achievement-value-metric">5-Star</div>
+                    <h3>Top Rated Nonprofit</h3>
+                    <p>Granted consecutive maximum scores for complete structural compliance, transparent auditing boards, and cryptographic trust.</p>
+                    
+                    <div class="ratio-meter-wrapper">
+                        <div class="ratio-meter-label">
+                            <span>Compliance</span>
+                            <span>100%</span>
+                        </div>
+                        <div class="ratio-meter-bar-track">
+                            <div class="ratio-meter-bar-fill" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Team -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">Executive Team</span>
+                <h2 class="section-title">Meet Our Leadership</h2>
+                <p class="section-desc">Guided by dedicated visionaries, industry administrators, and medical deployment specialists committed to systemic reform.</p>
+            </div>
+
+            <div class="leadership-grid-premium">
+                <!-- Team 1 -->
+                <div class="team-card-premium">
+                    <div class="team-img-wrapper-premium">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Elena Rostova">
+                        
+                        <!-- Springy slide-up details overlay -->
+                        <div class="team-hover-overlay-details">
+                            <p class="team-overlay-bio">Elena spearheads international strategy, holding 15+ years establishing water initiatives across South America and Africa.</p>
+                            <div class="team-socials-premium">
+                                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                                <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-info-premium">
+                        <h4>Elena Rostova</h4>
+                        <span>Executive Director & Founder</span>
+                    </div>
+                </div>
+
+                <!-- Team 2 -->
+                <div class="team-card-premium">
+                    <div class="team-img-wrapper-premium">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Marcus Vance">
+                        
+                        <div class="team-hover-overlay-details">
+                            <p class="team-overlay-bio">Marcus oversees rigorous transparency checks and logistical operations, ensuring maximum fund efficiency ratios sitewide.</p>
+                            <div class="team-socials-premium">
+                                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                                <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-info-premium">
+                         <h4>Marcus Vance</h4>
+                         <span>Chief Operations Officer</span>
+                    </div>
+                </div>
+
+                <!-- Team 3 -->
+                <div class="team-card-premium">
+                    <div class="team-img-wrapper-premium">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Dr. Priya Patel">
+                        
+                        <div class="team-hover-overlay-details">
+                            <p class="team-overlay-bio">Dr. Patel coordinates community healthcare setups, bringing expert field wisdom in epidemic defense and mobile diagnostics.</p>
+                            <div class="team-socials-premium">
+                                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                                <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-info-premium">
+                        <h4>Dr. Priya Patel</h4>
+                        <span>Head of Medical Deployments</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-widget brand-widget">
+                        <a href="index.html" class="logo footer-logo">
+                            <i class="fa-solid fa-hands-holding-child"></i>
+                            Hope<span>Fund</span>
+                        </a>
+                        <p>Empowering communities and changing lives through sustainable development, education, and healthcare.</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-widget links-widget">
+                        <h3>Ecosystem Navigation</h3>
+                        <ul>
+                            <li><a href="index.html">Home 1 (Classic)</a></li>
+                            <li><a href="home2.html">Home 2 (Premium)</a></li>
+                            <li><a href="blog.html">Blog Insights</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="campaigns.html">Ecosystem Campaigns</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-widget links-widget">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="blog.html">News & Deep Dives</a></li>
+                            <li><a href="volunteer.html">Volunteer Programs</a></li>
+                            <li><a href="events.html">Upcoming Events</a></li>
+                            <li><a href="contact.html">Get In Touch</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-widget newsletter-widget">
+                        <h3>Newsletter Pledge</h3>
+                        <p>Subscribe to our newsletter to receive the latest updates and stories of impact.</p>
+                        <form id="newsletterForm" class="newsletter-form">
+                            <input type="email" placeholder="Email Address" required>
+                            <button type="submit" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 HopeFund Organization. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals & Toast -->
+    <!-- Donation Modal -->
+    <div class="modal" id="donateModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('donateModal')">&times;</span>
+            <h2 class="modal-title">Make a Donation</h2>
+            <p class="modal-subtitle">Your contribution helps us create a better world.</p>
+
+            <form id="donationForm">
+                <div class="amount-selection">
+                    <button type="button" class="amount-btn" data-amount="25">$25</button>
+                    <button type="button" class="amount-btn active" data-amount="50">$50</button>
+                    <button type="button" class="amount-btn" data-amount="100">$100</button>
+                    <button type="button" class="amount-btn" data-amount="500">$500</button>
+                    <button type="button" class="amount-btn custom-amount-btn" id="customAmountBtn">Custom</button>
+                </div>
+
+                <div class="form-group custom-amount-input hidden" id="customAmountWrapper">
+                    <label for="customAmount">Enter Custom Amount ($)</label>
+                    <input type="number" id="customAmount" min="1" placeholder="e.g. 75">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="donorName">Full Name</label>
+                        <input type="text" id="donorName" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group half">
+                        <label for="donorEmail">Email Address</label>
+                        <input type="email" id="donorEmail" required placeholder="john@example.com">
+                    </div>
+                </div>
+
+                <div class="payment-methods">
+                    <label>Payment Method</label>
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="credit" checked>
+                            <span class="pay-btn"><i class="fa-regular fa-credit-card"></i> Card</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="paypal">
+                            <span class="pay-btn"><i class="fa-brands fa-paypal"></i> PayPal</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="applepay">
+                            <span class="pay-btn"><i class="fa-brands fa-apple"></i> Pay</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 mt-3">Donate <span id="donateBtnAmount">$50</span></button>
+            </form>
+        </div>
+    </div>
+
+    <div id="toast" class="toast hidden">
+        <div class="toast-content">
+            <i class="fa-solid fa-circle-check toast-icon"></i>
+            <div class="toast-text">
+                <h4>Success!</h4>
+                <p id="toastMessage">Action completed successfully.</p>
+            </div>
+            <button class="toast-close" onclick="closeToast()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

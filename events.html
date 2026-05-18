@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Events | HopeFund NGO</title>
+    <meta name="description" content="Join charity events, gala fundraisers, and community beach cleanups at HopeFund. View schedules and register online.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .feature-hero {
+            padding: 140px 20px 80px 20px;
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.08) 0%, rgba(22, 163, 74, 0.08) 100%);
+            text-align: center;
+        }
+
+        .feature-hero h1 {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 15px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .breadcrumb a {
+            color: var(--clr-primary);
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--clr-accent);
+            text-decoration: underline;
+        }
+
+        .breadcrumb-separator {
+            font-size: 0.8rem;
+        }
+
+        /* Countdown Widget */
+        .countdown-banner {
+            background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-primary-dark) 100%);
+            color: white;
+            border-radius: var(--radius-xl);
+            padding: 40px;
+            margin-bottom: 60px;
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+        }
+
+        .countdown-title {
+            font-size: 1.6rem;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .countdown-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 15px 20px;
+            border-radius: var(--radius-md);
+            min-width: 100px;
+        }
+
+        .countdown-number {
+            font-size: 2.2rem;
+            font-weight: 800;
+            font-family: var(--font-heading);
+            display: block;
+        }
+
+        .countdown-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            opacity: 0.8;
+        }
+
+        /* Gallery Grid */
+        .gallery-section {
+            background-color: var(--bg-light);
+            padding: 80px 0;
+        }
+
+        .gallery-grid-pics {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-lg);
+            height: 220px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-clr);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(30, 64, 175, 0.85);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .gallery-item:hover final .gallery-overlay, .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay h4 {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .gallery-overlay span {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+    </style>
+    <link rel="stylesheet" href="css/mobile.css">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    
+    <!-- Nav Overlay (mobile) -->
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-hands-holding-child"></i>
+                Hope<span>Fund</span>
+            </a>
+
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="home2.html" class="nav-link">Home 2</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="campaigns.html" class="nav-link">Campaigns</a></li>
+                    <li><a href="volunteer.html" class="nav-link">Volunteer</a></li>
+                    <li><a href="events.html" class="nav-link active">Events</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <button class="btn btn-primary" onclick="openModal('donateModal')">Donate Now</button>
+                </div>
+            </div>
+
+            <div class="header-icons">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                    <div class="user-dropdown-wrapper">
+                        <button id="user-menu-btn" class="user-menu-btn" aria-label="User Account">
+                            <i class="fa-solid fa-circle-user"></i>
+                        </button>
+                        <div id="user-dropdown" class="user-dropdown-menu">
+                            <div class="dropdown-header">
+                                <h5>Guest User</h5>
+                                <p>Welcome to HopeFund</p>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <a href="login.html" class="dropdown-item"><i class="fa-solid fa-right-to-bracket"></i> Login / Sign Up</a>
+                            <a href="user-dashboard.html" class="dropdown-item"><i class="fa-solid fa-sliders"></i> User Dashboard</a>
+                            <a href="admin-dashboard.html" class="dropdown-item"><i class="fa-solid fa-user-shield"></i> Admin Dashboard</a>
+                        </div>
+                    </div>
+                    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <header class="feature-hero">
+        <div class="container">
+            <h1>Upcoming Events & Activities</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <span>Events</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Events List Section -->
+    <section class="section-padding">
+        <div class="container">
+            <!-- Countdown Banner -->
+            <div class="countdown-banner">
+                <h3 class="countdown-title">Annual Charity Gala Dinner Starts In</h3>
+                <div class="countdown-grid">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="days">24</span>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours">15</span>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes">45</span>
+                        <span class="countdown-label">Mins</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds">30</span>
+                        <span class="countdown-label">Secs</span>
+                    </div>
+                </div>
+                <button class="btn btn-outline-white" onclick="showToast('Thank you! Direct event ticket reservations have been dispatched.', 'success')">Reserve Tickets Now</button>
+            </div>
+
+            <div class="section-header text-center">
+                <span class="section-subtitle">Calendar</span>
+                <h2>Upcoming Charitable Events</h2>
+            </div>
+
+            <div class="events-list">
+                <!-- Item 1 -->
+                <div class="event-item">
+                    <div class="event-date">
+                        <span class="day">24</span>
+                        <span class="month">Oct</span>
+                    </div>
+                    <div class="event-info">
+                        <h3>Annual Charity Gala Dinner</h3>
+                        <p><i class="fa-solid fa-location-dot"></i> Grand Hotel, New York | <i class="fa-regular fa-clock"></i> 7:00 PM - 11:00 PM</p>
+                    </div>
+                    <button class="btn btn-secondary" onclick="showToast('Gala dinner reservation successfully saved.', 'success')">Get Tickets</button>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="event-item">
+                    <div class="event-date">
+                        <span class="day">12</span>
+                        <span class="month">Nov</span>
+                    </div>
+                    <div class="event-info">
+                        <h3>Community Beach Cleanup</h3>
+                        <p><i class="fa-solid fa-location-dot"></i> Santa Monica Pier, CA | <i class="fa-regular fa-clock"></i> 8:00 AM - 12:00 PM</p>
+                    </div>
+                    <button class="btn btn-secondary" onclick="showToast('You are successfully registered for the beach cleanup.', 'success')">Register</button>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="event-item">
+                    <div class="event-date">
+                        <span class="day">05</span>
+                        <span class="month">Dec</span>
+                    </div>
+                    <div class="event-info">
+                        <h3>Agroforestry Shield Planting Drive</h3>
+                        <p><i class="fa-solid fa-location-dot"></i> Ecological Buffer Sectors | <i class="fa-regular fa-clock"></i> 9:00 AM - 3:00 PM</p>
+                    </div>
+                    <button class="btn btn-secondary" onclick="showToast('Registered successfully for the reforestation planting drive.', 'success')">Register</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Visual Gallery -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">Past Highlights</span>
+                <h2>Charity Events Gallery</h2>
+            </div>
+
+            <div class="gallery-grid-pics">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Gala Highlight">
+                    <div class="gallery-overlay">
+                        <h4>Charity Gala 2025</h4>
+                        <span>Over $250k Raised for Rural Schools</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Planting Drive">
+                    <div class="gallery-overlay">
+                        <h4>Amazon Planting Drive</h4>
+                        <span>10,000+ Native Trees Successfully Logged</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Potable Water Distribution">
+                    <div class="gallery-overlay">
+                        <h4>Potable Water Deployments</h4>
+                        <span>Providing Solar Wells in Haiti</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Uganda Education">
+                    <div class="gallery-overlay">
+                        <h4>Uganda Classes Assembled</h4>
+                        <span>Facilitating Tablet Education for Kids</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-widget brand-widget">
+                        <a href="index.html" class="logo footer-logo">
+                            <i class="fa-solid fa-hands-holding-child"></i>
+                            Hope<span>Fund</span>
+                        </a>
+                        <p>Empowering communities and changing lives through sustainable development, education, and healthcare.</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-widget links-widget">
+                        <h3>Ecosystem Navigation</h3>
+                        <ul>
+                            <li><a href="index.html">Home 1 (Classic)</a></li>
+                            <li><a href="home2.html">Home 2 (Premium)</a></li>
+                            <li><a href="blog.html">Blog Insights</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="campaigns.html">Ecosystem Campaigns</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-widget links-widget">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="blog.html">News & Deep Dives</a></li>
+                            <li><a href="volunteer.html">Volunteer Programs</a></li>
+                            <li><a href="events.html">Upcoming Events</a></li>
+                            <li><a href="contact.html">Get In Touch</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-widget newsletter-widget">
+                        <h3>Newsletter Pledge</h3>
+                        <p>Subscribe to our newsletter to receive the latest updates and stories of impact.</p>
+                        <form id="newsletterForm" class="newsletter-form">
+                            <input type="email" placeholder="Email Address" required>
+                            <button type="submit" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 HopeFund Organization. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals & Toast -->
+    <!-- Donation Modal -->
+    <div class="modal" id="donateModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('donateModal')">&times;</span>
+            <h2 class="modal-title">Make a Donation</h2>
+            <p class="modal-subtitle">Your contribution helps us create a better world.</p>
+
+            <form id="donationForm">
+                <div class="amount-selection">
+                    <button type="button" class="amount-btn" data-amount="25">$25</button>
+                    <button type="button" class="amount-btn active" data-amount="50">$50</button>
+                    <button type="button" class="amount-btn" data-amount="100">$100</button>
+                    <button type="button" class="amount-btn" data-amount="500">$500</button>
+                    <button type="button" class="amount-btn custom-amount-btn" id="customAmountBtn">Custom</button>
+                </div>
+
+                <div class="form-group custom-amount-input hidden" id="customAmountWrapper">
+                    <label for="customAmount">Enter Custom Amount ($)</label>
+                    <input type="number" id="customAmount" min="1" placeholder="e.g. 75">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="donorName">Full Name</label>
+                        <input type="text" id="donorName" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group half">
+                        <label for="donorEmail">Email Address</label>
+                        <input type="email" id="donorEmail" required placeholder="john@example.com">
+                    </div>
+                </div>
+
+                <div class="payment-methods">
+                    <label>Payment Method</label>
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="credit" checked>
+                            <span class="pay-btn"><i class="fa-regular fa-credit-card"></i> Card</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="paypal">
+                            <span class="pay-btn"><i class="fa-brands fa-paypal"></i> PayPal</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="applepay">
+                            <span class="pay-btn"><i class="fa-brands fa-apple"></i> Pay</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 mt-3">Donate <span id="donateBtnAmount">$50</span></button>
+            </form>
+        </div>
+    </div>
+
+    <div id="toast" class="toast hidden">
+        <div class="toast-content">
+            <i class="fa-solid fa-circle-check toast-icon"></i>
+            <div class="toast-text">
+                <h4>Success!</h4>
+                <p id="toastMessage">Action completed successfully.</p>
+            </div>
+            <button class="toast-close" onclick="closeToast()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Live countdown timer logic
+            let daysEl = document.getElementById('days');
+            let hoursEl = document.getElementById('hours');
+            let minsEl = document.getElementById('minutes');
+            let secsEl = document.getElementById('seconds');
+
+            let countdownTime = 24 * 24 * 60 * 60; // 24 days in seconds
+
+            setInterval(() => {
+                if (countdownTime <= 0) return;
+                countdownTime--;
+
+                let d = Math.floor(countdownTime / (24 * 60 * 60));
+                let h = Math.floor((countdownTime % (24 * 60 * 60)) / (60 * 60));
+                let m = Math.floor((countdownTime % (60 * 60)) / 60);
+                let s = countdownTime % 60;
+
+                if (daysEl) daysEl.textContent = d;
+                if (hoursEl) hoursEl.textContent = h;
+                if (minsEl) minsEl.textContent = m;
+                if (secsEl) secsEl.textContent = s;
+            }, 1000);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Impact Metrics Tracker | HopeFund NGO</title>
+    <meta name="description" content="View real-time verified outcomes of HopeFund's deployments: liters of clean water, classrooms built, trees planted, and lives saved.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .feature-hero {
+            padding: 140px 20px 80px 20px;
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.08) 0%, rgba(22, 163, 74, 0.08) 100%);
+            text-align: center;
+        }
+
+        .feature-hero h1 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 15px;
+        }
+
+        .feature-hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .feature-content {
+            padding: 60px 0;
+        }
+
+        .metrics-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        /* Impact Slider Card */
+        .slider-card {
+            background-color: var(--bg-main);
+            border: 1px solid var(--border-clr);
+            border-radius: var(--radius-xl);
+            padding: 35px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .slider-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .slider-title {
+            font-family: var(--font-heading);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .slider-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--clr-primary);
+            font-family: var(--font-heading);
+        }
+
+        .custom-range {
+            width: 100%;
+            height: 8px;
+            border-radius: 10px;
+            background-color: var(--bg-light);
+            outline: none;
+            -webkit-appearance: none;
+            margin-bottom: 30px;
+        }
+
+        .custom-range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: var(--clr-accent);
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .custom-range::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+        }
+
+        .outcomes-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .outcome-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background-color: var(--bg-light);
+            padding: 15px 20px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-clr);
+        }
+
+        .outcome-item i {
+            font-size: 1.4rem;
+            width: 30px;
+            text-align: center;
+        }
+
+        .outcome-text strong {
+            display: block;
+            font-size: 1.15rem;
+            color: var(--text-main);
+            font-family: var(--font-heading);
+        }
+
+        .outcome-text span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Visual circular progress trackers */
+        .charts-card {
+            background-color: var(--bg-main);
+            border: 1px solid var(--border-clr);
+            border-radius: var(--radius-xl);
+            padding: 35px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .prog-row {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .prog-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .prog-circle {
+            position: relative;
+            width: 70px;
+            height: 70px;
+            flex-shrink: 0;
+        }
+
+        .prog-circle svg {
+            transform: rotate(-90deg);
+        }
+
+        .circle-bg {
+            fill: none;
+            stroke: var(--border-clr);
+            stroke-width: 6;
+        }
+
+        .circle-bar {
+            fill: none;
+            stroke: var(--clr-primary);
+            stroke-width: 6;
+            stroke-linecap: round;
+            stroke-dasharray: 220;
+            transition: var(--transition);
+        }
+
+        .prog-pct {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        @media (max-width: 991px) {
+            .metrics-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="css/mobile.css">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    
+    <!-- Nav Overlay (mobile) -->
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-hands-holding-child"></i>
+                Hope<span>Fund</span>
+            </a>
+
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="home2.html" class="nav-link">Home 2</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="campaigns.html" class="nav-link">Campaigns</a></li>
+                    <li><a href="volunteer.html" class="nav-link">Volunteer</a></li>
+                    <li><a href="events.html" class="nav-link">Events</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <button class="btn btn-primary" onclick="openModal('donateModal')">Donate Now</button>
+                </div>
+            </div>
+
+            <div class="header-icons">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                    <div class="user-dropdown-wrapper">
+                        <button id="user-menu-btn" class="user-menu-btn" aria-label="User Account">
+                            <i class="fa-solid fa-circle-user"></i>
+                        </button>
+                        <div id="user-dropdown" class="user-dropdown-menu">
+                            <div class="dropdown-header">
+                                <h5>Guest User</h5>
+                                <p>Welcome to HopeFund</p>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <a href="login.html" class="dropdown-item"><i class="fa-solid fa-right-to-bracket"></i> Login / Sign Up</a>
+                            <a href="user-dashboard.html" class="dropdown-item"><i class="fa-solid fa-sliders"></i> User Dashboard</a>
+                            <a href="admin-dashboard.html" class="dropdown-item"><i class="fa-solid fa-user-shield"></i> Admin Dashboard</a>
+                        </div>
+                    </div>
+                    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Feature Hero -->
+    <header class="feature-hero">
+        <div class="container">
+            <h1>Ecosystem Impact Metrics</h1>
+            <p>Every single penny is tracked cryptographicly. Explore global milestone audits, circular progress ratios, and slide to test immediate deliverables.</p>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <div class="container feature-content">
+        <div class="metrics-layout">
+            
+            <!-- Left: Dynamic outcome slider -->
+            <div class="slider-card">
+                <div class="slider-header">
+                    <span class="slider-title">Your Custom Contribution</span>
+                    <span class="slider-value" id="sliderVal">$100</span>
+                </div>
+                
+                <input type="range" class="custom-range" id="pledgeSlider" min="10" max="500" value="100" step="10">
+
+                <h4 style="font-size:1.1rem; margin-bottom:15px; font-family:var(--font-heading); color:var(--text-main);">Will Deliver the Following Verified Deliverables:</h4>
+                <div class="outcomes-list">
+                    <!-- Outcome 1 -->
+                    <div class="outcome-item">
+                        <i class="fa-solid fa-water" style="color:var(--clr-primary);"></i>
+                        <div class="outcome-text">
+                            <strong id="waterOutcome">5,000 Liters</strong>
+                            <span>Of solar-filtered potable drinking water</span>
+                        </div>
+                    </div>
+
+                    <!-- Outcome 2 -->
+                    <div class="outcome-item">
+                        <i class="fa-solid fa-tree" style="color:var(--clr-secondary);"></i>
+                        <div class="outcome-text">
+                            <strong id="treeOutcome">2 Native Trees</strong>
+                            <span>Planted and logged in agroforestry buffer zones</span>
+                        </div>
+                    </div>
+
+                    <!-- Outcome 3 -->
+                    <div class="outcome-item">
+                        <i class="fa-solid fa-syringe" style="color:var(--clr-accent);"></i>
+                        <div class="outcome-text">
+                            <strong id="vaccOutcome">1 Vaccine Pack</strong>
+                            <span>Delivered via Mobile Medical vaccination chambers</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Circular progress meters -->
+            <div class="charts-card">
+                <h3 style="font-size:1.4rem; font-family:var(--font-heading); margin-bottom:25px; color:var(--text-main);">Verification Audits Progress</h3>
+                
+                <div class="prog-row">
+                    <!-- Item 1 -->
+                    <div class="prog-item">
+                        <div class="prog-circle">
+                            <svg width="70" height="70">
+                                <circle class="circle-bg" cx="35" cy="35" r="30"></circle>
+                                <circle class="circle-bar" cx="35" cy="35" r="30" stroke-dashoffset="66"></circle>
+                            </svg>
+                            <div class="prog-pct">70%</div>
+                        </div>
+                        <div>
+                            <h4 style="font-weight:700; font-size:1rem; color:var(--text-main);">Clean Water Purifiers Assembled</h4>
+                            <p style="font-size:0.85rem; color:var(--text-muted);">Haiti Nippes region milestone targeted wells construction.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="prog-item">
+                        <div class="prog-circle">
+                            <svg width="70" height="70">
+                                <circle class="circle-bg" cx="35" cy="35" r="30"></circle>
+                                <circle class="circle-bar" cx="35" cy="35" r="30" stroke-dashoffset="22" style="stroke:var(--clr-secondary);"></circle>
+                            </svg>
+                            <div class="prog-pct">90%</div>
+                        </div>
+                        <div>
+                            <h4 style="font-weight:700; font-size:1rem; color:var(--text-main);">Agroforestry Buffers Planted</h4>
+                            <p style="font-size:0.85rem; color:var(--text-muted);">South American logged rainforest buffer zones recovery.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="prog-item">
+                        <div class="prog-circle">
+                            <svg width="70" height="70">
+                                <circle class="circle-bg" cx="35" cy="35" r="30"></circle>
+                                <circle class="circle-bar" cx="35" cy="35" r="30" stroke-dashoffset="88" style="stroke:var(--clr-accent);"></circle>
+                            </svg>
+                            <div class="prog-pct">60%</div>
+                        </div>
+                        <div>
+                            <h4 style="font-weight:700; font-size:1rem; color:var(--text-main);">Uganda primary schools micro-grid</h4>
+                            <p style="font-size:0.85rem; color:var(--text-muted);">Solar tablet computing setups installation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-widget brand-widget">
+                        <a href="index.html" class="logo footer-logo">
+                            <i class="fa-solid fa-hands-holding-child"></i>
+                            Hope<span>Fund</span>
+                        </a>
+                        <p>Empowering communities and changing lives through sustainable development, education, and healthcare.</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-widget links-widget">
+                        <h3>Ecosystem Navigation</h3>
+                        <ul>
+                            <li><a href="index.html">Home 1 (Classic)</a></li>
+                            <li><a href="home2.html">Home 2 (Premium)</a></li>
+                            <li><a href="blog.html">Blog Insights</a></li>
+                            <li><a href="index.html#campaigns">Ecosystem Campaigns</a></li>
+                            <li><a href="index.html#volunteer">Become Volunteer</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-widget links-widget">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="blog.html">News & Deep Dives</a></li>
+                            <li><a href="index.html#faq">FAQ & Support</a></li>
+                            <li><a href="home2.html">Home 2 Demo</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-widget newsletter-widget">
+                        <h3>Newsletter Pledge</h3>
+                        <p>Subscribe to our newsletter to receive the latest updates and stories of impact.</p>
+                        <form id="newsletterForm" class="newsletter-form">
+                            <input type="email" placeholder="Email Address" required>
+                            <button type="submit" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 HopeFund Organization. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Toast/Popup -->
+    <div id="toast" class="toast hidden">
+        <div class="toast-content">
+            <i class="fa-solid fa-circle-check toast-icon"></i>
+            <div class="toast-text">
+                <h4>Success!</h4>
+                <p id="toastMessage">Action completed successfully.</p>
+            </div>
+            <button class="toast-close" onclick="closeToast()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+    </div>
+
+    <!-- Modals -->
+
+    <!-- Donation Modal -->
+    <div class="modal" id="donateModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('donateModal')">&times;</span>
+            <h2 class="modal-title">Make a Donation</h2>
+            <p class="modal-subtitle">Your contribution helps us create a better world.</p>
+
+            <form id="donationForm">
+                <div class="amount-selection">
+                    <button type="button" class="amount-btn" data-amount="25">$25</button>
+                    <button type="button" class="amount-btn active" data-amount="50">$50</button>
+                    <button type="button" class="amount-btn" data-amount="100">$100</button>
+                    <button type="button" class="amount-btn" data-amount="500">$500</button>
+                    <button type="button" class="amount-btn custom-amount-btn" id="customAmountBtn">Custom</button>
+                </div>
+
+                <div class="form-group custom-amount-input hidden" id="customAmountWrapper">
+                    <label for="customAmount">Enter Custom Amount ($)</label>
+                    <input type="number" id="customAmount" min="1" placeholder="e.g. 75">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="donorName">Full Name</label>
+                        <input type="text" id="donorName" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group half">
+                        <label for="donorEmail">Email Address</label>
+                        <input type="email" id="donorEmail" required placeholder="john@example.com">
+                    </div>
+                </div>
+
+                <div class="payment-methods">
+                    <label>Payment Method</label>
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="credit" checked>
+                            <span class="pay-btn"><i class="fa-regular fa-credit-card"></i> Card</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="paypal">
+                            <span class="pay-btn"><i class="fa-brands fa-paypal"></i> PayPal</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="applepay">
+                            <span class="pay-btn"><i class="fa-brands fa-apple"></i> Pay</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 mt-3">Donate <span id="donateBtnAmount">$50</span></button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slider = document.getElementById('pledgeSlider');
+            const sliderVal = document.getElementById('sliderVal');
+            
+            const waterOutcome = document.getElementById('waterOutcome');
+            const treeOutcome = document.getElementById('treeOutcome');
+            const vaccOutcome = document.getElementById('vaccOutcome');
+
+            slider.addEventListener('input', () => {
+                const value = parseInt(slider.value);
+                sliderVal.textContent = `$${value}`;
+
+                // Calculate deliverables based on multipliers
+                const waterVal = value * 50;
+                const treeVal = Math.floor(value / 35);
+                const vaccVal = Math.floor(value / 75);
+
+                waterOutcome.textContent = `${waterVal.toLocaleString()} Liters`;
+                treeOutcome.textContent = `${treeVal} Native Trees`;
+                vaccOutcome.textContent = `${vaccVal} Vaccine Pack${vaccVal !== 1 ? 's' : ''}`;
+            });
+        });
+    </script>
+</body>
+
+</html>

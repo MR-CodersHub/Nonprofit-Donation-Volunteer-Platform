@@ -1,0 +1,1041 @@
+/* ==========================================================================
+   Home 2 Page Stylesheet
+   ========================================================================== */
+
+/* Page Base */
+.home2-body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+
+/* Animations */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-ring {
+    0% { transform: scale(0.95); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+    100% { transform: scale(0.95); opacity: 0.5; }
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@keyframes border-glow {
+    0%, 100% { border-color: var(--border-clr); }
+    50% { border-color: var(--clr-primary); }
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+.hero2 {
+    position: relative;
+    padding: 140px 0 80px;
+    background: linear-gradient(135deg, rgba(30, 64, 175, 0.05) 0%, rgba(22, 163, 74, 0.05) 100%), var(--bg-main);
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero2-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
+    align-items: center;
+}
+
+/* Hero Content */
+.hero2-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgba(30, 64, 175, 0.1);
+    color: var(--clr-primary);
+    padding: 8px 16px;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    border: 1px solid rgba(30, 64, 175, 0.2);
+}
+
+[data-theme="dark"] .hero2-badge {
+    background-color: rgba(30, 64, 175, 0.2);
+    color: #60A5FA;
+}
+
+.live-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--clr-secondary);
+    border-radius: 50%;
+    position: relative;
+}
+
+.live-dot::after {
+    content: '';
+    position: absolute;
+    top: -4px; left: -4px; right: -4px; bottom: -4px;
+    border: 2px solid var(--clr-secondary);
+    border-radius: 50%;
+    animation: pulse-ring 2s infinite ease-in-out;
+}
+
+.hero2-title {
+    font-size: 3.8rem;
+    line-height: 1.15;
+    margin-bottom: 25px;
+    letter-spacing: -1px;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+[data-theme="dark"] .gradient-text {
+    background: linear-gradient(135deg, #60A5FA 0%, #4ADE80 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero2-desc {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.hero2-actions {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Premium Buttons overrides */
+.btn-premium {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-premium::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(135deg, var(--clr-primary-dark) 0%, var(--clr-primary) 100%);
+    z-index: -1;
+    transition: var(--transition);
+    opacity: 0;
+}
+
+.btn-premium:hover::before {
+    opacity: 1;
+}
+
+/* Hero Staggered Mosaic Grid */
+.hero2-mosaic {
+    position: relative;
+    height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mosaic-item {
+    position: absolute;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    transition: var(--transition);
+    border: 4px solid var(--bg-main);
+}
+
+.mosaic-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    z-index: 5;
+    box-shadow: var(--shadow-hover);
+}
+
+.mosaic-main {
+    width: 280px;
+    height: 380px;
+    top: 20px;
+    left: 40px;
+    z-index: 2;
+    animation: float 6s infinite ease-in-out;
+}
+
+.mosaic-sub1 {
+    width: 220px;
+    height: 220px;
+    top: 220px;
+    right: 20px;
+    z-index: 3;
+    animation: float 8s infinite ease-in-out 1s;
+}
+
+.mosaic-sub2 {
+    width: 180px;
+    height: 180px;
+    top: 20px;
+    right: 40px;
+    z-index: 1;
+    animation: float 7s infinite ease-in-out 0.5s;
+}
+
+.mosaic-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mosaic-card-floating {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    background-color: var(--bg-main);
+    border-radius: var(--radius-lg);
+    padding: 15px;
+    box-shadow: var(--shadow-lg);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid var(--border-clr);
+    animation: float 5s infinite ease-in-out 1.5s;
+}
+
+.mcf-icon {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(22, 163, 74, 0.1);
+    color: var(--clr-secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+.mcf-info h5 {
+    font-size: 0.95rem;
+    margin-bottom: 2px;
+}
+
+.mcf-info p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   Impact Statistics
+   ========================================================================== */
+.impact-stats2 {
+    position: relative;
+    z-index: 10;
+    margin-top: -50px;
+    margin-bottom: 50px;
+}
+
+.stats2-wrapper {
+    background-color: var(--bg-light);
+    border-radius: var(--radius-xl);
+    padding: 40px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-clr);
+    backdrop-filter: blur(10px);
+}
+
+[data-theme="dark"] .stats2-wrapper {
+    background-color: rgba(30, 41, 59, 0.8);
+}
+
+.stats2-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.stat2-card {
+    text-align: center;
+    position: relative;
+    transition: var(--transition);
+}
+
+.stat2-card:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -15px;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background-color: var(--border-clr);
+}
+
+.stat2-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat2-icon {
+    font-size: 2.2rem;
+    color: var(--clr-accent);
+    margin-bottom: 15px;
+}
+
+.stat2-value {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 8px;
+    font-family: var(--font-heading);
+    color: var(--text-main);
+}
+
+.stat2-label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   Donation Goal & Interactive Dashboard
+   ========================================================================== */
+.live-dashboard {
+    padding: 80px 0;
+    background-color: var(--bg-light);
+    border-radius: var(--radius-xl);
+    margin: 30px 0 80px;
+    border: 1px solid var(--border-clr);
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.dashboard-graphic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.dashboard-graphic-content {
+    margin-left: 20px;
+}
+
+.dashboard-graphic-title {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.dashboard-graphic-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    max-width: 320px;
+}
+
+.dashboard-graphic-stats {
+    display: flex;
+    gap: 20px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.dashboard-stat-item {
+    font-size: 1rem;
+}
+
+.dashboard-stat-item:last-child {
+    border-left: 1px solid var(--border-clr);
+    padding-left: 20px;
+}
+
+.dashboard-stat-label {
+    font-weight: 400;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    display: block;
+}
+
+/* circular loader details */
+.circle-progress-wrapper {
+    position: relative;
+    width: 250px;
+    height: 250px;
+}
+
+.circle-progress-svg {
+    transform: rotate(-90deg);
+    width: 100%;
+    height: 100%;
+}
+
+.circle-progress-bg {
+    fill: none;
+    stroke: var(--border-clr);
+    stroke-width: 12;
+}
+
+.circle-progress-bar {
+    fill: none;
+    stroke: var(--clr-secondary);
+    stroke-width: 12;
+    stroke-linecap: round;
+    stroke-dasharray: 691; /* 2 * PI * r (r=110) = 691.15 */
+    stroke-dashoffset: 207; /* 70% progress -> offset = 691 * (1 - 0.70) = 207.3 */
+    transition: stroke-dashoffset 2s ease-in-out;
+}
+
+.circle-text-center {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.circle-percent {
+    font-size: 3rem;
+    font-weight: 800;
+    font-family: var(--font-heading);
+    color: var(--text-main);
+    line-height: 1;
+}
+
+.circle-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.live-feed-card {
+    background-color: var(--bg-main);
+    border-radius: var(--radius-lg);
+    padding: 25px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-clr);
+}
+
+.live-feed-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-clr);
+    padding-bottom: 12px;
+}
+
+.live-feed-header h4 {
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.live-pulse {
+    width: 6px;
+    height: 6px;
+    background-color: red;
+    border-radius: 50%;
+    animation: pulse-ring 1.5s infinite ease-in-out;
+}
+
+.feed-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 250px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.feed-item {
+    display: flex;
+    gap: 12px;
+    font-size: 0.9rem;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed var(--border-clr);
+}
+
+.feed-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.feed-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: rgba(30, 64, 175, 0.1);
+    color: var(--clr-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+.feed-details h5 {
+    font-size: 0.9rem;
+    margin-bottom: 2px;
+}
+
+.feed-details p {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.feed-amount {
+    margin-left: auto;
+    color: var(--clr-secondary);
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   Featured Campaigns (Asymmetrical Grid)
+   ========================================================================== */
+.campaigns2-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 40px;
+}
+
+/* Large Featured Card */
+.campaign2-card-large {
+    background-color: var(--bg-main);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-clr);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: var(--transition);
+}
+
+.campaign2-card-large:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-8px);
+}
+
+.c2-large-img {
+    height: 340px;
+    position: relative;
+    overflow: hidden;
+}
+
+.c2-large-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.campaign2-card-large:hover .c2-large-img img {
+    transform: scale(1.03);
+}
+
+.c2-badge {
+    position: absolute;
+    top: 20px; left: 20px;
+    background-color: var(--clr-accent);
+    color: #FFF;
+    padding: 6px 16px;
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.c2-large-content {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.c2-large-title {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    transition: var(--transition);
+}
+
+.c2-large-title:hover {
+    color: var(--clr-primary);
+}
+
+.c2-large-desc {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 25px;
+}
+
+/* Side List Feed */
+.campaigns2-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.campaign2-card-mini {
+    background-color: var(--bg-main);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-clr);
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    height: 180px;
+    transition: var(--transition);
+}
+
+.campaign2-card-mini:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-4px);
+    border-color: var(--clr-primary);
+}
+
+.c2-mini-img {
+    height: 100%;
+    overflow: hidden;
+}
+
+.c2-mini-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.campaign2-card-mini:hover .c2-mini-img img {
+    transform: scale(1.05);
+}
+
+.c2-mini-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.c2-mini-title {
+    font-size: 1.15rem;
+    margin-bottom: 5px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.c2-mini-desc {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Card Progress bar modifications */
+.c2-progress-wrapper {
+    margin-bottom: 12px;
+}
+
+.c2-progress-stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.c2-progress-stats span {
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.c2-progress-bar-container {
+    height: 6px;
+    background-color: var(--border-clr);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.c2-progress-bar-fill {
+    height: 100%;
+    border-radius: var(--radius-full);
+    background: linear-gradient(to right, var(--clr-primary) 0%, var(--clr-accent) 100%);
+}
+
+/* ==========================================================================
+   Volunteer Highlights (Interactive Grid)
+   ========================================================================== */
+.volunteers2-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.vol2-card {
+    background-color: var(--bg-main);
+    border-radius: var(--radius-lg);
+    padding: 30px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-clr);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.vol2-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 5px;
+    background-color: var(--clr-primary);
+    transition: var(--transition);
+}
+
+.vol2-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-8px);
+}
+
+.vol2-card:hover::before {
+    background-color: var(--clr-accent);
+}
+
+.vol2-avatar-wrapper {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px;
+}
+
+.vol2-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--bg-light);
+    box-shadow: var(--shadow-sm);
+}
+
+.vol2-badge {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 32px;
+    height: 32px;
+    background-color: var(--clr-secondary);
+    color: #FFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    border: 2px solid var(--bg-main);
+}
+
+.vol2-name {
+    font-size: 1.25rem;
+    margin-bottom: 5px;
+}
+
+.vol2-role {
+    font-size: 0.85rem;
+    color: var(--clr-primary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+}
+
+.vol2-quote {
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+.vol2-hours-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: var(--bg-light);
+    padding: 6px 16px;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-main);
+    border: 1px solid var(--border-clr);
+}
+
+.vol2-hours-badge i {
+    color: var(--clr-accent);
+}
+
+/* ==========================================================================
+   Success Stories & Timeline Section
+   ========================================================================== */
+.stories2-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.stories2-visual {
+    position: relative;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.stories2-visual img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+}
+
+.stories2-play-btn {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background-color: var(--bg-main);
+    color: var(--clr-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: var(--shadow-lg);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.stories2-play-btn:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    color: var(--clr-accent);
+    box-shadow: 0 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.stories2-visual-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, transparent 100%);
+    padding: 30px;
+    color: #FFF;
+}
+
+.stories2-visual-overlay h4 {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+    color: #FFF;
+}
+
+.stories2-visual-overlay p {
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+/* Milestone Timeline vertical */
+.timeline2 {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline2::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 10px;
+    bottom: 10px;
+    width: 2px;
+    background-color: var(--border-clr);
+}
+
+.timeline2-item {
+    position: relative;
+}
+
+.timeline2-marker {
+    position: absolute;
+    left: -30px;
+    top: 8px;
+    width: 18px;
+    height: 18px;
+    background-color: var(--bg-main);
+    border: 4px solid var(--clr-primary);
+    border-radius: 50%;
+    z-index: 2;
+    transition: var(--transition);
+}
+
+.timeline2-item:hover .timeline2-marker {
+    border-color: var(--clr-accent);
+    transform: scale(1.2);
+}
+
+.timeline2-content {
+    background-color: var(--bg-main);
+    border-radius: var(--radius-lg);
+    padding: 20px 25px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-clr);
+    transition: var(--transition);
+}
+
+.timeline2-item:hover .timeline2-content {
+    box-shadow: var(--shadow-md);
+    transform: translateX(5px);
+    border-color: var(--clr-primary);
+}
+
+.timeline2-year {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--clr-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.timeline2-title {
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+}
+
+.timeline2-desc {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   Partners Logo Marquee Track
+   ========================================================================== */
+.partners-marquee {
+    padding: 40px 0;
+    background-color: var(--bg-light);
+    border-top: 1px solid var(--border-clr);
+    border-bottom: 1px solid var(--border-clr);
+    overflow: hidden;
+}
+
+.marquee-container {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.marquee-track {
+    display: flex;
+    gap: 80px;
+    width: max-content;
+    animation: marquee 25s linear infinite;
+}
+
+.marquee-track:hover {
+    animation-play-state: paused;
+}
+
+.marquee-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+    transition: var(--transition);
+}
+
+.marquee-item img {
+    height: 40px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: var(--transition);
+}
+
+.marquee-item:hover {
+    opacity: 1;
+}
+
+.marquee-item:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+/* ==========================================================================
+   Responsive Overrides for Home 2
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .hero2-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+    .hero2-badge { margin: 0 auto 25px; }
+    .hero2-actions { justify-content: center; }
+    .hero2-mosaic { height: 400px; max-width: 500px; margin: 0 auto; }
+    .mosaic-main { width: 220px; height: 300px; left: 20px; }
+    .mosaic-sub1 { width: 180px; height: 180px; top: 180px; }
+    .mosaic-sub2 { width: 140px; height: 140px; }
+    .mosaic-card-floating { left: 0px; bottom: 0px; }
+    
+    .stats2-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .stat2-card::after { display: none; }
+    .dashboard-grid { grid-template-columns: 1fr; gap: 40px; }
+    .campaigns2-grid { grid-template-columns: 1fr; }
+    .volunteers2-grid { grid-template-columns: repeat(2, 1fr); }
+    .stories2-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+@media (max-width: 768px) {
+    .hero2-title { font-size: 2.8rem; }
+    .stats2-wrapper { padding: 30px 20px; }
+    .volunteers2-grid { grid-template-columns: 1fr; }
+    .campaign2-card-mini { grid-template-columns: 1fr; height: auto; }
+    .c2-mini-img { height: 180px; }
+    .c2-large-content { padding: 25px; }
+}
+
+@media (max-width: 480px) {
+    .hero2-title { font-size: 2.2rem; }
+    .hero2-actions { flex-direction: column; width: 100%; }
+    .hero2-actions .btn { width: 100%; }
+    .stats2-grid { grid-template-columns: 1fr; }
+    .circle-progress-wrapper { width: 200px; height: 200px; }
+    .timeline2 { padding-left: 20px; }
+    .timeline2-marker { left: -20px; }
+    .timeline2-content { padding: 15px; }
+    .timeline2::before { left: -11px; }
+}
+
+@media (max-width: 360px) {
+    .hero2-title { font-size: 1.9rem; }
+    .hero2-mosaic { height: 320px; }
+    .mosaic-main { width: 180px; height: 240px; }
+    .mosaic-sub1 { width: 130px; height: 130px; top: 150px; }
+    .mosaic-sub2 { width: 100px; height: 100px; }
+    .mosaic-card-floating { display: none; }
+}

@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard | HopeFund NGO</title>
+    <meta name="description" content="Manage your donations, track volunteer hours, register for shifts, and check your global impact dashboard.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .dashboard-wrapper {
+            display: flex;
+            min-height: 100vh;
+            padding-top: 80px;
+            background-color: var(--bg-light);
+        }
+
+        /* Sidebar Navigation */
+        .db-sidebar {
+            width: 280px;
+            background-color: var(--bg-main);
+            border-right: 1px solid var(--border-clr);
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            transition: var(--transition);
+        }
+
+        .db-user-profile {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-clr);
+        }
+
+        .db-avatar {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background-color: var(--clr-primary);
+            color: #FFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: 700;
+            border: 2px solid var(--clr-accent);
+        }
+
+        .db-user-info h4 {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 2px;
+        }
+
+        .db-user-info span {
+            font-size: 0.8rem;
+            color: var(--clr-secondary);
+            font-weight: 600;
+            background-color: rgba(22, 163, 74, 0.1);
+            padding: 2px 8px;
+            border-radius: 20px;
+        }
+
+        .db-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .db-menu-item button {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 18px;
+            border: none;
+            background: none;
+            color: var(--text-main);
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: left;
+        }
+
+        .db-menu-item button i {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            width: 20px;
+            transition: var(--transition);
+        }
+
+        .db-menu-item button:hover, .db-menu-item.active button {
+            background-color: var(--bg-light);
+            color: var(--clr-primary);
+        }
+
+        .db-menu-item:hover button i, .db-menu-item.active button i {
+            color: var(--clr-accent);
+        }
+
+        /* Content Area */
+        .db-content {
+            flex: 1;
+            padding: 40px;
+            overflow-y: auto;
+        }
+
+        .db-tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        .db-tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .db-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .db-header h2 {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        .db-header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Grid Metrics Cards */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        .metric-card {
+            background-color: var(--bg-main);
+            border: 1px solid var(--border-clr);
+            border-radius: var(--radius-lg);
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .metric-details h5 {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .metric-details .value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-main);
+            font-family: var(--font-heading);
+        }
+
+        .metric-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .metric-icon.blue { background-color: rgba(30, 64, 175, 0.1); color: var(--clr-primary); }
+        .metric-icon.green { background-color: rgba(22, 163, 74, 0.1); color: var(--clr-secondary); }
+        .metric-icon.orange { background-color: rgba(249, 115, 22, 0.1); color: var(--clr-accent); }
+        .metric-icon.purple { background-color: rgba(139, 92, 246, 0.1); color: #8B5CF6; }
+
+        /* Dashboard Main Layout */
+        .db-main-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .db-panel {
+            background-color: var(--bg-main);
+            border: 1px solid var(--border-clr);
+            border-radius: var(--radius-lg);
+            padding: 25px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .panel-title {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* SVG Line Chart Graphic */
+        .chart-placeholder {
+            width: 100%;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-md);
+            position: relative;
+        }
+
+        /* Activity Timeline */
+        .timeline-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: relative;
+        }
+
+        .timeline-list::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 10px;
+            bottom: 10px;
+            width: 2px;
+            background-color: var(--border-clr);
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 20px;
+            position: relative;
+        }
+
+        .timeline-dot {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: var(--bg-light);
+            border: 2px solid var(--clr-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: var(--clr-primary);
+            z-index: 1;
+        }
+
+        .timeline-dot.completed {
+            border-color: var(--clr-secondary);
+            color: var(--clr-secondary);
+        }
+
+        .timeline-details {
+            flex: 1;
+        }
+
+        .timeline-details h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 2px;
+        }
+
+        .timeline-details p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+        }
+
+        .timeline-time {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* Tables & Forms */
+        .db-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .db-table th {
+            padding: 12px 15px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border-clr);
+            text-transform: uppercase;
+        }
+
+        .db-table td {
+            padding: 15px;
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--border-clr);
+            color: var(--text-main);
+            vertical-align: middle;
+        }
+
+        .db-table tbody tr:hover {
+            background-color: var(--bg-light);
+        }
+
+        .badge {
+            padding: 4px 8px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        .badge.success { background-color: rgba(22, 163, 74, 0.1); color: var(--clr-secondary); }
+        .badge.warning { background-color: rgba(249, 115, 22, 0.1); color: var(--clr-accent); }
+        .badge.info { background-color: rgba(30, 64, 175, 0.1); color: var(--clr-primary); }
+
+        .btn-sm {
+            padding: 6px 12px;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .dashboard-wrapper {
+                flex-direction: column;
+            }
+
+            .db-sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid var(--border-clr);
+                padding: 20px;
+            }
+
+            .db-menu {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .db-menu-item {
+                flex: 1;
+                min-width: 140px;
+            }
+
+            .db-content {
+                padding: 20px;
+            }
+
+            .db-main-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="css/mobile.css">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    
+    <!-- Nav Overlay (mobile) -->
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar db-navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-hands-holding-child"></i>
+                Hope<span>Fund</span>
+            </a>
+
+            <div class="header-icons">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                    <div class="user-dropdown-wrapper">
+                        <button id="user-menu-btn" class="user-menu-btn" aria-label="User Account">
+                            <i class="fa-solid fa-circle-user"></i>
+                        </button>
+                        <div id="user-dropdown" class="user-dropdown-menu">
+                            <div class="dropdown-header">
+                                <h5>Guest User</h5>
+                                <p>Welcome to HopeFund</p>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <a href="index.html" class="dropdown-item"><i class="fa-solid fa-house"></i> Back to Home</a>
+                            <a href="login.html" class="dropdown-item"><i class="fa-solid fa-right-to-bracket"></i> Login / Sign Up</a>
+                            <a href="user-dashboard.html" class="dropdown-item"><i class="fa-solid fa-sliders"></i> User Dashboard</a>
+                            <a href="admin-dashboard.html" class="dropdown-item"><i class="fa-solid fa-user-shield"></i> Admin Dashboard</a>
+                        </div>
+                    </div>
+                    <button class="hamburger" id="db-hamburger" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content Wrapper -->
+    <div class="dashboard-wrapper">
+        <!-- Sidebar -->
+        <aside class="db-sidebar">
+            <div class="db-user-profile">
+                <div class="db-avatar">AR</div>
+                <div class="db-user-info">
+                    <h4>Ananya Ray</h4>
+                    <span>Active Helper</span>
+                </div>
+            </div>
+
+            <ul class="db-menu">
+                <li class="db-menu-item active" data-tab="overview">
+                    <button><i class="fa-solid fa-chart-pie"></i> Overview</button>
+                </li>
+                <li class="db-menu-item" data-tab="profile">
+                    <button><i class="fa-solid fa-user-gear"></i> Manage Profile</button>
+                </li>
+                <li class="db-menu-item" data-tab="donations">
+                    <button><i class="fa-solid fa-heart-pulse"></i> Gifts & Receipts</button>
+                </li>
+                <li class="db-menu-item" data-tab="volunteer">
+                    <button><i class="fa-solid fa-calendar-days"></i> Shifts Registration</button>
+                </li>
+                <li class="db-menu-item" data-tab="settings">
+                    <button><i class="fa-solid fa-sliders"></i> Preferences</button>
+                </li>
+                <li class="db-menu-item logout-item" style="margin-top: 20px; border-top: 1px solid var(--border-clr); padding-top: 15px;">
+                    <a href="login.html" style="width: 100%; display: flex; align-items: center; gap: 15px; padding: 12px 18px; color: #ef4444; font-size: 0.95rem; font-weight: 600; border-radius: var(--radius-md); text-decoration: none; transition: var(--transition);">
+                        <i class="fa-solid fa-right-from-bracket" style="font-size: 1.1rem; color: #ef4444; width: 20px;"></i> Logout
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Dynamic Panel -->
+        <main class="db-content">
+            
+            <!-- OVERVIEW TAB -->
+            <section class="db-tab-content active" id="overview-tab">
+                <div class="db-header">
+                    <div>
+                        <h2>Welcome back, Ananya!</h2>
+                        <p>Track your registered contributions and coordinate upcoming shifts.</p>
+                    </div>
+                    <span style="font-size:0.85rem; color:var(--text-muted); font-weight:600;"><i class="fa-solid fa-calendar"></i> Last sync: Today 16:30</span>
+                </div>
+
+                <!-- Stats grid -->
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-details">
+                            <h5>TOTAL PLEDGED</h5>
+                            <div class="value">$1,250</div>
+                        </div>
+                        <div class="metric-icon blue"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-details">
+                            <h5>VOLUNTEER HOURS</h5>
+                            <div class="value">48 Hours</div>
+                        </div>
+                        <div class="metric-icon green"><i class="fa-solid fa-award"></i></div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-details">
+                            <h5>LIVES IMPACTED</h5>
+                            <div class="value">24 Lives</div>
+                        </div>
+                        <div class="metric-icon orange"><i class="fa-solid fa-earth-americas"></i></div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-details">
+                            <h5>SAVED CAMPAIGNS</h5>
+                            <div class="value">3 Drives</div>
+                        </div>
+                        <div class="metric-icon purple"><i class="fa-regular fa-bookmark"></i></div>
+                    </div>
+                </div>
+
+                <!-- Main Overview Sections -->
+                <div class="db-main-layout">
+                    <!-- Donation Progress Graph -->
+                    <div class="db-panel">
+                        <div class="panel-title">
+                            Donation History Analytics
+                            <span style="font-size:0.8rem; color:var(--clr-primary); font-weight:600;">Monthly Trend</span>
+                        </div>
+                        <div class="chart-placeholder">
+                            <!-- Custom Beautiful Inline SVG Chart -->
+                            <svg width="100%" height="220" viewBox="0 0 500 220" style="overflow:visible;">
+                                <!-- Grid Lines -->
+                                <line x1="40" y1="20" x2="480" y2="20" stroke="var(--border-clr)" stroke-dasharray="4"></line>
+                                <line x1="40" y1="80" x2="480" y2="80" stroke="var(--border-clr)" stroke-dasharray="4"></line>
+                                <line x1="40" y1="140" x2="480" y2="140" stroke="var(--border-clr)" stroke-dasharray="4"></line>
+                                <line x1="40" y1="200" x2="480" y2="200" stroke="var(--border-clr)"></line>
+                                
+                                <!-- Chart Line -->
+                                <path d="M40 180 L120 150 L200 130 L280 80 L360 90 L440 30" fill="none" stroke="var(--clr-primary)" stroke-width="4" stroke-linecap="round"></path>
+                                
+                                <!-- Filled Area -->
+                                <path d="M40 180 L120 150 L200 130 L280 80 L360 90 L440 30 L440 200 L40 200 Z" fill="rgba(30, 64, 175, 0.05)"></path>
+                                
+                                <!-- Data Dots -->
+                                <circle cx="40" cy="180" r="6" fill="var(--clr-accent)" stroke="#FFF" stroke-width="2"></circle>
+                                <circle cx="120" cy="150" r="6" fill="var(--clr-accent)" stroke="#FFF" stroke-width="2"></circle>
+                                <circle cx="200" cy="130" r="6" fill="var(--clr-accent)" stroke="#FFF" stroke-width="2"></circle>
+                                <circle cx="280" cy="80" r="6" fill="var(--clr-accent)" stroke="#FFF" stroke-width="2"></circle>
+                                <circle cx="360" cy="90" r="6" fill="var(--clr-accent)" stroke="#FFF" stroke-width="2"></circle>
+                                <circle cx="440" cy="30" r="6" fill="var(--clr-accent)" stroke="#FFF" stroke-width="2"></circle>
+                                
+                                <!-- Axis Labels -->
+                                <text x="40" y="215" fill="var(--text-muted)" font-size="10" text-anchor="middle">Jan</text>
+                                <text x="120" y="215" fill="var(--text-muted)" font-size="10" text-anchor="middle">Feb</text>
+                                <text x="200" y="215" fill="var(--text-muted)" font-size="10" text-anchor="middle">Mar</text>
+                                <text x="280" y="215" fill="var(--text-muted)" font-size="10" text-anchor="middle">Apr</text>
+                                <text x="360" y="215" fill="var(--text-muted)" font-size="10" text-anchor="middle">May</text>
+                                <text x="440" y="215" fill="var(--text-muted)" font-size="10" text-anchor="middle">Jun</text>
+
+                                <text x="30" y="185" fill="var(--text-muted)" font-size="9" text-anchor="end">$50</text>
+                                <text x="30" y="145" fill="var(--text-muted)" font-size="9" text-anchor="end">$150</text>
+                                <text x="30" y="85" fill="var(--text-muted)" font-size="9" text-anchor="end">$300</text>
+                                <text x="30" y="25" fill="var(--text-muted)" font-size="9" text-anchor="end">$500</text>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Right panel timeline -->
+                    <div class="db-panel">
+                        <h3 class="panel-title">Recent Activity History</h3>
+                        <div class="timeline-list">
+                            <!-- Item 1 -->
+                            <div class="timeline-item">
+                                <div class="timeline-dot completed"><i class="fa-solid fa-circle-check"></i></div>
+                                <div class="timeline-details">
+                                    <h4>Pledged $150.00 water aid</h4>
+                                    <p>Clean Water Nippes primary drive campaign milestone.</p>
+                                    <span class="timeline-time">Today, 2 hours ago</span>
+                                </div>
+                            </div>
+                            <!-- Item 2 -->
+                            <div class="timeline-item">
+                                <div class="timeline-dot"><i class="fa-solid fa-clock"></i></div>
+                                <div class="timeline-details">
+                                    <h4>Registered shift at Food Pack</h4>
+                                    <p>Upcoming schedule: Saturday June 6th 10:00 AM.</p>
+                                    <span class="timeline-time">Yesterday, 14:20</span>
+                                </div>
+                            </div>
+                            <!-- Item 3 -->
+                            <div class="timeline-item">
+                                <div class="timeline-dot completed"><i class="fa-solid fa-circle-check"></i></div>
+                                <div class="timeline-details">
+                                    <h4>Completed 6h clinical log shift</h4>
+                                    <p>Emergency medical vaccine deployment in Mobile Truck.</p>
+                                    <span class="timeline-time">May 12, 2026</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PROFILE TAB -->
+            <section class="db-tab-content" id="profile-tab">
+                <div class="db-header">
+                    <div>
+                        <h2>Manage Profile Details</h2>
+                        <p>Keep your contact details and active volunteer interests updated.</p>
+                    </div>
+                </div>
+
+                <div class="db-panel">
+                    <form id="profileForm" class="form" onsubmit="event.preventDefault(); showToast('Profile details updated!', 'success');">
+                        <div style="display:flex; gap:20px; align-items:center; margin-bottom:30px;">
+                            <div class="db-avatar" style="width:80px; height:80px; font-size:2rem;">AR</div>
+                            <div>
+                                <button type="button" class="btn btn-outline-primary btn-sm" onclick="showToast('Avatar uploader modal opened...', 'info')">Upload New Picture</button>
+                                <p style="font-size:0.75rem; color:var(--text-muted); margin-top:5px;">Supports JPG, PNG or WEBP. Max 2MB.</p>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="pfName">Full Display Name</label>
+                                <input type="text" id="pfName" value="Ananya Ray" required>
+                            </div>
+                            <div class="form-group half">
+                                <label for="pfEmail">Primary Email</label>
+                                <input type="email" id="pfEmail" value="ananya.ray@example.com" disabled>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="pfPhone">Contact Number</label>
+                                <input type="tel" id="pfPhone" value="+1 (555) 382-9011">
+                            </div>
+                            <div class="form-group half">
+                                <label for="pfEmergency">Emergency Contact</label>
+                                <input type="text" id="pfEmergency" value="Sanjay Ray (+1 555-382-9022)">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pfBio">Brief Helper Biography</label>
+                            <textarea id="pfBio" rows="3">Dedicated donor and environmental volunteer focused on agroforestry buffers, community food drives, and children literacy support since 2024.</textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="font-weight:700;">Save Profile Changes</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- DONATIONS TAB -->
+            <section class="db-tab-content" id="donations-tab">
+                <div class="db-header">
+                    <div>
+                        <h2>Donations & Tax Receipts</h2>
+                        <p>Audit your total deployed gifts and fetch PDF receipts for taxable deductions.</p>
+                    </div>
+                    <button class="btn btn-outline-primary" onclick="window.location.href='recurring-gifts.html'">Manage Recurring Gifts</button>
+                </div>
+
+                <div class="db-panel" style="margin-bottom:30px;">
+                    <h3 class="panel-title">Active Recurring Pledges</h3>
+                    <div class="table-responsive">
+                    <table class="db-table">
+                        <thead>
+                            <tr>
+                                <th>Milestone Goal</th>
+                                <th>Recurring Amount</th>
+                                <th>Frequency</th>
+                                <th>Next Draw</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Amazon Reforestation</td>
+                                <td><strong>$35.00</strong></td>
+                                <td>Monthly</td>
+                                <td>June 1, 2026</td>
+                                <td><span class="badge success">Active</span></td>
+                                <td><button class="btn btn-outline-primary btn-sm" onclick="showToast('Recurring gift modified!', 'success')">Edit</button></td>
+                            </tr>
+                            <tr>
+                                <td>Uganda Solar tablets</td>
+                                <td><strong>$15.00</strong></td>
+                                <td>Monthly</td>
+                                <td>June 1, 2026</td>
+                                <td><span class="badge success">Active</span></td>
+                                <td><button class="btn btn-outline-primary btn-sm" onclick="showToast('Recurring gift modified!', 'success')">Edit</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+
+                <div class="db-panel">
+                    <h3 class="panel-title">Completed Donations History</h3>
+                    <div class="table-responsive">
+                    <table class="db-table">
+                        <thead>
+                            <tr>
+                                <th>Receipt ID</th>
+                                <th>Milestone Target</th>
+                                <th>Amount</th>
+                                <th>Payment System</th>
+                                <th>Pledge Date</th>
+                                <th>Receipts UI</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#HF-82910</td>
+                                <td>Clean Water Nippes Haiti</td>
+                                <td><strong>$150.00</strong></td>
+                                <td>Credit Card</td>
+                                <td>May 18, 2026</td>
+                                <td><button class="btn btn-outline-primary btn-sm" onclick="downloadReceipt('HF-82910', '150.00')"><i class="fa-solid fa-download"></i> Receipt</button></td>
+                            </tr>
+                            <tr>
+                                <td>#HF-81092</td>
+                                <td>Brazil Agroforestry buffers</td>
+                                <td><strong>$500.00</strong></td>
+                                <td>PayPal</td>
+                                <td>April 10, 2026</td>
+                                <td><button class="btn btn-outline-primary btn-sm" onclick="downloadReceipt('HF-81092', '500.00')"><i class="fa-solid fa-download"></i> Receipt</button></td>
+                            </tr>
+                            <tr>
+                                <td>#HF-79921</td>
+                                <td>Clean Water Nippes Haiti</td>
+                                <td><strong>$100.00</strong></td>
+                                <td>Credit Card</td>
+                                <td>March 15, 2026</td>
+                                <td><button class="btn btn-outline-primary btn-sm" onclick="downloadReceipt('HF-79921', '100.00')"><i class="fa-solid fa-download"></i> Receipt</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VOLUNTEER TAB -->
+            <section class="db-tab-content" id="volunteer-tab">
+                <div class="db-header">
+                    <div>
+                        <h2>Volunteer Shift Registration</h2>
+                        <p>Pledge your front-line volunteer hours and register for upcoming localized HopeCircle activities.</p>
+                    </div>
+                    <button class="btn btn-primary" onclick="window.location.href='volunteer-registration.html'">Register for Shifts</button>
+                </div>
+
+                <div class="db-main-layout">
+                    <!-- Left: Shift Registration Widget -->
+                    <div class="db-panel">
+                        <h3 class="panel-title">Quick Reserve Shift Slot</h3>
+                        <form id="shiftForm" class="form" onsubmit="event.preventDefault(); showToast('Volunteer Shift slot successfully reserved!', 'success'); appendShift();">
+                            <div class="form-group">
+                                <label for="campaignSelect">Campaign Drive</label>
+                                <select id="campaignSelect" class="auth-input" style="height:48px;" required>
+                                    <option value="Water Relief well assembling">Water Relief well assembling</option>
+                                    <option value="IT Digital Mentor Jinja">IT Digital Mentor Jinja</option>
+                                    <option value="Local Food Pack distribute">Local Food Pack distribute</option>
+                                </select>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group half">
+                                    <label for="shiftDate">Preferred Date</label>
+                                    <input type="date" id="shiftDate" class="auth-input" required value="2026-06-06">
+                                </div>
+                                <div class="form-group half">
+                                    <label for="shiftTime">Preferred Hours Slot</label>
+                                    <select id="shiftTime" class="auth-input" style="height:48px;" required>
+                                        <option value="10:00 AM - 02:00 PM">10:00 AM - 02:00 PM (4h)</option>
+                                        <option value="02:00 PM - 06:00 PM">02:00 PM - 06:00 PM (4h)</option>
+                                        <option value="06:00 PM - 10:00 PM">06:00 PM - 10:00 PM (4h)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary w-100" style="font-weight:700;">Reserve Shift Slot</button>
+                        </form>
+                    </div>
+
+                    <!-- Right: Active shifts -->
+                    <div class="db-panel">
+                        <h3 class="panel-title">Your Confirmed Schedule</h3>
+                        <div class="timeline-list" id="scheduleList">
+                            <!-- shift 1 -->
+                            <div class="timeline-item">
+                                <div class="timeline-dot completed"><i class="fa-solid fa-calendar"></i></div>
+                                <div class="timeline-details">
+                                    <h4 id="s1-title">Local Food Pack distribute</h4>
+                                    <p id="s1-time"><i class="fa-regular fa-clock"></i> Saturday, June 6, 2026<br>10:00 AM - 02:00 PM</p>
+                                    <span class="badge warning">Confirmed</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SETTINGS TAB -->
+            <section class="db-tab-content" id="settings-tab">
+                <div class="db-header">
+                    <div>
+                        <h2>Preferences & Account Settings</h2>
+                        <p>Change your credentials, manage notification triggers, and audit login security.</p>
+                    </div>
+                </div>
+
+                <div class="db-panel" style="margin-bottom:30px;">
+                    <h3 class="panel-title">Change Account Password</h3>
+                    <form onsubmit="event.preventDefault(); showToast('Account password successfully altered.', 'success'); this.reset();">
+                        <div class="form-row">
+                            <div class="form-group third">
+                                <label>Current Password</label>
+                                <input type="password" class="auth-input" required placeholder="••••••••" style="height:45px;">
+                            </div>
+                            <div class="form-group third">
+                                <label>New Password</label>
+                                <input type="password" class="auth-input" required placeholder="••••••••" style="height:45px;">
+                            </div>
+                            <div class="form-group third">
+                                <label>Confirm Password</label>
+                                <input type="password" class="auth-input" required placeholder="••••••••" style="height:45px;">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="font-weight:700;">Update Password</button>
+                    </form>
+                </div>
+
+                <div class="db-panel">
+                    <h3 class="panel-title">Notification Triggers</h3>
+                    <div style="display:flex; flex-direction:column; gap:15px;">
+                        <label style="display:flex; align-items:center; gap:12px; cursor:pointer;">
+                            <input type="checkbox" checked style="width:18px; height:18px;">
+                            <div>
+                                <span style="font-weight:600; display:block;">Weekly Frontline Impact Summaries</span>
+                                <span style="font-size:0.8rem; color:var(--text-muted);">Receive weekly progress logs and transaction dashboards.</span>
+                            </div>
+                        </label>
+                        <hr style="border:0; border-top:1px solid var(--border-clr);">
+                        <label style="display:flex; align-items:center; gap:12px; cursor:pointer;">
+                            <input type="checkbox" checked style="width:18px; height:18px;">
+                            <div>
+                                <span style="font-weight:600; display:block;">Shift Confirmation Notices</span>
+                                <span style="font-size:0.8rem; color:var(--text-muted);">Get automated emails and SMS 24 hours before volunteer schedules.</span>
+                            </div>
+                        </label>
+                        <hr style="border:0; border-top:1px solid var(--border-clr);">
+                        <label style="display:flex; align-items:center; gap:12px; cursor:pointer;">
+                            <input type="checkbox" style="width:18px; height:18px;">
+                            <div>
+                                <span style="font-weight:600; display:block;">Public Donor Acknowledgment</span>
+                                <span style="font-size:0.8rem; color:var(--text-muted);">Display my display initials in the real-time donation marquee feed.</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+
+
+    <!-- Success Toast/Popup -->
+    <div id="toast" class="toast hidden">
+        <div class="toast-content">
+            <i class="fa-solid fa-circle-check toast-icon"></i>
+            <div class="toast-text">
+                <h4>Success!</h4>
+                <p id="toastMessage">Action completed successfully.</p>
+            </div>
+            <button class="toast-close" onclick="closeToast()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+    </div>
+
+    <!-- Modals -->
+
+    <!-- Donation Modal -->
+    <div class="modal" id="donateModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('donateModal')">&times;</span>
+            <h2 class="modal-title">Make a Donation</h2>
+            <p class="modal-subtitle">Your contribution helps us create a better world.</p>
+
+            <form id="donationForm">
+                <div class="amount-selection">
+                    <button type="button" class="amount-btn" data-amount="25">$25</button>
+                    <button type="button" class="amount-btn active" data-amount="50">$50</button>
+                    <button type="button" class="amount-btn" data-amount="100">$100</button>
+                    <button type="button" class="amount-btn" data-amount="500">$500</button>
+                    <button type="button" class="amount-btn custom-amount-btn" id="customAmountBtn">Custom</button>
+                </div>
+
+                <div class="form-group custom-amount-input hidden" id="customAmountWrapper">
+                    <label for="customAmount">Enter Custom Amount ($)</label>
+                    <input type="number" id="customAmount" min="1" placeholder="e.g. 75">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="donorName">Full Name</label>
+                        <input type="text" id="donorName" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group half">
+                        <label for="donorEmail">Email Address</label>
+                        <input type="email" id="donorEmail" required placeholder="john@example.com">
+                    </div>
+                </div>
+
+                <div class="payment-methods">
+                    <label>Payment Method</label>
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="credit" checked>
+                            <span class="pay-btn"><i class="fa-regular fa-credit-card"></i> Card</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="paypal">
+                            <span class="pay-btn"><i class="fa-brands fa-paypal"></i> PayPal</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="applepay">
+                            <span class="pay-btn"><i class="fa-brands fa-apple"></i> Pay</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 mt-3">Donate <span id="donateBtnAmount">$50</span></button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuItems = document.querySelectorAll('.db-menu-item');
+            const tabContents = document.querySelectorAll('.db-tab-content');
+
+            // Sidebar Tab Toggling
+            menuItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    menuItems.forEach(mi => mi.classList.remove('active'));
+                    item.classList.add('active');
+
+                    const tabId = `${item.getAttribute('data-tab')}-tab`;
+                    tabContents.forEach(tc => tc.classList.remove('active'));
+                    const activeTab = document.getElementById(tabId);
+                    if (activeTab) activeTab.classList.add('active');
+                });
+            });
+        });
+
+        // Simulated PDF Tax Receipt Generator
+        function downloadReceipt(receiptId, amount) {
+            showToast(`Generating and preparing tax receipt for ${receiptId}...`, 'info');
+            
+            setTimeout(() => {
+                const receiptContent = `
+=========================================
+      HOPEFUND NGO OFFICIAL TAX RECEIPT
+=========================================
+Receipt ID: ${receiptId}
+Donor: Ananya Ray
+Pledged Sum: $${amount}
+Deployment Sector: Social Development
+Status: TAX DEDUCTIBLE - SECTION 501(C)(3)
+Authorized Seal: HopeFund Executive Board
+=========================================
+Thank you for restoring global hope!
+`;
+                // Create a dynamic blob and prompt download
+                const blob = new Blob([receiptContent], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `Receipt_${receiptId}.txt`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                showToast('Tax receipt downloaded successfully!', 'success');
+            }, 1000);
+        }
+
+        // Add dynamic volunteer shifts
+        function appendShift() {
+            const campaign = document.getElementById('campaignSelect').value;
+            const date = document.getElementById('shiftDate').value;
+            const time = document.getElementById('shiftTime').value;
+
+            const scheduleList = document.getElementById('scheduleList');
+            const newShiftItem = document.createElement('div');
+            newShiftItem.className = 'timeline-item';
+            newShiftItem.innerHTML = `
+                <div class="timeline-dot completed"><i class="fa-solid fa-calendar"></i></div>
+                <div class="timeline-details">
+                    <h4>${campaign}</h4>
+                    <p><i class="fa-regular fa-clock"></i> ${date}<br>${time}</p>
+                    <span class="badge success">Registered</span>
+                </div>
+            `;
+            // Insert at top of list
+            scheduleList.insertBefore(newShiftItem, scheduleList.firstChild);
+        }
+
+        // Dashboard Mobile Sidebar Slide Drawer Toggle
+        const dbHamburger = document.getElementById('db-hamburger');
+        const dbSidebar = document.querySelector('.db-sidebar');
+        const dbOverlay = document.getElementById('nav-overlay');
+
+        if (dbHamburger && dbSidebar && dbOverlay) {
+            dbHamburger.addEventListener('click', (e) => {
+                e.stopPropagation();
+                dbSidebar.classList.toggle('active');
+                dbOverlay.classList.toggle('active');
+                dbHamburger.classList.toggle('active');
+            });
+
+            dbOverlay.addEventListener('click', () => {
+                dbSidebar.classList.remove('active');
+                dbOverlay.classList.remove('active');
+                dbHamburger.classList.remove('active');
+            });
+
+            // Auto-close when selecting menu options on mobile
+            const menuButtons = dbSidebar.querySelectorAll('.db-menu-item button');
+            menuButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    if (window.innerWidth <= 991) {
+                        dbSidebar.classList.remove('active');
+                        dbOverlay.classList.remove('active');
+                        dbHamburger.classList.remove('active');
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>

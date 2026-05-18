@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Become a Volunteer | HopeFund NGO</title>
+    <meta name="description" content="Join HopeFund's team of global volunteers. View opportunities, shift benefits, and submit your volunteer registration today.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .feature-hero {
+            padding: 140px 20px 80px 20px;
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.08) 0%, rgba(22, 163, 74, 0.08) 100%);
+            text-align: center;
+        }
+
+        .feature-hero h1 {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 15px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .breadcrumb a {
+            color: var(--clr-primary);
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--clr-accent);
+            text-decoration: underline;
+        }
+
+        .breadcrumb-separator {
+            font-size: 0.8rem;
+        }
+
+        .vol-hero-btn {
+            margin-top: 20px;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .benefits-section {
+            background-color: var(--bg-light);
+            padding: 80px 0;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .benefit-card {
+            background-color: var(--bg-main);
+            border: 1px solid var(--border-clr);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            text-align: left;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--clr-primary);
+        }
+
+        .benefit-card i {
+            font-size: 2.2rem;
+            color: var(--clr-primary);
+            margin-bottom: 15px;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .application-form-section {
+            padding: 80px 0;
+        }
+
+        .application-wrapper {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--bg-main);
+            border: 1px solid var(--border-clr);
+            border-radius: var(--radius-xl);
+            padding: 40px;
+            box-shadow: var(--shadow-lg);
+        }
+    </style>
+    <link rel="stylesheet" href="css/mobile.css">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    
+    <!-- Nav Overlay (mobile) -->
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-hands-holding-child"></i>
+                Hope<span>Fund</span>
+            </a>
+
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="home2.html" class="nav-link">Home 2</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="campaigns.html" class="nav-link">Campaigns</a></li>
+                    <li><a href="volunteer.html" class="nav-link active">Volunteer</a></li>
+                    <li><a href="events.html" class="nav-link">Events</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <button class="btn btn-primary" onclick="openModal('donateModal')">Donate Now</button>
+                </div>
+            </div>
+
+            <div class="header-icons">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                    <div class="user-dropdown-wrapper">
+                        <button id="user-menu-btn" class="user-menu-btn" aria-label="User Account">
+                            <i class="fa-solid fa-circle-user"></i>
+                        </button>
+                        <div id="user-dropdown" class="user-dropdown-menu">
+                            <div class="dropdown-header">
+                                <h5>Guest User</h5>
+                                <p>Welcome to HopeFund</p>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <a href="login.html" class="dropdown-item"><i class="fa-solid fa-right-to-bracket"></i> Login / Sign Up</a>
+                            <a href="user-dashboard.html" class="dropdown-item"><i class="fa-solid fa-sliders"></i> User Dashboard</a>
+                            <a href="admin-dashboard.html" class="dropdown-item"><i class="fa-solid fa-user-shield"></i> Admin Dashboard</a>
+                        </div>
+                    </div>
+                    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <header class="feature-hero">
+        <div class="container">
+            <h1>Become a HopeFund Volunteer</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <span>Volunteer opportunities</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Volunteer Opportunities Grid -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">Get Hands On</span>
+                <h2>Frontline Volunteer Opportunities</h2>
+                <p class="section-desc">Join our team of dedicated field volunteers. Complete schedules and direct training are provided by experienced program leads.</p>
+            </div>
+
+            <div class="volunteer-grid">
+                <!-- Vol Card 1 -->
+                <div class="volunteer-card">
+                    <div class="vol-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+                    <h3 class="vol-title">Volunteer Teacher</h3>
+                    <ul class="vol-details">
+                        <li><i class="fa-solid fa-location-dot"></i> Nairobi, Kenya (or Remote)</li>
+                        <li><i class="fa-solid fa-clock"></i> 10 Hours / Week</li>
+                    </ul>
+                    <p class="vol-desc">Teach foundational English, reading, and literacy modules to village community children.</p>
+                    <a href="volunteer-registration.html" class="btn btn-outline-primary w-100">Schedule Shifts</a>
+                </div>
+                <!-- Vol Card 2 -->
+                <div class="volunteer-card">
+                    <div class="vol-icon"><i class="fa-solid fa-truck-medical"></i></div>
+                    <h3 class="vol-title">Medical Assistant</h3>
+                    <ul class="vol-details">
+                        <li><i class="fa-solid fa-location-dot"></i> Port-au-Prince, Haiti</li>
+                        <li><i class="fa-solid fa-clock"></i> 20 Hours / Week</li>
+                    </ul>
+                    <p class="vol-desc">Assist clinical practitioners, deliver diagnostic reports, and guide regional vaccination camps.</p>
+                    <a href="volunteer-registration.html" class="btn btn-outline-primary w-100">Schedule Shifts</a>
+                </div>
+                <!-- Vol Card 3 -->
+                <div class="volunteer-card">
+                    <div class="vol-icon"><i class="fa-solid fa-tree"></i></div>
+                    <h3 class="vol-title">Tree Planter</h3>
+                    <ul class="vol-details">
+                        <li><i class="fa-solid fa-location-dot"></i> Local Forest Buffers</li>
+                        <li><i class="fa-solid fa-clock"></i> Weekends</li>
+                    </ul>
+                    <p class="vol-desc">Participate in community reforestation shields, logging GPS survival parameters of local trees.</p>
+                    <a href="volunteer-registration.html" class="btn btn-outline-primary w-100">Schedule Shifts</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shift Benefits -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">Why Join Us?</span>
+                <h2>Outstanding Volunteer Benefits</h2>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <h3>Verified Experience</h3>
+                    <p>Earn official service certifications and direct leadership endorsements signed by our operational managers.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                    <h3>Skill Development</h3>
+                    <p>Acquire premium real-world experience in project management, clinical logistics, and ecological data tracking.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fa-solid fa-heart-circle-check"></i>
+                    <h3>Heartfelt Network</h3>
+                    <p>Build lasting relationships with global changemakers and localized community welfare pioneers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Application Form -->
+    <section class="application-form-section" id="application-form">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle">Register Today</span>
+                <h2>Submit Your Volunteer Application</h2>
+            </div>
+
+            <div class="application-wrapper">
+                <form id="volunteerApplicationForm">
+                    <div class="form-row" style="display:flex; gap:15px; margin-bottom:15px;">
+                        <div class="form-group half" style="flex:1;">
+                            <label for="fullName" style="display:block; margin-bottom:8px; font-weight:600;">Full Name</label>
+                            <input type="text" id="fullName" required placeholder="John Doe" style="width:100%; height:45px; padding:10px; border-radius:var(--radius-md); border:1px solid var(--border-clr); background-color:var(--bg-light);">
+                        </div>
+                        <div class="form-group half" style="flex:1;">
+                            <label for="email" style="display:block; margin-bottom:8px; font-weight:600;">Email Address</label>
+                            <input type="email" id="email" required placeholder="john@example.com" style="width:100%; height:45px; padding:10px; border-radius:var(--radius-md); border:1px solid var(--border-clr); background-color:var(--bg-light);">
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom:15px;">
+                        <label for="phone" style="display:block; margin-bottom:8px; font-weight:600;">Phone Number</label>
+                        <input type="tel" id="phone" required placeholder="+1 (555) 000-0000" style="width:100%; height:45px; padding:10px; border-radius:var(--radius-md); border:1px solid var(--border-clr); background-color:var(--bg-light);">
+                    </div>
+
+                    <div class="form-group" style="margin-bottom:15px;">
+                        <label for="interest" style="display:block; margin-bottom:8px; font-weight:600;">Area of Interest</label>
+                        <select id="interest" required style="width:100%; height:45px; padding:10px; border-radius:var(--radius-md); border:1px solid var(--border-clr); background-color:var(--bg-light);">
+                            <option value="">Select a program</option>
+                            <option value="education">Education & Teaching</option>
+                            <option value="health">Healthcare & Clinical</option>
+                            <option value="environment">Environmental buffers reforestation</option>
+                            <option value="events">Event operations</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom:20px;">
+                        <label for="motivation" style="display:block; margin-bottom:8px; font-weight:600;">Why do you want to volunteer with HopeFund?</label>
+                        <textarea id="motivation" rows="4" required placeholder="Tell us a bit about your motivations..." style="width:100%; padding:10px; border-radius:var(--radius-md); border:1px solid var(--border-clr); background-color:var(--bg-light); font-family:inherit; resize:vertical;"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100" style="height:48px; font-weight:700;">Submit Application</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-widget brand-widget">
+                        <a href="index.html" class="logo footer-logo">
+                            <i class="fa-solid fa-hands-holding-child"></i>
+                            Hope<span>Fund</span>
+                        </a>
+                        <p>Empowering communities and changing lives through sustainable development, education, and healthcare.</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-widget links-widget">
+                        <h3>Ecosystem Navigation</h3>
+                        <ul>
+                            <li><a href="index.html">Home 1 (Classic)</a></li>
+                            <li><a href="home2.html">Home 2 (Premium)</a></li>
+                            <li><a href="blog.html">Blog Insights</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="campaigns.html">Ecosystem Campaigns</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-widget links-widget">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="blog.html">News & Deep Dives</a></li>
+                            <li><a href="volunteer.html">Volunteer Programs</a></li>
+                            <li><a href="events.html">Upcoming Events</a></li>
+                            <li><a href="contact.html">Get In Touch</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-widget newsletter-widget">
+                        <h3>Newsletter Pledge</h3>
+                        <p>Subscribe to our newsletter to receive the latest updates and stories of impact.</p>
+                        <form id="newsletterForm" class="newsletter-form">
+                            <input type="email" placeholder="Email Address" required>
+                            <button type="submit" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 HopeFund Organization. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals & Toast -->
+    <!-- Donation Modal -->
+    <div class="modal" id="donateModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('donateModal')">&times;</span>
+            <h2 class="modal-title">Make a Donation</h2>
+            <p class="modal-subtitle">Your contribution helps us create a better world.</p>
+
+            <form id="donationForm">
+                <div class="amount-selection">
+                    <button type="button" class="amount-btn" data-amount="25">$25</button>
+                    <button type="button" class="amount-btn active" data-amount="50">$50</button>
+                    <button type="button" class="amount-btn" data-amount="100">$100</button>
+                    <button type="button" class="amount-btn" data-amount="500">$500</button>
+                    <button type="button" class="amount-btn custom-amount-btn" id="customAmountBtn">Custom</button>
+                </div>
+
+                <div class="form-group custom-amount-input hidden" id="customAmountWrapper">
+                    <label for="customAmount">Enter Custom Amount ($)</label>
+                    <input type="number" id="customAmount" min="1" placeholder="e.g. 75">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="donorName">Full Name</label>
+                        <input type="text" id="donorName" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group half">
+                        <label for="donorEmail">Email Address</label>
+                        <input type="email" id="donorEmail" required placeholder="john@example.com">
+                    </div>
+                </div>
+
+                <div class="payment-methods">
+                    <label>Payment Method</label>
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="credit" checked>
+                            <span class="pay-btn"><i class="fa-regular fa-credit-card"></i> Card</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="paypal">
+                            <span class="pay-btn"><i class="fa-brands fa-paypal"></i> PayPal</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="applepay">
+                            <span class="pay-btn"><i class="fa-brands fa-apple"></i> Pay</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 mt-3">Donate <span id="donateBtnAmount">$50</span></button>
+            </form>
+        </div>
+    </div>
+
+    <div id="toast" class="toast hidden">
+        <div class="toast-content">
+            <i class="fa-solid fa-circle-check toast-icon"></i>
+            <div class="toast-text">
+                <h4>Success!</h4>
+                <p id="toastMessage">Action completed successfully.</p>
+            </div>
+            <button class="toast-close" onclick="closeToast()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('volunteerApplicationForm');
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                showToast('Thank you! Your volunteer application has been submitted successfully.', 'success');
+                form.reset();
+            });
+        });
+    </script>
+</body>
+
+</html>

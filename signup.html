@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | HopeFund NGO</title>
+    <meta name="description" content="Join our HopeFund donor and volunteer network to empower communities, track impact, and manage your volunteer shifts.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .auth-section {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 20px 60px 20px;
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.05) 0%, rgba(22, 163, 74, 0.05) 100%);
+        }
+
+        .auth-container {
+            width: 100%;
+            max-width: 520px;
+            background-color: var(--bg-main);
+            border: 1px solid var(--border-clr);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            padding: 40px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .auth-header {
+            margin-bottom: 25px;
+        }
+
+        .auth-header h1 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .auth-header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .auth-form {
+            text-align: left;
+        }
+
+        .auth-group {
+            margin-bottom: 18px;
+            position: relative;
+        }
+
+        .auth-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper > i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .auth-input {
+            width: 100%;
+            height: 48px;
+            padding: 0 45px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-clr);
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .auth-input:focus {
+            outline: none;
+            border-color: var(--clr-primary);
+            background-color: var(--bg-main);
+            box-shadow: 0 0 0 4px rgba(30, 64, 175, 0.1);
+        }
+
+        .auth-input:focus + i {
+            color: var(--clr-primary);
+        }
+
+        .auth-input::-ms-reveal {
+            display: none;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 5px;
+            z-index: 10;
+        }
+
+        .toggle-password:hover {
+            color: var(--clr-primary);
+        }
+
+        .terms-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 20px 0;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            cursor: pointer;
+        }
+
+        .terms-checkbox input {
+            margin-top: 3px;
+            cursor: pointer;
+        }
+
+        .terms-checkbox a {
+            color: var(--clr-primary);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .terms-checkbox a:hover {
+            text-decoration: underline;
+        }
+
+        .social-auth {
+            margin-top: 25px;
+        }
+
+        .social-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin: 15px 0;
+        }
+
+        .social-divider::before, .social-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid var(--border-clr);
+        }
+
+        .social-divider:not(:empty)::before {
+            margin-right: 15px;
+        }
+
+        .social-divider:not(:empty)::after {
+            margin-left: 15px;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-btn {
+            flex: 1;
+            height: 48px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-clr);
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .social-btn:hover {
+            background-color: var(--bg-light);
+            border-color: var(--clr-primary);
+        }
+
+        .social-btn i {
+            font-size: 1.1rem;
+        }
+
+        .social-google i { color: #DB4437; }
+        .social-facebook i { color: #4267B2; }
+
+        .auth-footer {
+            margin-top: 25px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .auth-footer a {
+            color: var(--clr-primary);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .auth-footer a:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            color: var(--clr-accent);
+            font-size: 0.8rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .auth-input.invalid {
+            border-color: var(--clr-accent);
+            box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.1);
+        }
+    </style>
+    <link rel="stylesheet" href="css/mobile.css">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    
+    <!-- Nav Overlay (mobile) -->
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-hands-holding-child"></i>
+                Hope<span>Fund</span>
+            </a>
+
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="home2.html" class="nav-link">Home 2</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="campaigns.html" class="nav-link">Campaigns</a></li>
+                    <li><a href="volunteer.html" class="nav-link">Volunteer</a></li>
+                    <li><a href="events.html" class="nav-link">Events</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <button class="btn btn-primary" onclick="openModal('donateModal')">Donate Now</button>
+                </div>
+            </div>
+
+            <div class="header-icons">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                    <div class="user-dropdown-wrapper">
+                        <button id="user-menu-btn" class="user-menu-btn" aria-label="User Account">
+                            <i class="fa-solid fa-circle-user"></i>
+                        </button>
+                        <div id="user-dropdown" class="user-dropdown-menu">
+                            <div class="dropdown-header">
+                                <h5>Guest User</h5>
+                                <p>Welcome to HopeFund</p>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <a href="login.html" class="dropdown-item"><i class="fa-solid fa-right-to-bracket"></i> Login / Sign Up</a>
+                            <a href="user-dashboard.html" class="dropdown-item"><i class="fa-solid fa-sliders"></i> User Dashboard</a>
+                            <a href="admin-dashboard.html" class="dropdown-item"><i class="fa-solid fa-user-shield"></i> Admin Dashboard</a>
+                        </div>
+                    </div>
+                    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Auth Section -->
+    <section class="auth-section">
+        <div class="auth-container">
+            <div class="auth-header">
+                <h1>Join the Cohort</h1>
+                <p>Register today to pledge donations and book shifts</p>
+            </div>
+
+            <form id="signupForm" class="auth-form" novalidate>
+                <div class="auth-group">
+                    <label for="fullName">Full Name</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="fullName" class="auth-input" required placeholder="John Doe">
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+                    <span class="error-message" id="nameError">Please enter your full name.</span>
+                </div>
+
+                <div class="auth-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-wrapper">
+                        <input type="email" id="email" class="auth-input" required placeholder="john@example.com">
+                        <i class="fa-regular fa-envelope"></i>
+                    </div>
+                    <span class="error-message" id="emailError">Please enter a valid email address.</span>
+                </div>
+
+                <div class="auth-row" style="display:flex; gap:15px;">
+                    <div class="auth-group" style="flex:1;">
+                        <label for="password">Password</label>
+                        <div class="input-wrapper">
+                            <input type="password" id="password" class="auth-input" required placeholder="••••••••">
+                            <i class="fa-solid fa-lock"></i>
+                            <span class="toggle-password" id="togglePassword1"><i class="fa-regular fa-eye"></i></span>
+                        </div>
+                        <span class="error-message" id="passwordError">Min 6 characters.</span>
+                    </div>
+
+                    <div class="auth-group" style="flex:1;">
+                        <label for="confirmPassword">Confirm</label>
+                        <div class="input-wrapper">
+                            <input type="password" id="confirmPassword" class="auth-input" required placeholder="••••••••">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span class="toggle-password" id="togglePassword2"><i class="fa-regular fa-eye"></i></span>
+                        </div>
+                        <span class="error-message" id="confirmError">Must match password.</span>
+                    </div>
+                </div>
+
+                <div class="auth-group">
+                    <label for="primaryRole">Primary Interest</label>
+                    <div class="input-wrapper">
+                        <select id="primaryRole" class="auth-input" style="padding-left: 45px; height: 48px;">
+                            <option value="donor">Pledging Financial Support</option>
+                            <option value="volunteer">Frontline Shift Volunteering</option>
+                            <option value="both">Both Donating & Volunteering</option>
+                        </select>
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                    </div>
+                </div>
+
+                <label class="terms-checkbox">
+                    <input type="checkbox" id="termsCheck">
+                    <span>I acknowledge the <a href="#">Privacy Policy</a> and authorize HopeFund to log my impact metrics.</span>
+                </label>
+                <span class="error-message" id="termsError" style="margin-top: -15px; margin-bottom: 15px;">You must accept the privacy policy.</span>
+
+                <button type="submit" class="btn btn-primary w-100" style="height: 48px; font-weight:700;">Create Account</button>
+            </form>
+
+            <div class="social-auth">
+                <div class="social-divider">OR CREATE WITH</div>
+                <div class="social-buttons">
+                    <button class="social-btn social-google" onclick="socialSignup('Google')">
+                        <i class="fa-brands fa-google"></i> Google
+                    </button>
+                    <button class="social-btn social-facebook" onclick="socialSignup('Facebook')">
+                        <i class="fa-brands fa-facebook-f"></i> Facebook
+                    </button>
+                </div>
+            </div>
+
+            <div class="auth-footer">
+                Already have an account? <a href="login.html">Sign In</a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Success Toast/Popup -->
+    <div id="toast" class="toast hidden">
+        <div class="toast-content">
+            <i class="fa-solid fa-circle-check toast-icon"></i>
+            <div class="toast-text">
+                <h4>Success!</h4>
+                <p id="toastMessage">Action completed successfully.</p>
+            </div>
+            <button class="toast-close" onclick="closeToast()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+    </div>
+
+    <!-- Modals -->
+
+    <!-- Donation Modal -->
+    <div class="modal" id="donateModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('donateModal')">&times;</span>
+            <h2 class="modal-title">Make a Donation</h2>
+            <p class="modal-subtitle">Your contribution helps us create a better world.</p>
+
+            <form id="donationForm">
+                <div class="amount-selection">
+                    <button type="button" class="amount-btn" data-amount="25">$25</button>
+                    <button type="button" class="amount-btn active" data-amount="50">$50</button>
+                    <button type="button" class="amount-btn" data-amount="100">$100</button>
+                    <button type="button" class="amount-btn" data-amount="500">$500</button>
+                    <button type="button" class="amount-btn custom-amount-btn" id="customAmountBtn">Custom</button>
+                </div>
+
+                <div class="form-group custom-amount-input hidden" id="customAmountWrapper">
+                    <label for="customAmount">Enter Custom Amount ($)</label>
+                    <input type="number" id="customAmount" min="1" placeholder="e.g. 75">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="donorName">Full Name</label>
+                        <input type="text" id="donorName" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group half">
+                        <label for="donorEmail">Email Address</label>
+                        <input type="email" id="donorEmail" required placeholder="john@example.com">
+                    </div>
+                </div>
+
+                <div class="payment-methods">
+                    <label>Payment Method</label>
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="credit" checked>
+                            <span class="pay-btn"><i class="fa-regular fa-credit-card"></i> Card</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="paypal">
+                            <span class="pay-btn"><i class="fa-brands fa-paypal"></i> PayPal</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="applepay">
+                            <span class="pay-btn"><i class="fa-brands fa-apple"></i> Pay</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 mt-3">Donate <span id="donateBtnAmount">$50</span></button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const signupForm = document.getElementById('signupForm');
+            const fullNameInput = document.getElementById('fullName');
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+            const confirmInput = document.getElementById('confirmPassword');
+            const termsCheck = document.getElementById('termsCheck');
+
+            const nameError = document.getElementById('nameError');
+            const emailError = document.getElementById('emailError');
+            const passwordError = document.getElementById('passwordError');
+            const confirmError = document.getElementById('confirmError');
+            const termsError = document.getElementById('termsError');
+
+            const togglePassword1 = document.getElementById('togglePassword1');
+            const togglePassword2 = document.getElementById('togglePassword2');
+
+            // Password Toggle 1
+            togglePassword1.addEventListener('click', () => {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                togglePassword1.querySelector('i').className = type === 'password' ? 'fa-regular fa-eye' : 'fa-regular fa-eye-slash';
+            });
+
+            // Password Toggle 2
+            togglePassword2.addEventListener('click', () => {
+                const type = confirmInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                confirmInput.setAttribute('type', type);
+                togglePassword2.querySelector('i').className = type === 'password' ? 'fa-regular fa-eye' : 'fa-regular fa-eye-slash';
+            });
+
+            // Signup Submit Logic
+            signupForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                let isValid = true;
+
+                // Validate Full Name
+                if (fullNameInput.value.trim().length === 0) {
+                    fullNameInput.classList.add('invalid');
+                    nameError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    fullNameInput.classList.remove('invalid');
+                    nameError.style.display = 'none';
+                }
+
+                // Validate Email
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(emailInput.value)) {
+                    emailInput.classList.add('invalid');
+                    emailError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    emailInput.classList.remove('invalid');
+                    emailError.style.display = 'none';
+                }
+
+                // Validate Password
+                if (passwordInput.value.length < 6) {
+                    passwordInput.classList.add('invalid');
+                    passwordError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    passwordInput.classList.remove('invalid');
+                    passwordError.style.display = 'none';
+                }
+
+                // Validate Confirm Password
+                if (confirmInput.value !== passwordInput.value || confirmInput.value.length === 0) {
+                    confirmInput.classList.add('invalid');
+                    confirmError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    confirmInput.classList.remove('invalid');
+                    confirmError.style.display = 'none';
+                }
+
+                // Validate Terms checkbox
+                if (!termsCheck.checked) {
+                    termsError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    termsError.style.display = 'none';
+                }
+
+                if (isValid) {
+                    showToast('Account registered successfully! Welcome onboard.', 'success');
+                    setTimeout(() => {
+                        window.location.href = 'user-dashboard.html';
+                    }, 1500);
+                }
+            });
+        });
+
+        function socialSignup(network) {
+            showToast(`Linking and registering with ${network}...`, 'success');
+            setTimeout(() => {
+                window.location.href = 'user-dashboard.html';
+            }, 1200);
+        }
+    </script>
+</body>
+
+</html>

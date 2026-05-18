@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Shift Registration | HopeFund NGO</title>
+    <meta name="description" content="Register for local volunteer shifts, coordinate food drives, and help deploy solar computing labs.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .feature-hero {
+            padding: 140px 20px 80px 20px;
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.08) 0%, rgba(22, 163, 74, 0.08) 100%);
+            text-align: center;
+        }
+
+        .feature-hero h1 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 15px;
+        }
+
+        .feature-hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .feature-content {
+            padding: 60px 0;
+        }
+
+        .shifts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .calendar-card {
+            background-color: var(--bg-main);
+            border: 1px solid var(--border-clr);
+            border-radius: var(--radius-xl);
+            padding: 35px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Calendar grid layout */
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .cal-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+            text-align: center;
+        }
+
+        .cal-day-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            padding-bottom: 10px;
+        }
+
+        .cal-date {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem;
+            color: var(--text-main);
+            border: 1px solid var(--border-clr);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .cal-date:hover {
+            border-color: var(--clr-primary);
+            background-color: var(--bg-light);
+        }
+
+        .cal-date.active, .cal-date.selected {
+            background-color: var(--clr-primary);
+            color: #FFF;
+            border-color: var(--clr-primary);
+        }
+
+        .cal-date.empty {
+            border: none;
+            cursor: default;
+        }
+
+        .cal-date.has-shift {
+            border-color: var(--clr-secondary);
+            font-weight: 700;
+            background-color: rgba(22, 163, 74, 0.05);
+        }
+
+        @media (max-width: 991px) {
+            .shifts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="css/mobile.css">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    
+    <!-- Nav Overlay (mobile) -->
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-hands-holding-child"></i>
+                Hope<span>Fund</span>
+            </a>
+
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="home2.html" class="nav-link">Home 2</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="campaigns.html" class="nav-link">Campaigns</a></li>
+                    <li><a href="volunteer.html" class="nav-link">Volunteer</a></li>
+                    <li><a href="events.html" class="nav-link">Events</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <button class="btn btn-primary" onclick="openModal('donateModal')">Donate Now</button>
+                </div>
+            </div>
+
+            <div class="header-icons">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                    <div class="user-dropdown-wrapper">
+                        <button id="user-menu-btn" class="user-menu-btn" aria-label="User Account">
+                            <i class="fa-solid fa-circle-user"></i>
+                        </button>
+                        <div id="user-dropdown" class="user-dropdown-menu">
+                            <div class="dropdown-header">
+                                <h5>Guest User</h5>
+                                <p>Welcome to HopeFund</p>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <a href="login.html" class="dropdown-item"><i class="fa-solid fa-right-to-bracket"></i> Login / Sign Up</a>
+                            <a href="user-dashboard.html" class="dropdown-item"><i class="fa-solid fa-sliders"></i> User Dashboard</a>
+                            <a href="admin-dashboard.html" class="dropdown-item"><i class="fa-solid fa-user-shield"></i> Admin Dashboard</a>
+                        </div>
+                    </div>
+                    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Feature Hero -->
+    <header class="feature-hero">
+        <div class="container">
+            <h1>Frontline Shift Scheduler</h1>
+            <p>Coordinate active local shift drives. Select available slots, fill in credentials, and instantly get clear approval clearance.</p>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <div class="container feature-content">
+        <div class="shifts-grid">
+            
+            <!-- Left: Calendar view -->
+            <div class="calendar-card">
+                <div class="calendar-header">
+                    <h3 style="font-family:var(--font-heading); font-size:1.3rem; color:var(--text-main);"><i class="fa-regular fa-calendar-check"></i> June 2026</h3>
+                    <span style="font-size:0.8rem; color:var(--clr-secondary); font-weight:700;"><i class="fa-solid fa-circle"></i> Active Shift Days</span>
+                </div>
+                
+                <div class="cal-grid">
+                    <div class="cal-day-label">Su</div><div class="cal-day-label">Mo</div><div class="cal-day-label">Tu</div><div class="cal-day-label">We</div><div class="cal-day-label">Th</div><div class="cal-day-label">Fr</div><div class="cal-day-label">Sa</div>
+                    
+                    <!-- Calendar dates June 2026 starts on Monday -->
+                    <div class="cal-date empty"></div>
+                    <div class="cal-date">1</div>
+                    <div class="cal-date">2</div>
+                    <div class="cal-date">3</div>
+                    <div class="cal-date">4</div>
+                    <div class="cal-date has-shift">5</div>
+                    <div class="cal-date has-shift selected" id="selDate">6</div>
+                    
+                    <div class="cal-date">7</div>
+                    <div class="cal-date">8</div>
+                    <div class="cal-date">9</div>
+                    <div class="cal-date">10</div>
+                    <div class="cal-date">11</div>
+                    <div class="cal-date has-shift">12</div>
+                    <div class="cal-date">13</div>
+                    
+                    <div class="cal-date">14</div>
+                    <div class="cal-date">15</div>
+                    <div class="cal-date">16</div>
+                    <div class="cal-date">17</div>
+                    <div class="cal-date">18</div>
+                    <div class="cal-date has-shift">19</div>
+                    <div class="cal-date">20</div>
+                    
+                    <div class="cal-date">21</div>
+                    <div class="cal-date">22</div>
+                    <div class="cal-date">23</div>
+                    <div class="cal-date">24</div>
+                    <div class="cal-date">25</div>
+                    <div class="cal-date has-shift">26</div>
+                    <div class="cal-date">27</div>
+                    
+                    <div class="cal-date">28</div>
+                    <div class="cal-date">29</div>
+                    <div class="cal-date">30</div>
+                    <div class="cal-date empty"></div><div class="cal-date empty"></div><div class="cal-date empty"></div><div class="cal-date empty"></div>
+                </div>
+            </div>
+
+            <!-- Right: Booking Form -->
+            <div class="calendar-card" style="box-shadow:var(--shadow-sm);">
+                <h3 style="font-size:1.3rem; margin-bottom:10px;">Reserve Selected Shift</h3>
+                <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom:20px;">Complete details to log slot reserve.</p>
+                
+                <form class="form" onsubmit="event.preventDefault(); showToast('Shift successfully logged! Awaiting coordinator approval.', 'success');">
+                    <div class="form-group">
+                        <label>Selected Target Date</label>
+                        <input type="text" id="targetDateVal" class="auth-input" value="June 6, 2026" disabled>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Target Shift Sector</label>
+                        <select class="auth-input" style="height:48px;" required>
+                            <option>Food Packaging Distribute (10:00 AM - 02:00 PM)</option>
+                            <option>Solar primary school training (02:00 PM - 06:00 PM)</option>
+                            <option>Clinical Solar Truck logistics (06:00 PM - 10:00 PM)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Brief Emergency Contact Log</label>
+                        <input type="text" placeholder="Sanjay Ray (+1 555-382-9022)" required class="auth-input">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100" style="font-weight:700;">Submit Shift Registration</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-widget brand-widget">
+                        <a href="index.html" class="logo footer-logo">
+                            <i class="fa-solid fa-hands-holding-child"></i>
+                            Hope<span>Fund</span>
+                        </a>
+                        <p>Empowering communities and changing lives through sustainable development, education, and healthcare.</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-widget links-widget">
+                        <h3>Ecosystem Navigation</h3>
+                        <ul>
+                            <li><a href="index.html">Home 1 (Classic)</a></li>
+                            <li><a href="home2.html">Home 2 (Premium)</a></li>
+                            <li><a href="blog.html">Blog Insights</a></li>
+                            <li><a href="index.html#campaigns">Ecosystem Campaigns</a></li>
+                            <li><a href="index.html#volunteer">Become Volunteer</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-widget links-widget">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="blog.html">News & Deep Dives</a></li>
+                            <li><a href="index.html#faq">FAQ & Support</a></li>
+                            <li><a href="home2.html">Home 2 Demo</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-widget newsletter-widget">
+                        <h3>Newsletter Pledge</h3>
+                        <p>Subscribe to our newsletter to receive the latest updates and stories of impact.</p>
+                        <form id="newsletterForm" class="newsletter-form">
+                            <input type="email" placeholder="Email Address" required>
+                            <button type="submit" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 HopeFund Organization. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Toast/Popup -->
+    <div id="toast" class="toast hidden">
+        <div class="toast-content">
+            <i class="fa-solid fa-circle-check toast-icon"></i>
+            <div class="toast-text">
+                <h4>Success!</h4>
+                <p id="toastMessage">Action completed successfully.</p>
+            </div>
+            <button class="toast-close" onclick="closeToast()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+    </div>
+
+    <!-- Modals -->
+
+    <!-- Donation Modal -->
+    <div class="modal" id="donateModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('donateModal')">&times;</span>
+            <h2 class="modal-title">Make a Donation</h2>
+            <p class="modal-subtitle">Your contribution helps us create a better world.</p>
+
+            <form id="donationForm">
+                <div class="amount-selection">
+                    <button type="button" class="amount-btn" data-amount="25">$25</button>
+                    <button type="button" class="amount-btn active" data-amount="50">$50</button>
+                    <button type="button" class="amount-btn" data-amount="100">$100</button>
+                    <button type="button" class="amount-btn" data-amount="500">$500</button>
+                    <button type="button" class="amount-btn custom-amount-btn" id="customAmountBtn">Custom</button>
+                </div>
+
+                <div class="form-group custom-amount-input hidden" id="customAmountWrapper">
+                    <label for="customAmount">Enter Custom Amount ($)</label>
+                    <input type="number" id="customAmount" min="1" placeholder="e.g. 75">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="donorName">Full Name</label>
+                        <input type="text" id="donorName" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group half">
+                        <label for="donorEmail">Email Address</label>
+                        <input type="email" id="donorEmail" required placeholder="john@example.com">
+                    </div>
+                </div>
+
+                <div class="payment-methods">
+                    <label>Payment Method</label>
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="credit" checked>
+                            <span class="pay-btn"><i class="fa-regular fa-credit-card"></i> Card</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="paypal">
+                            <span class="pay-btn"><i class="fa-brands fa-paypal"></i> PayPal</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="applepay">
+                            <span class="pay-btn"><i class="fa-brands fa-apple"></i> Pay</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 mt-3">Donate <span id="donateBtnAmount">$50</span></button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dates = document.querySelectorAll('.cal-date:not(.empty)');
+            const targetDateVal = document.getElementById('targetDateVal');
+
+            dates.forEach(d => {
+                d.addEventListener('click', () => {
+                    dates.forEach(dt => dt.classList.remove('selected'));
+                    d.classList.add('selected');
+                    
+                    const day = d.textContent;
+                    targetDateVal.value = `June ${day}, 2026`;
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

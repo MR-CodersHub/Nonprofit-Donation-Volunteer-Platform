@@ -1,0 +1,1313 @@
+/* ==========================================================================
+   mobile.css — Sitewide Mobile Responsiveness (360px optimised)
+   Apply this after style.css, home2.css, blog.css on every page.
+   ========================================================================== */
+
+/* ==============================
+   0. GLOBAL RESETS
+   ============================== */
+html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+img, video, iframe, embed, object {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ==============================
+   1. NAVBAR / HEADER
+   ============================== */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 12px 0;
+    }
+
+    .nav-container {
+        padding: 0 16px;
+        gap: 0;
+    }
+
+    .logo {
+        font-size: 1.25rem;
+        gap: 8px;
+        flex-shrink: 0;
+    }
+
+    .logo i {
+        font-size: 1.4rem;
+    }
+
+    /* nav-menu slides from top */
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 82%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: var(--bg-main);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 80px 24px 30px;
+        box-shadow: 4px 0 30px rgba(0,0,0,0.15);
+        clip-path: none;
+        transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 999;
+        overflow-y: auto;
+        gap: 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+        clip-path: none;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        width: 100%;
+        gap: 4px;
+        text-align: left;
+    }
+
+    .nav-list li {
+        width: 100%;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 12px 16px;
+        border-radius: var(--radius-md);
+        font-size: 1rem;
+        width: 100%;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+        background-color: var(--bg-light);
+    }
+
+    .nav-link::after {
+        display: none;
+    }
+
+    .nav-actions {
+        width: 100%;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid var(--border-clr);
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Header icons: theme + user + hamburger always visible */
+    .header-icons {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+        margin-left: auto;
+    }
+
+    .theme-toggle,
+    .user-menu-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+        flex-shrink: 0;
+    }
+
+    .hamburger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        font-size: 1.3rem;
+        flex-shrink: 0;
+    }
+
+    /* Overlay when nav is open */
+    .nav-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.4);
+        z-index: 998;
+    }
+
+    .nav-overlay.active {
+        display: block;
+    }
+
+    /* User dropdown on mobile: stays absolute, anchored right */
+    .user-dropdown-menu {
+        right: 0;
+        left: auto;
+        width: min(250px, calc(100vw - 32px));
+        top: 48px;
+    }
+
+    /* Transparent navbar icons go dark on mobile menu open */
+    .navbar-transparent:not(.scrolled) .nav-menu {
+        background-color: var(--bg-main);
+    }
+
+    .navbar-transparent:not(.scrolled) .nav-menu .nav-link {
+        color: var(--text-main);
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.1rem;
+    }
+
+    .theme-toggle,
+    .user-menu-btn,
+    .hamburger {
+        width: 34px;
+        height: 34px;
+    }
+}
+
+@media (max-width: 360px) {
+    .nav-container {
+        padding: 0 12px;
+    }
+
+    .logo {
+        font-size: 1rem;
+        gap: 6px;
+    }
+
+    .logo i {
+        font-size: 1.2rem;
+    }
+
+    .header-icons {
+        gap: 6px;
+    }
+
+    .theme-toggle,
+    .user-menu-btn,
+    .hamburger {
+        width: 32px;
+        height: 32px;
+        font-size: 0.95rem;
+    }
+}
+
+/* ==============================
+   2. HERO SECTIONS
+   ============================== */
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 70px;
+        min-height: auto;
+        padding-bottom: 60px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-title {
+        font-size: 2.4rem;
+        line-height: 1.2;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title { font-size: 2rem; }
+}
+
+@media (max-width: 360px) {
+    .hero { padding-top: 65px; }
+    .hero-title { font-size: 1.75rem; }
+    .hero-subtitle { font-size: 0.9rem; }
+}
+
+/* ==============================
+   3. UTILITY / CONTAINERS
+   ============================== */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    .section-padding {
+        padding: 60px 0;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .section-desc {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title { font-size: 1.75rem; }
+    .section-padding { padding: 50px 0; }
+}
+
+@media (max-width: 360px) {
+    .container { padding: 0 12px; }
+    .section-title { font-size: 1.6rem; }
+    .section-padding { padding: 40px 0; }
+}
+
+/* ==============================
+   4. BUTTONS
+   ============================== */
+@media (max-width: 360px) {
+    .btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.875rem;
+    }
+
+    .btn-lg {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* ==============================
+   5. STATISTICS SECTION
+   ============================== */
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+    }
+
+    .stat-suffix {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==============================
+   6. ABOUT SECTION
+   ============================== */
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .about-image-wrapper {
+        margin-bottom: 20px;
+    }
+
+    .experience-badge {
+        right: 10px;
+        bottom: 0;
+        padding: 15px 20px;
+    }
+
+    .experience-badge .years {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .experience-badge {
+        right: 5px;
+        bottom: 5px;
+        padding: 12px 14px;
+    }
+
+    .experience-badge .years { font-size: 1.6rem; }
+    .mv-card { flex-direction: column; gap: 12px; }
+    .mv-icon { width: 50px; height: 50px; font-size: 1.2rem; }
+}
+
+/* ==============================
+   7. CAMPAIGNS SECTION
+   ============================== */
+@media (max-width: 1024px) {
+    .campaign-grid { grid-template-columns: repeat(2, 1fr); }
+    .campaign-grid-full { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+@media (max-width: 768px) {
+    .campaign-grid { grid-template-columns: 1fr; }
+    .campaign-grid-full { grid-template-columns: 1fr !important; gap: 20px !important; }
+
+    .filter-container {
+        gap: 8px;
+    }
+
+    .filter-btn {
+        padding: 6px 14px;
+        font-size: 0.875rem;
+    }
+
+    .campaign-content { padding: 18px; }
+
+    .campaign-stats {
+        flex-direction: column;
+        gap: 6px;
+    }
+    
+    .campaigns-filter-bar {
+        gap: 8px !important;
+        margin-bottom: 25px !important;
+    }
+    
+    .filter-pill {
+        padding: 8px 16px !important;
+        font-size: 0.85rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .campaign-img-wrapper {
+        height: 180px !important;
+    }
+    
+    .campaign-content {
+        padding: 20px 16px !important;
+    }
+    
+    .campaign-title {
+        font-size: 1.2rem !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .campaign-img-wrapper {
+        height: 155px !important;
+    }
+    
+    .campaign-content { 
+        padding: 14px !important; 
+    }
+    
+    .campaign-title { 
+        font-size: 1.1rem !important; 
+    }
+    
+    .campaign-stats {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        gap: 0 !important;
+        font-size: 0.85rem !important;
+    }
+}
+
+/* ==============================
+   8. VOLUNTEER SECTION
+   ============================== */
+@media (max-width: 1024px) {
+    .volunteer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .volunteer-grid { grid-template-columns: 1fr; }
+
+    .volunteer-card { padding: 22px; }
+}
+
+@media (max-width: 360px) {
+    .volunteer-card { padding: 16px; }
+    .vol-icon { width: 60px; height: 60px; font-size: 1.5rem; }
+    .vol-title { font-size: 1.1rem; }
+}
+
+/* ==============================
+   9. EVENTS SECTION
+   ============================== */
+@media (max-width: 768px) {
+    .events-list { max-width: 100%; }
+
+    .event-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 18px;
+    }
+
+    .event-date {
+        flex-direction: row;
+        border-right: none;
+        border-bottom: 1px solid var(--border-clr);
+        padding-right: 0;
+        padding-bottom: 12px;
+        margin-right: 0;
+        margin-bottom: 0;
+        width: 100%;
+        gap: 10px;
+        min-width: auto;
+        justify-content: flex-start;
+    }
+
+    .event-item .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 360px) {
+    .event-date .day { font-size: 1.5rem; }
+    .event-info h3 { font-size: 1rem; }
+    .event-info p { font-size: 0.85rem; gap: 8px; }
+}
+
+/* ==============================
+   10. TESTIMONIALS
+   ============================== */
+@media (max-width: 768px) {
+    .testimonials-grid { grid-template-columns: 1fr; }
+
+    .testimonial-card { padding: 25px; }
+
+    .testimonial-text { font-size: 1rem; }
+}
+
+@media (max-width: 360px) {
+    .testimonial-card { padding: 18px; }
+    .testimonial-author img { width: 48px; height: 48px; }
+}
+
+/* ==============================
+   11. CONTACT SECTION
+   ============================== */
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .contact-form-wrapper {
+        padding: 25px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .contact-details li {
+        gap: 14px;
+    }
+}
+
+@media (max-width: 360px) {
+    .contact-form-wrapper { padding: 16px; }
+    .contact-details i {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
+
+/* ==============================
+   12. FOOTER
+   ============================== */
+@media (max-width: 1024px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+}
+
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .footer-top { padding: 50px 0 30px; }
+
+    /* Center logo and tagline */
+    .brand-widget {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-logo {
+        justify-content: center;
+    }
+
+    /* Center social icon row */
+    .social-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Center nav link lists */
+    .links-widget ul {
+        align-items: center;
+    }
+
+    .links-widget a {
+        display: inline-block;
+    }
+
+    /* Center newsletter widget */
+    .newsletter-widget {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .newsletter-form input {
+        border-bottom: 1px solid #334155;
+        text-align: center;
+    }
+
+    .newsletter-form button {
+        padding: 14px;
+        width: 100%;
+    }
+
+    /* Center footer bottom copyright */
+    .footer-bottom {
+        text-align: center;
+    }
+}
+
+@media (max-width: 360px) {
+    .footer-widget h3 { font-size: 1.05rem; }
+}
+
+/* ==============================
+   13. MODALS
+   ============================== */
+@media (max-width: 768px) {
+    .modal {
+        padding: 16px;
+        align-items: flex-end;
+    }
+
+    .modal-content {
+        padding: 28px 22px;
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        max-height: 90vh;
+        width: 100%;
+    }
+
+    .amount-selection {
+        flex-wrap: wrap;
+    }
+
+    .amount-btn {
+        flex: 1 1 calc(50% - 5px);
+        min-width: 80px;
+    }
+
+    .payment-options {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 360px) {
+    .modal-content { padding: 20px 14px; }
+    .modal-title { font-size: 1.3rem; }
+}
+
+/* ==============================
+   14. TOAST
+   ============================== */
+@media (max-width: 768px) {
+    .toast {
+        right: 12px;
+        left: 12px;
+        bottom: 20px;
+        width: auto;
+    }
+}
+
+/* ==============================
+   15. DASHBOARD PAGES
+       (admin-dashboard, user-dashboard)
+   ============================== */
+@media (max-width: 1024px) {
+    .dashboard-wrapper {
+        flex-direction: column;
+        padding-top: 70px;
+    }
+
+    .db-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border-clr);
+        padding: 20px 16px;
+        gap: 15px;
+    }
+
+    .db-user-profile {
+        padding-bottom: 15px;
+    }
+
+    .db-menu {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+    }
+
+    .db-menu-item button {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 8px;
+        gap: 6px;
+        font-size: 0.8rem;
+        text-align: center;
+    }
+
+    .db-menu-item button i {
+        font-size: 1.2rem;
+        width: auto;
+    }
+
+    .db-content {
+        padding: 24px 16px;
+    }
+
+    .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .db-main-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .db-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .db-header h2 { font-size: 1.4rem; }
+}
+
+@media (max-width: 768px) {
+    .db-menu {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .db-content {
+        padding: 20px 14px;
+    }
+
+    .metric-card {
+        padding: 18px;
+    }
+
+    .metric-details .value {
+        font-size: 1.5rem;
+    }
+
+    .db-panel { padding: 18px; }
+
+    /* Tables become scrollable */
+    .db-table {
+        overflow-x: auto;
+        display: block;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .db-table table {
+        min-width: 480px;
+    }
+}
+
+@media (max-width: 480px) {
+    .db-menu {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chart-placeholder {
+        height: 200px;
+    }
+}
+
+@media (max-width: 360px) {
+    .db-sidebar { padding: 14px 12px; }
+    .db-menu { gap: 4px; }
+    .db-menu-item button {
+        padding: 8px 6px;
+        font-size: 0.75rem;
+    }
+
+    .db-avatar { width: 44px; height: 44px; font-size: 1.1rem; }
+
+    .db-content { padding: 16px 12px; }
+    .metric-details .value { font-size: 1.3rem; }
+    .panel-title { font-size: 1rem; flex-direction: column; align-items: flex-start; gap: 6px; }
+}
+
+/* ==============================
+   16. LOGIN / SIGNUP PAGES
+   ============================== */
+@media (max-width: 768px) {
+    .auth-wrapper {
+        flex-direction: column;
+        min-height: auto;
+        padding-top: 80px;
+    }
+
+    .auth-visual {
+        display: none;
+    }
+
+    .auth-form-side {
+        width: 100%;
+        padding: 40px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-form-side {
+        padding: 30px 16px;
+    }
+
+    .auth-title { font-size: 1.8rem; }
+}
+
+@media (max-width: 360px) {
+    .auth-form-side { padding: 24px 12px; }
+    .auth-title { font-size: 1.5rem; }
+}
+
+/* ==============================
+   17. BLOG PAGES
+   ============================== */
+@media (max-width: 1024px) {
+    .blog-main-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .featured-blog-card {
+        grid-template-columns: 1fr;
+    }
+
+    .fbc-img { height: 280px; }
+}
+
+@media (max-width: 768px) {
+    .blog-hero {
+        padding: 120px 0 60px;
+    }
+
+    .blog-hero-title { font-size: 2.4rem; }
+    .blog-hero-desc { font-size: 1rem; }
+
+    .blog-posts-grid { grid-template-columns: 1fr; }
+
+    .fbc-content { padding: 24px; }
+    .fbc-title { font-size: 1.6rem; }
+
+    .article-container {
+        grid-template-columns: 1fr;
+    }
+
+    .article-title { font-size: 2rem; }
+
+    .share-bar {
+        position: relative;
+        top: auto;
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+    }
+
+    .infographic-box { grid-template-columns: 1fr; }
+    .post-navigation { grid-template-columns: 1fr; }
+
+    .comment-item.reply { margin-left: 16px; }
+}
+
+@media (max-width: 480px) {
+    .blog-hero-title { font-size: 2rem; }
+    .article-title { font-size: 1.8rem; }
+
+    .comment-item { flex-direction: column; gap: 12px; }
+    .comment-avatar { width: 44px; height: 44px; }
+    .comment-content { padding: 14px; }
+    .comment-form-wrapper { padding: 18px; }
+
+    .blog-card-content { padding: 18px; }
+    .blog-card-footer { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
+
+@media (max-width: 360px) {
+    .blog-hero-title { font-size: 1.7rem; }
+    .blog-hero { padding: 100px 0 50px; }
+    .article-title { font-size: 1.6rem; }
+    .fbc-content { padding: 16px; }
+    .widget { padding: 20px; }
+    .blog-card-content { padding: 14px; }
+}
+
+/* ==============================
+   18. HOME 2 PAGE
+   ============================== */
+@media (max-width: 1024px) {
+    .hero2-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+    .hero2-badge { margin: 0 auto 20px; }
+    .hero2-actions { justify-content: center; }
+    .hero2-mosaic { height: 380px; max-width: 480px; margin: 0 auto; }
+    .stats2-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+    .stat2-card::after { display: none; }
+    .dashboard-grid { grid-template-columns: 1fr; gap: 30px; }
+    .campaigns2-grid { grid-template-columns: 1fr; }
+    .volunteers2-grid { grid-template-columns: repeat(2, 1fr); }
+    .stories2-grid { grid-template-columns: 1fr; gap: 30px; }
+}
+
+@media (max-width: 768px) {
+    .hero2 { padding: 100px 0 60px; }
+    .hero2-title { font-size: 2.4rem; }
+    .hero2-actions { flex-wrap: wrap; gap: 10px; }
+    .hero2-actions .btn { flex: 1 1 100%; justify-content: center; }
+    .stats2-wrapper { padding: 25px 16px; }
+    .volunteers2-grid { grid-template-columns: 1fr; }
+    .campaign2-card-mini { grid-template-columns: 1fr; height: auto; }
+    .c2-mini-img { height: 180px; }
+    .c2-large-content { padding: 20px; }
+    .mosaic-main { width: 200px; height: 260px; left: 15px; }
+    .mosaic-sub1 { width: 160px; height: 160px; top: 170px; }
+    .mosaic-sub2 { width: 130px; height: 130px; }
+
+    /* Live Dashboard Stacking & Centering */
+    .dashboard-graphic {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 25px !important;
+    }
+    .dashboard-graphic-content {
+        margin-left: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    .dashboard-graphic-desc {
+        max-width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    .dashboard-graphic-stats {
+        justify-content: center !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero2-title { font-size: 2rem; }
+    .stats2-grid { grid-template-columns: 1fr; }
+    .circle-progress-wrapper { width: 180px; height: 180px; }
+    .timeline2 { padding-left: 20px; }
+    .timeline2-marker { left: -20px; }
+    .timeline2-content { padding: 14px; }
+    .timeline2::before { left: -11px; }
+    .marquee-track { gap: 40px; }
+}
+
+@media (max-width: 360px) {
+    .hero2 { padding: 80px 0 50px; }
+    .hero2-title { font-size: 1.75rem; }
+    .hero2-mosaic { height: 280px; }
+    .mosaic-main { width: 160px; height: 220px; left: 10px; }
+    .mosaic-sub1 { width: 120px; height: 120px; top: 140px; }
+    .mosaic-sub2 { width: 90px; height: 90px; }
+    .mosaic-card-floating { display: none; }
+    .stat2-card { padding: 16px; }
+    .timeline2-content { padding: 12px; }
+}
+
+/* ==============================
+   19. CAMPAIGNS / VOLUNTEER / EVENTS PAGES
+       (inner pages with hero banners)
+   ============================== */
+@media (max-width: 768px) {
+    .page-hero {
+        padding: 120px 0 60px;
+    }
+
+    .page-hero-title { font-size: 2.4rem; }
+
+    .breadcrumb {
+        font-size: 0.85rem;
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-hero { padding: 100px 0 50px; }
+    .page-hero-title { font-size: 2rem; }
+}
+
+@media (max-width: 360px) {
+    .page-hero { padding: 85px 0 40px; }
+    .page-hero-title { font-size: 1.7rem; }
+}
+
+/* ==============================
+   20. INNER PAGE SPECIFIC FIXES
+   ============================== */
+
+/* Impact Metrics */
+@media (max-width: 768px) {
+    .metrics-section-grid { grid-template-columns: 1fr; }
+    .progress-ring-wrapper { flex-direction: column; align-items: center; gap: 20px; }
+}
+
+/* Recurring Gifts / Tax Receipts */
+@media (max-width: 768px) {
+    .gifts-grid,
+    .tax-grid { grid-template-columns: 1fr; }
+}
+
+/* Shift Registration */
+@media (max-width: 768px) {
+    .shifts-grid { grid-template-columns: 1fr; }
+    .shift-card { padding: 20px; }
+}
+
+@media (max-width: 360px) {
+    .shift-card { padding: 14px; }
+}
+
+/* ==============================
+   21. FAQ SECTION
+   ============================== */
+@media (max-width: 768px) {
+    .faq-question {
+        font-size: 1rem;
+        padding: 16px;
+    }
+
+    .faq-answer {
+        padding: 0 16px;
+    }
+
+    .faq-item.active .faq-answer {
+        padding: 0 16px 16px;
+    }
+}
+
+@media (max-width: 360px) {
+    .faq-question { font-size: 0.9rem; padding: 12px; }
+}
+
+/* ==============================
+   22. USER DROPDOWN (Compact Mobile Redesign)
+   ============================== */
+@media (max-width: 768px) {
+    .user-dropdown-menu {
+        width: 220px !important;
+        right: -8px !important;
+        left: auto !important;
+        top: 48px !important;
+        padding: 10px 0 !important;
+        background-color: var(--bg-main) !important;
+        border: 1px solid var(--border-clr) !important;
+        border-radius: var(--radius-md) !important;
+        box-shadow: var(--shadow-lg) !important;
+    }
+
+    .dropdown-header {
+        padding: 8px 16px 6px 16px !important;
+    }
+
+    .dropdown-header h5 { 
+        font-size: 0.9rem !important; 
+        font-weight: 700 !important;
+    }
+    
+    .dropdown-header p { 
+        font-size: 0.75rem !important; 
+    }
+
+    .dropdown-item {
+        padding: 8px 16px !important;
+        font-size: 0.85rem !important;
+        gap: 10px !important;
+    }
+
+    .dropdown-item i {
+        font-size: 0.9rem !important;
+        width: 14px !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .user-dropdown-menu {
+        width: 195px !important;
+        right: -6px !important;
+    }
+}
+
+/* ==============================
+   23. PRELOADER
+   ============================== */
+@media (max-width: 360px) {
+    .loader { width: 40px; height: 40px; }
+}
+
+/* ==============================
+   24. SCROLL-TO-TOP / MISC
+   ============================== */
+@media (max-width: 360px) {
+    .scroll-top {
+        right: 12px;
+        bottom: 12px;
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
+    }
+}
+
+/* ==========================================================================
+   25. GLOBAL TABLE RESPONSIVENESS & PREMIUM CUSTOMIZATION
+   ========================================================================== */
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 15px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-clr);
+}
+
+.table-responsive::-webkit-scrollbar {
+    height: 6px;
+}
+.table-responsive::-webkit-scrollbar-track {
+    background: var(--bg-light);
+}
+.table-responsive::-webkit-scrollbar-thumb {
+    background: var(--border-clr);
+    border-radius: 3px;
+}
+.table-responsive::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+}
+
+/* Card, Panel, Grid & Spacing Adjustments for 360px Mobile Screens */
+@media (max-width: 480px) {
+    .container {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+    
+    .db-panel,
+    .slider-card,
+    .charts-card,
+    .calculator-card,
+    .db-table-wrapper {
+        padding: 20px 15px !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .container {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+    
+    .db-panel,
+    .slider-card,
+    .charts-card,
+    .calculator-card,
+    .db-table-wrapper {
+        padding: 15px 12px !important;
+    }
+    
+    .db-menu-item {
+        min-width: 120px !important;
+    }
+    
+    .db-menu-item button {
+        padding: 10px 12px !important;
+        font-size: 0.85rem !important;
+    }
+}
+
+/* ==========================================================================
+   26. PREMIUM DASHBOARD SLIDE-IN SIDEBAR DRAWER (UNDER 991PX)
+   ========================================================================== */
+@media (max-width: 991px) {
+    /* Hide the main website pages navigation entirely in dashboard contexts */
+    .db-navbar .nav-menu {
+        display: none !important;
+    }
+
+    /* Stack dynamic panels below header container */
+    .dashboard-wrapper {
+        flex-direction: column !important;
+        padding-top: 80px !important;
+    }
+
+    /* Transform standard dashboard aside into a clean mobile-drawer drawer */
+    .db-sidebar {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 290px !important;
+        max-width: 85vw !important;
+        height: 100vh !important;
+        background-color: var(--bg-main) !important;
+        border-right: 1px solid var(--border-clr) !important;
+        border-bottom: none !important;
+        z-index: 1200 !important;
+        transform: translateX(-100%) !important;
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15) !important;
+        padding: 35px 20px 30px 20px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 25px !important;
+        overflow-y: auto !important;
+    }
+
+    /* Active state class to slide into view */
+    .db-sidebar.active {
+        transform: translateX(0) !important;
+    }
+
+    /* Stack menu list vertically in drawer mode */
+    .db-menu {
+        flex-direction: column !important;
+        flex-wrap: nowrap !important;
+        gap: 6px !important;
+    }
+
+    .db-menu-item {
+        width: 100% !important;
+        flex: none !important;
+    }
+
+    .db-menu-item button {
+        padding: 12px 16px !important;
+        font-size: 0.95rem !important;
+        width: 100% !important;
+    }
+
+    /* Blur background overlay specifically when dashboard drawer is active */
+    .nav-overlay.active {
+        display: block !important;
+        opacity: 1 !important;
+        z-index: 1100 !important;
+        background-color: rgba(0, 0, 0, 0.4) !important;
+        backdrop-filter: blur(4px) !important;
+    }
+
+    /* Header Icons alignment & sizing under 480px and 360px */
+    .db-navbar .nav-container {
+        padding: 0 16px !important;
+    }
+
+    .db-navbar .logo {
+        font-size: 1.35rem !important;
+        gap: 8px !important;
+    }
+
+    .db-navbar .logo i {
+        font-size: 1.6rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .db-navbar .nav-container {
+        padding: 0 12px !important;
+    }
+
+    .db-navbar .logo {
+        font-size: 1.2rem !important;
+        gap: 6px !important;
+    }
+
+    .db-navbar .logo i {
+        font-size: 1.4rem !important;
+    }
+
+    .db-navbar .header-icons {
+        gap: 8px !important;
+    }
+
+    .db-navbar .theme-toggle,
+    .db-navbar .user-menu-btn,
+    .db-navbar .hamburger {
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 0.95rem !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .db-navbar .logo {
+        font-size: 1.1rem !important;
+        gap: 4px !important;
+    }
+
+    .db-navbar .logo i {
+        font-size: 1.25rem !important;
+    }
+
+    .db-navbar .header-icons {
+        gap: 6px !important;
+    }
+
+    .db-navbar .theme-toggle,
+    .db-navbar .user-menu-btn,
+    .db-navbar .hamburger {
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 0.85rem !important;
+    }
+}

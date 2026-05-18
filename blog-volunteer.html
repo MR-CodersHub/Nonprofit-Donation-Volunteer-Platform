@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Year of Hope: Volunteer Diaries | HopeFund Insights</title>
+    <meta name="description"
+        content="Read Amelia Rose's personal scrapbook retrospective on her 12-month educational volunteer journey in Kenya, featuring polaroid snapshots and journal reflections.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/blog.css">
+
+    <style>
+        /* Diary Scrapbook Extras */
+        .diary-entry {
+            border-left: 2px dashed var(--clr-primary);
+            padding-left: 25px;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .diary-entry::before {
+            content: "\f303";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: -12px;
+            top: 0;
+            background-color: var(--bg-main);
+            color: var(--clr-primary);
+            padding: 5px 0;
+            font-size: 0.9rem;
+        }
+
+        .diary-date {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--clr-primary);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            display: block;
+        }
+    </style>
+    <link rel="stylesheet" href="css/mobile.css">
+</head>
+
+<body class="blog-body">
+    <!-- Reading Progress Bar -->
+    <div class="progress-bar-container">
+        <div id="reading-progress"></div>
+    </div>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    
+    <!-- Nav Overlay (mobile) -->
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-transparent" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-hands-holding-child"></i>
+                Hope<span>Fund</span>
+            </a>
+
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="home2.html" class="nav-link">Home 2</a></li>
+                    <li><a href="blog.html" class="nav-link active">Blog</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="campaigns.html" class="nav-link">Campaigns</a></li>
+                    <li><a href="volunteer.html" class="nav-link">Volunteer</a></li>
+                    <li><a href="events.html" class="nav-link">Events</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <button class="btn btn-primary" onclick="openModal('donateModal')">Donate Now</button>
+                </div>
+            </div>
+
+            <div class="header-icons">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                    <div class="user-dropdown-wrapper">
+                        <button id="user-menu-btn" class="user-menu-btn" aria-label="User Account">
+                            <i class="fa-solid fa-circle-user"></i>
+                        </button>
+                        <div id="user-dropdown" class="user-dropdown-menu">
+                            <div class="dropdown-header">
+                                <h5>Guest User</h5>
+                                <p>Welcome to HopeFund</p>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <a href="login.html" class="dropdown-item"><i class="fa-solid fa-right-to-bracket"></i> Login / Sign Up</a>
+                            <a href="user-dashboard.html" class="dropdown-item"><i class="fa-solid fa-sliders"></i> User Dashboard</a>
+                            <a href="admin-dashboard.html" class="dropdown-item"><i class="fa-solid fa-user-shield"></i> Admin Dashboard</a>
+                        </div>
+                    </div>
+                    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Article Detail Hero -->
+    <header class="article-detail-hero" style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 64, 175, 0.5) 100%), url('https://images.unsplash.com/photo-1542810634-71277d95dcbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;">
+        <div class="container article-hero-content">
+            <span class="article-category" style="background-color: var(--clr-primary);">Volunteerism</span>
+            <h1 class="article-title">A Year of Hope: Finding Connection and Purpose Through Service</h1>
+            
+            <div class="article-meta-bar">
+                <div class="article-meta-item">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Amelia Rose">
+                    <span>By Amelia Rose</span>
+                </div>
+                <div class="article-meta-item">
+                    <i class="fa-regular fa-calendar"></i>
+                    <span>Published March 12, 2026</span>
+                </div>
+                <div class="article-meta-item">
+                    <i class="fa-regular fa-clock"></i>
+                    <span>10 Min Read</span>
+                </div>
+                <div class="article-meta-item">
+                    <i class="fa-regular fa-comment"></i>
+                    <span>0 Comments</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container with Floating Share -->
+    <div class="container article-container">
+        <!-- Sticky Share Bar -->
+        <div class="share-bar">
+            <a href="#" class="share-btn share-fb" aria-label="Share on Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="share-btn share-tw" aria-label="Share on Twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" class="share-btn share-ln" aria-label="Share on LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="share-btn share-copy" aria-label="Copy Link"><i class="fa-solid fa-link"></i></a>
+        </div>
+
+        <!-- Scrapbook/Diary Layout Long-Form Article -->
+        <article class="article-content">
+            <p class="dropcap" style="color:var(--clr-primary);">V</p>
+            <p>olunteering is often described as an act of giving, but anyone who has spent months living and working alongside a remote community will tell you that the true transaction is one of receiving. When I boarded my flight to East Africa for a twelve-month teaching assignment, my mind was crowded with lesson plans, logistics checklists, and syllabus structures. What I did not anticipate was how completely my students, colleagues, and neighbors would reshape my understanding of happiness, resilience, and community bonds.</p>
+
+            <p>Below are selected raw journal entries from my travel-log notebook, cataloging the small moments, quiet struggles, and profound revelations that defined my year of service with HopeFund.</p>
+
+            <!-- Polaroid Frame 1 -->
+            <div class="diary-frame">
+                <img src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Amelia and students laughing under acacia tree">
+                <div class="diary-caption">First week in Jinja: Learning names (and local songs!)</div>
+            </div>
+
+            <!-- Diary entry 1 -->
+            <div class="diary-entry">
+                <span class="diary-date">September 14, 2025 - Arrival & Adaptation</span>
+                <p>The red soil here gets on everything—your boots, your notebook, your teeth. It is beautiful but exhausting. Today was my first official morning assembly under the huge acacia tree. I was incredibly nervous, clutching my computer folders. But when the children began singing their welcome song, the harmony was so deep and resonant that it literally vibrated through the ground. All my anxiety dissolved. They don’t have cushioned chairs or glass windows, but their energy is unmatched. I have so much to learn.</p>
+            </div>
+
+            <!-- Diary entry 2 -->
+            <div class="diary-entry">
+                <span class="diary-date">December 08, 2025 - The Solar Well Completed</span>
+                <p>Today, the Green Roots engineering cohort finally struck clean water on the school grounds. For months, the children had to spend two hours every afternoon carrying heavy yellow jerrycans from the muddy riverbed. When the clean water finally burst through the pump, the entire village exploded into dancing. Parents were crying, throwing water in the air, embracing the drilling crew. I realized today that 'charity' isn't about handouts; it is about restoring basic human time. Now, these children have two extra hours every single day to just be children and study.</p>
+            </div>
+
+            <!-- Polaroid Frame 2 -->
+            <div class="diary-frame alt">
+                <img src="https://images.unsplash.com/photo-1541976844346-f18aeac57b06?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Well pump opening celebration">
+                <div class="diary-caption">The well opening: Pure joy in the community!</div>
+            </div>
+
+            <!-- Diary entry 3 -->
+            <div class="diary-entry">
+                <span class="diary-date">March 04, 2026 - A Lesson in Wealth</span>
+                <p>One of my quietest students, Samuel, invited me to his family's hut for dinner tonight. They prepared a rich vegetable stew using organic vegetables from the new agroforestry garden. His father told me that before HopeFund helped establish the organic co-op, he spent every day in anxiety wondering if brokers would buy his crops. 'Now, we have food, we have safety, we have the circle,' he told me. I went back to my tent realizing that true wealth is not the balance in your bank; it is the thickness of your community safety net.</p>
+            </div>
+
+            <blockquote>
+                "I went to teach them about computer science and global geography, but they taught me the far more critical lesson of how to live in deep, daily gratitude for the air, the water, and the person sitting next to you."
+                <cite style="display:block; margin-top:10px; font-weight:600; font-size:1rem; color:var(--clr-primary);">— Amelia Rose, Lead Educational Volunteer</cite>
+            </blockquote>
+
+            <h2>What Voluteering Actually Requires</h2>
+            <p>If you are considering joining a frontline volunteer cohort, understand that the mission does not need savior-complexes. It requires listening skills, physical stamina, and a deep willingness to admit when you are wrong. It is hard, dusty work that will stretch your patience to its absolute limits, but it will reward you with a deep sense of global family that never leaves your heart.</p>
+
+            <div class="article-callout" style="border-color: rgba(30, 64, 175, 0.2);">
+                <h4>Join Our Volunteer Cohort Program</h4>
+                <p>HopeFund places over 800 professional and educational volunteers into field assignments annually. Our cohorts receive comprehensive pre-deployment training, health insurance, and local coordinator support to guarantee safe, highly effective, and deeply memorable impact terms.</p>
+            </div>
+
+            <!-- Tags & Social Share Footer -->
+            <div class="article-footer">
+                <div class="article-tags">
+                    <a href="#">#Volunteerdiaries</a>
+                    <a href="#">#ScrapbookJourney</a>
+                    <a href="#">#CommunityConnection</a>
+                </div>
+                <div style="font-weight:600; font-size:0.95rem;">
+                    Pass on the inspiration. Share this diary!
+                </div>
+            </div>
+
+            <!-- Prev / Next Navigation -->
+            <div class="post-navigation">
+                <a href="blog-healthcare.html" class="nav-box prev-nav">
+                    <span>Previous Post</span>
+                    <h4>Healing Wheels: Off-Grid Clinics</h4>
+                </a>
+                <a href="blog.html" class="nav-box next-nav">
+                    <span>Back to Hub</span>
+                    <h4>Return to All Insights</h4>
+                </a>
+            </div>
+
+            <!-- Comments Section -->
+            <section class="comments-section">
+                <h3 class="comments-title">Comments (0)</h3>
+                
+                <div class="comment-list" style="margin-bottom: 20px;">
+                    <p style="color:var(--text-muted); font-style:italic;">No comments yet. Be the first to share your thoughts below!</p>
+                </div>
+
+                <!-- Comment Form -->
+                <div class="comment-form-wrapper">
+                    <h4>Leave a Comment</h4>
+                    <p>Your email address will not be published. Required fields are marked *</p>
+                    
+                    <form id="commentForm">
+                        <div class="form-group">
+                            <label for="commentMessage">Comment *</label>
+                            <textarea id="commentMessage" rows="5" required placeholder="Write your thoughts..."></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="commentName">Full Name *</label>
+                                <input type="text" id="commentName" required placeholder="John Doe">
+                            </div>
+                            <div class="form-group half">
+                                <label for="commentEmail">Email Address *</label>
+                                <input type="email" id="commentEmail" required placeholder="john@example.com">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Post Comment</button>
+                    </form>
+                </div>
+            </section>
+        </article>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer mt-5">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-widget brand-widget">
+                        <a href="index.html" class="logo footer-logo">
+                            <i class="fa-solid fa-hands-holding-child"></i>
+                            Hope<span>Fund</span>
+                        </a>
+                        <p>Empowering communities and changing lives through sustainable development, education, and healthcare.</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-widget links-widget">
+                        <h3>Ecosystem Navigation</h3>
+                        <ul>
+                            <li><a href="index.html">Home 1 (Classic)</a></li>
+                            <li><a href="home2.html">Home 2 (Premium)</a></li>
+                            <li><a href="blog.html">Blog Insights</a></li>
+                            <li><a href="index.html#campaigns">Ecosystem Campaigns</a></li>
+                            <li><a href="index.html#volunteer">Become Volunteer</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-widget links-widget">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="blog.html">News & Deep Dives</a></li>
+                            <li><a href="index.html#faq">FAQ & Support</a></li>
+                            <li><a href="home2.html">Home 2 Demo</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-widget newsletter-widget">
+                        <h3>Newsletter Pledge</h3>
+                        <p>Subscribe to our newsletter to receive the latest updates and stories of impact.</p>
+                        <form id="newsletterForm" class="newsletter-form">
+                            <input type="email" placeholder="Email Address" required>
+                            <button type="submit" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 HopeFund Organization. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+
+    <!-- Donation Modal -->
+    <div class="modal" id="donateModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('donateModal')">&times;</span>
+            <h2 class="modal-title">Make a Donation</h2>
+            <p class="modal-subtitle">Your contribution helps us create a better world.</p>
+
+            <form id="donationForm">
+                <div class="amount-selection">
+                    <button type="button" class="amount-btn" data-amount="25">$25</button>
+                    <button type="button" class="amount-btn active" data-amount="50">$50</button>
+                    <button type="button" class="amount-btn" data-amount="100">$100</button>
+                    <button type="button" class="amount-btn" data-amount="500">$500</button>
+                    <button type="button" class="amount-btn custom-amount-btn" id="customAmountBtn">Custom</button>
+                </div>
+
+                <div class="form-group custom-amount-input hidden" id="customAmountWrapper">
+                    <label for="customAmount">Enter Custom Amount ($)</label>
+                    <input type="number" id="customAmount" min="1" placeholder="e.g. 75">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="donorName">Full Name</label>
+                        <input type="text" id="donorName" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group half">
+                        <label for="donorEmail">Email Address</label>
+                        <input type="email" id="donorEmail" required placeholder="john@example.com">
+                    </div>
+                </div>
+
+                <div class="payment-methods">
+                    <label>Payment Method</label>
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="credit" checked>
+                            <span class="pay-btn"><i class="fa-regular fa-credit-card"></i> Card</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="paypal">
+                            <span class="pay-btn"><i class="fa-brands fa-paypal"></i> PayPal</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="applepay">
+                            <span class="pay-btn"><i class="fa-brands fa-apple"></i> Pay</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 mt-3">Donate <span id="donateBtnAmount">$50</span></button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Toast/Popup -->
+    <div id="toast" class="toast hidden">
+        <div class="toast-content">
+            <i class="fa-solid fa-circle-check toast-icon"></i>
+            <div class="toast-text">
+                <h4>Success!</h4>
+                <p id="toastMessage">Action completed successfully.</p>
+            </div>
+            <button class="toast-close" onclick="closeToast()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script src="js/custom-pages.js"></script>
+</body>
+
+</html>
