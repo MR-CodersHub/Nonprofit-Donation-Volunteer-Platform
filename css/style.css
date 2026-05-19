@@ -319,21 +319,24 @@ button {
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
 }
 
 .nav-list {
     display: flex;
-    gap: 25px;
+    gap: 4px;
 }
 
 .nav-link {
     font-weight: 600;
     color: var(--text-main);
     position: relative;
-    font-size: 0.95rem;
+    font-size: 0.875rem;
     letter-spacing: 0.01em;
+    padding: 6px 10px;
+    border-radius: var(--radius-sm);
     transition: var(--transition);
+    white-space: nowrap;
 }
 
 .navbar-transparent:not(.scrolled) .nav-link {
@@ -342,23 +345,28 @@ button {
 
 .nav-link:hover {
     color: var(--clr-primary);
+    background-color: rgba(30, 64, 175, 0.06);
 }
 
 .nav-link.active {
     color: var(--clr-primary);
+    font-weight: 700;
 }
 
 .nav-link::after {
     content: '';
     position: absolute;
-    bottom: -5px; left: 0;
-    width: 0; height: 2px;
-    background-color: var(--clr-accent);
-    transition: var(--transition);
+    bottom: 0; left: 50%;
+    width: 0; height: 2.5px;
+    background: linear-gradient(90deg, var(--clr-primary), var(--clr-accent));
+    border-radius: var(--radius-full);
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(0);
 }
 
 .nav-link:hover::after, .nav-link.active::after {
-    width: 100%;
+    width: calc(100% - 20px);
+    left: 10px;
 }
 
 .nav-actions {

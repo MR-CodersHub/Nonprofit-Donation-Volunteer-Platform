@@ -156,15 +156,56 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Highlight navigation links on scroll
+    // ==========================================================================
+    // Active Nav Link — Page-based detection (multi-page site)
+    // ==========================================================================
+    function setActiveNavLink() {
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+        // Map of pages that should highlight a specific nav item
+        const activeMap = {
+            'index.html':                'index.html',
+            '':                          'index.html',
+            'home2.html':                'home2.html',
+            'about.html':                'about.html',
+            'events.html':               'events.html',
+            'campaigns.html':            'campaigns.html',
+            'volunteer.html':            'volunteer.html',
+            'volunteer-registration.html':'volunteer.html',
+            'blog.html':                 'blog.html',
+            'blog-fundraising.html':     'blog.html',
+            'blog-education.html':       'blog.html',
+            'blog-healthcare.html':      'blog.html',
+            'blog-sustainability.html':  'blog.html',
+            'blog-disaster-relief.html': 'blog.html',
+            'blog-volunteer.html':       'blog.html',
+            'contact.html':              'contact.html',
+        };
+
+        const targetHref = activeMap[currentPage];
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('href');
+            if (targetHref && href === targetHref) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    // Run on page load
+    setActiveNavLink();
+
+    // Scroll-based highlighting for single-page sections (index / home2)
     function highlightNavLinkOnScroll() {
+        const sections = document.querySelectorAll('section[id]');
+        if (!sections.length) return;
+
         const scrollPosition = window.scrollY + 100;
-        
-        document.querySelectorAll('section[id]').forEach(section => {
+        sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.offsetHeight;
             const sectionId = section.getAttribute('id');
-            
             if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
                 navLinks.forEach(link => {
                     link.classList.remove('active');
