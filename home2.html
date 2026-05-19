@@ -28,9 +28,9 @@
     <!-- Preloader -->
     <div id="preloader">
         <div class="loader"></div>
-    
-    <!-- Nav Overlay (mobile) -->
-    <div class="nav-overlay" id="nav-overlay"></div>
+
+        <!-- Nav Overlay (mobile) -->
+        <div class="nav-overlay" id="nav-overlay"></div>
 
     </div>
 
@@ -60,28 +60,31 @@
             </div>
 
             <div class="header-icons">
-                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-                        <i class="fa-solid fa-moon"></i>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <div class="user-dropdown-wrapper">
+                    <button id="user-menu-btn" class="user-menu-btn" aria-label="User Account">
+                        <i class="fa-solid fa-circle-user"></i>
                     </button>
-                    <div class="user-dropdown-wrapper">
-                        <button id="user-menu-btn" class="user-menu-btn" aria-label="User Account">
-                            <i class="fa-solid fa-circle-user"></i>
-                        </button>
-                        <div id="user-dropdown" class="user-dropdown-menu">
-                            <div class="dropdown-header">
-                                <h5>Guest User</h5>
-                                <p>Welcome to HopeFund</p>
-                            </div>
-                            <div class="dropdown-divider"></div>
-                            <a href="login.html" class="dropdown-item"><i class="fa-solid fa-right-to-bracket"></i> Login / Sign Up</a>
-                            <a href="user-dashboard.html" class="dropdown-item"><i class="fa-solid fa-sliders"></i> User Dashboard</a>
-                            <a href="admin-dashboard.html" class="dropdown-item"><i class="fa-solid fa-user-shield"></i> Admin Dashboard</a>
+                    <div id="user-dropdown" class="user-dropdown-menu">
+                        <div class="dropdown-header">
+                            <h5>Guest User</h5>
+                            <p>Welcome to HopeFund</p>
                         </div>
+                        <div class="dropdown-divider"></div>
+                        <a href="login.html" class="dropdown-item"><i class="fa-solid fa-right-to-bracket"></i> Login /
+                            Sign Up</a>
+                        <a href="user-dashboard.html" class="dropdown-item"><i class="fa-solid fa-sliders"></i> User
+                            Dashboard</a>
+                        <a href="admin-dashboard.html" class="dropdown-item"><i class="fa-solid fa-user-shield"></i>
+                            Admin Dashboard</a>
                     </div>
-                    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
+                </div>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
     </nav>
 
     <!-- Hero Section -->
@@ -93,24 +96,32 @@
                         <span class="live-dot"></span>
                         Active Global Impact Projects
                     </div>
-                    <h1 class="hero2-title">Nurturing Hope.<br><span class="gradient-text">Restoring Dignity.</span></h1>
-                    <p class="hero2-desc">We bridge the gap between global generosity and grassroot implementation. Every donation targets specific community milestones, providing water, nourishment, healthcare, and education where it’s desperately needed.</p>
+                    <h1 class="hero2-title">Nurturing Hope.<br><span class="gradient-text">Restoring Dignity.</span>
+                    </h1>
+                    <p class="hero2-desc">We bridge the gap between global generosity and grassroot implementation.
+                        Every donation targets specific community milestones, providing water, nourishment, healthcare,
+                        and education where it’s desperately needed.</p>
                     <div class="hero2-actions">
-                        <button class="btn btn-primary btn-premium btn-lg" onclick="openModal('donateModal')">Make an Instant Impact</button>
-                        <button class="btn btn-outline-primary btn-lg" onclick="openModal('volunteerModal')">Join Our Cohort</button>
+                        <button class="btn btn-primary btn-premium btn-lg" onclick="openModal('donateModal')">Make an
+                            Instant Impact</button>
+                        <button class="btn btn-outline-primary btn-lg" onclick="openModal('volunteerModal')">Join Our
+                            Cohort</button>
                     </div>
                 </div>
-                
+
                 <div class="hero2-mosaic">
                     <!-- Mosaic Grid -->
                     <div class="mosaic-item mosaic-main">
-                        <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sustainable organic farm community planting">
+                        <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Sustainable organic farm community planting">
                     </div>
                     <div class="mosaic-item mosaic-sub1">
-                        <img src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Rural children studying and smiling">
+                        <img src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Rural children studying and smiling">
                     </div>
                     <div class="mosaic-item mosaic-sub2">
-                        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Volunteers distributing nutritional aid">
+                        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Volunteers distributing nutritional aid">
                     </div>
                     <!-- Floating Card -->
                     <div class="mosaic-card-floating">
@@ -165,7 +176,8 @@
             <div class="section-header text-center">
                 <span class="section-subtitle">Real-Time Transparency</span>
                 <h2 class="section-title">Ecosystem Milestone Dashboard</h2>
-                <p class="section-desc">We track every cent. Follow our primary active milestone goal and watch live donor transactions flowing into global communities.</p>
+                <p class="section-desc">We track every cent. Follow our primary active milestone goal and watch live
+                    donor transactions flowing into global communities.</p>
             </div>
 
             <div class="live-dashboard">
@@ -183,10 +195,13 @@
                         </div>
                         <div class="dashboard-graphic-content">
                             <h4 class="dashboard-graphic-title">Primary Drive: Clean Water Haiti</h4>
-                            <p class="dashboard-graphic-desc">Deploying solar-filtration wells to the Nippes department, providing safe hydration to 15,000 citizens.</p>
+                            <p class="dashboard-graphic-desc">Deploying solar-filtration wells to the Nippes department,
+                                providing safe hydration to 15,000 citizens.</p>
                             <div class="dashboard-graphic-stats">
-                                <div class="dashboard-stat-item"><span class="dashboard-stat-label">RAISED</span> $420,000</div>
-                                <div class="dashboard-stat-item"><span class="dashboard-stat-label">GOAL</span> $600,000</div>
+                                <div class="dashboard-stat-item"><span class="dashboard-stat-label">RAISED</span>
+                                    $420,000</div>
+                                <div class="dashboard-stat-item"><span class="dashboard-stat-label">GOAL</span> $600,000
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -195,7 +210,8 @@
                     <div class="live-feed-card">
                         <div class="live-feed-header">
                             <h4><span class="live-pulse"></span> Live Donation Stream</h4>
-                            <span style="font-size:0.8rem; color:var(--clr-secondary); font-weight:600;">Ticker Active</span>
+                            <span style="font-size:0.8rem; color:var(--clr-secondary); font-weight:600;">Ticker
+                                Active</span>
                         </div>
                         <div class="feed-items">
                             <div class="feed-item">
@@ -243,20 +259,24 @@
             <div class="section-header text-center">
                 <span class="section-subtitle">Urgent Drives</span>
                 <h2 class="section-title">Ecosystem Milestones Seeking Support</h2>
-                <p class="section-desc">Unlike general collections, HopeFund coordinates targeted community milestones. Select a specific goal to support today.</p>
+                <p class="section-desc">Unlike general collections, HopeFund coordinates targeted community milestones.
+                    Select a specific goal to support today.</p>
             </div>
 
             <div class="campaigns2-grid">
                 <!-- Large Featured Card -->
                 <div class="campaign2-card-large">
                     <div class="c2-large-img">
-                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sustainable organic farm community planting tree">
+                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Sustainable organic farm community planting tree">
                         <span class="c2-badge">Environment & Nourishment</span>
                     </div>
                     <div class="c2-large-content">
                         <h3 class="c2-large-title">Amazonian Reforestation & Family Agro-Farms</h3>
-                        <p class="c2-large-desc">We are partnering with local indigenous communities to plant 10,000 native cacao and acai trees. This project restores canopy cover while establishing sustainable, long-term trade revenue for 120 rural farming families.</p>
-                        
+                        <p class="c2-large-desc">We are partnering with local indigenous communities to plant 10,000
+                            native cacao and acai trees. This project restores canopy cover while establishing
+                            sustainable, long-term trade revenue for 120 rural farming families.</p>
+
                         <div class="c2-progress-wrapper">
                             <div class="c2-progress-stats">
                                 <div><span>Raised:</span> $90,000</div>
@@ -266,8 +286,9 @@
                                 <div class="c2-progress-bar-fill" style="width: 90%"></div>
                             </div>
                         </div>
-                        
-                        <button class="btn btn-primary mt-3" onclick="openModal('donateModal')">Pledge Support to Reforestation</button>
+
+                        <button class="btn btn-primary mt-3" onclick="openModal('donateModal')">Pledge Support to
+                            Reforestation</button>
                     </div>
                 </div>
 
@@ -276,12 +297,14 @@
                     <!-- Mini Card 1 -->
                     <div class="campaign2-card-mini">
                         <div class="c2-mini-img">
-                            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Rural children studying and smiling">
+                            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                                alt="Rural children studying and smiling">
                         </div>
                         <div class="c2-mini-content">
                             <div>
                                 <h3 class="c2-mini-title">Solar Digital Labs in Uganda</h3>
-                                <p class="c2-mini-desc">Furnishing two community schools in Jinja with solar panels and 30 computing tablets for technology learning.</p>
+                                <p class="c2-mini-desc">Furnishing two community schools in Jinja with solar panels and
+                                    30 computing tablets for technology learning.</p>
                             </div>
                             <div class="c2-progress-wrapper">
                                 <div class="c2-progress-bar-container">
@@ -298,12 +321,14 @@
                     <!-- Mini Card 2 -->
                     <div class="campaign2-card-mini">
                         <div class="c2-mini-img">
-                            <img src="https://images.unsplash.com/photo-1593113630400-ea4288922497?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Elders receiving clean food kits">
+                            <img src="https://images.unsplash.com/photo-1593113630400-ea4288922497?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                                alt="Elders receiving clean food kits">
                         </div>
                         <div class="c2-mini-content">
                             <div>
                                 <h3 class="c2-mini-title">Elderly Nutrition Supply</h3>
-                                <p class="c2-mini-desc">Providing weekly organic agricultural supplies and health supplements to lonely elders in isolated mountain villages.</p>
+                                <p class="c2-mini-desc">Providing weekly organic agricultural supplies and health
+                                    supplements to lonely elders in isolated mountain villages.</p>
                             </div>
                             <div class="c2-progress-wrapper">
                                 <div class="c2-progress-bar-container">
@@ -327,19 +352,23 @@
             <div class="section-header text-center">
                 <span class="section-subtitle">Real Champions</span>
                 <h2 class="section-title">Humanity Heroes in the Field</h2>
-                <p class="section-desc">Generosity is nothing without execution. Meet some of our incredible global cohort volunteers driving impact on the frontlines.</p>
+                <p class="section-desc">Generosity is nothing without execution. Meet some of our incredible global
+                    cohort volunteers driving impact on the frontlines.</p>
             </div>
 
             <div class="volunteers2-grid">
                 <!-- Vol 1 -->
                 <div class="vol2-card">
                     <div class="vol2-avatar-wrapper">
-                        <img class="vol2-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Amelia Rose, Educator">
+                        <img class="vol2-avatar"
+                            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+                            alt="Amelia Rose, Educator">
                         <span class="vol2-badge"><i class="fa-solid fa-graduation-cap"></i></span>
                     </div>
                     <h3 class="vol2-name">Amelia Rose</h3>
                     <div class="vol2-role">Volunteer Educator</div>
-                    <p class="vol2-quote">"Teaching local children Jinja’s first computer science classes is a gift. Watch their eyes light up as they write their very first line of code."</p>
+                    <p class="vol2-quote">"Teaching local children Jinja’s first computer science classes is a gift.
+                        Watch their eyes light up as they write their very first line of code."</p>
                     <div class="vol2-hours-badge">
                         <i class="fa-solid fa-award"></i> 280 Field Hours
                     </div>
@@ -348,12 +377,15 @@
                 <!-- Vol 2 -->
                 <div class="vol2-card">
                     <div class="vol2-avatar-wrapper">
-                        <img class="vol2-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Marcus Chen, Disaster Responder">
+                        <img class="vol2-avatar"
+                            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+                            alt="Marcus Chen, Disaster Responder">
                         <span class="vol2-badge"><i class="fa-solid fa-kit-medical"></i></span>
                     </div>
                     <h3 class="vol2-name">Marcus Chen</h3>
                     <div class="vol2-role">Disaster Responder</div>
-                    <p class="vol2-quote">"Delivering critical supply kits right after high-intensity floods requires rapid focus. Seeing immediate relief in families makes every long night worth it."</p>
+                    <p class="vol2-quote">"Delivering critical supply kits right after high-intensity floods requires
+                        rapid focus. Seeing immediate relief in families makes every long night worth it."</p>
                     <div class="vol2-hours-badge">
                         <i class="fa-solid fa-award"></i> 420 Field Hours
                     </div>
@@ -362,12 +394,15 @@
                 <!-- Vol 3 -->
                 <div class="vol2-card">
                     <div class="vol2-avatar-wrapper">
-                        <img class="vol2-avatar" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Dr. Aisha Bello, Clinical Lead">
+                        <img class="vol2-avatar"
+                            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+                            alt="Dr. Aisha Bello, Clinical Lead">
                         <span class="vol2-badge"><i class="fa-solid fa-stethoscope"></i></span>
                     </div>
                     <h3 class="vol2-name">Dr. Aisha Bello</h3>
                     <div class="vol2-role">Mobile Clinical Lead</div>
-                    <p class="vol2-quote">"Providing basic diagnostics and vaccinations in mountainous terrain is challenging, but healthcare is a fundamental right that must be delivered."</p>
+                    <p class="vol2-quote">"Providing basic diagnostics and vaccinations in mountainous terrain is
+                        challenging, but healthcare is a fundamental right that must be delivered."</p>
                     <div class="vol2-hours-badge">
                         <i class="fa-solid fa-award"></i> 310 Field Hours
                     </div>
@@ -375,7 +410,8 @@
             </div>
 
             <div class="text-center mt-5">
-                <button class="btn btn-secondary btn-lg" onclick="openModal('volunteerModal')">Join Our Frontline Cohort</button>
+                <button class="btn btn-secondary btn-lg" onclick="openModal('volunteerModal')">Join Our Frontline
+                    Cohort</button>
             </div>
         </div>
     </section>
@@ -386,13 +422,15 @@
             <div class="section-header text-center">
                 <span class="section-subtitle">Real Journeys</span>
                 <h2 class="section-title">Milestones of Hope Restored</h2>
-                <p class="section-desc">HopeFund projects build self-reliance. Explore the chronological milestones accomplished in our priority centers.</p>
+                <p class="section-desc">HopeFund projects build self-reliance. Explore the chronological milestones
+                    accomplished in our priority centers.</p>
             </div>
 
             <div class="stories2-grid">
                 <!-- Video/Photo Showcase -->
                 <div class="stories2-visual">
-                    <img src="https://images.unsplash.com/photo-1541976844346-f18aeac57b06?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Smiling children surrounding a fresh solar water well pump">
+                    <img src="https://images.unsplash.com/photo-1541976844346-f18aeac57b06?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Smiling children surrounding a fresh solar water well pump">
                     <div class="stories2-play-btn"><i class="fa-solid fa-play"></i></div>
                     <div class="stories2-visual-overlay">
                         <h4>Water Flows in La Guajira</h4>
@@ -408,7 +446,8 @@
                         <div class="timeline2-content">
                             <span class="timeline2-year">January 2024</span>
                             <h4 class="timeline2-title">Clean Water Nippes, Haiti</h4>
-                            <p class="timeline2-desc">Successfully drilled and deployed three solar-powered water filtration hubs, providing 6,000 people with perpetual daily safe hydration.</p>
+                            <p class="timeline2-desc">Successfully drilled and deployed three solar-powered water
+                                filtration hubs, providing 6,000 people with perpetual daily safe hydration.</p>
                         </div>
                     </div>
                     <!-- Item 2 -->
@@ -417,7 +456,8 @@
                         <div class="timeline2-content">
                             <span class="timeline2-year">August 2024</span>
                             <h4 class="timeline2-title">Organic Farm Co-Op Established</h4>
-                            <p class="timeline2-desc">Provided agricultural training, tool kits, and high-yield seeds to 200 women, establishing a localized agricultural market grid.</p>
+                            <p class="timeline2-desc">Provided agricultural training, tool kits, and high-yield seeds to
+                                200 women, establishing a localized agricultural market grid.</p>
                         </div>
                     </div>
                     <!-- Item 3 -->
@@ -426,7 +466,8 @@
                         <div class="timeline2-content">
                             <span class="timeline2-year">December 2025</span>
                             <h4 class="timeline2-title">Solar Tech Classroom Completed</h4>
-                            <p class="timeline2-desc">Built three classrooms equipped with state-of-the-art solar banks, and hired full-time IT instructors to foster digital learning.</p>
+                            <p class="timeline2-desc">Built three classrooms equipped with state-of-the-art solar banks,
+                                and hired full-time IT instructors to foster digital learning.</p>
                         </div>
                     </div>
                 </div>
@@ -439,23 +480,202 @@
         <div class="container">
             <div class="marquee-container">
                 <div class="marquee-track">
+                    <!-- Set 1 -->
                     <div class="marquee-item">
-                        <img src="https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=80&q=80" alt="UNICEF logo placeholder">
+                        <svg class="partner-logo logo-unicef" viewBox="0 0 140 40" width="140" height="40"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g class="logo-graphic">
+                                <circle cx="18" cy="20" r="10" stroke="currentColor" stroke-width="1.5" fill="none"
+                                    opacity="0.6" />
+                                <path d="M 18 10 A 10 10 0 0 0 18 30" stroke="currentColor" stroke-width="1" fill="none"
+                                    stroke-dasharray="2 2" />
+                                <path d="M 8 20 A 10 10 0 0 0 28 20" stroke="currentColor" stroke-width="1" fill="none"
+                                    stroke-dasharray="2 2" />
+                                <circle cx="16" cy="18" r="2.5" fill="currentColor" />
+                                <path d="M 12 25 C 12 21, 20 21, 20 25" stroke="currentColor" stroke-width="1.5"
+                                    fill="none" />
+                                <circle cx="21" cy="15" r="1.5" fill="currentColor" />
+                            </g>
+                            <text x="36" y="26" font-family="'Outfit', sans-serif" font-weight="700" font-size="19"
+                                fill="currentColor" letter-spacing="-0.5">unicef</text>
+                        </svg>
                     </div>
                     <div class="marquee-item">
-                        <img src="https://images.unsplash.com/photo-1614028674026-a65e31bfd27c?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=80&q=80" alt="WWF logo placeholder">
+                        <svg class="partner-logo logo-wwf" viewBox="0 0 140 40" width="140" height="40"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g class="logo-graphic" fill="currentColor">
+                                <circle cx="12" cy="14" r="3.5" />
+                                <circle cx="24" cy="14" r="3.5" />
+                                <path
+                                    d="M 18 13 C 12 13, 9 17, 9 23 C 9 28, 14 31, 18 31 C 22 31, 27 28, 27 23 C 27 17, 24 13, 18 13 Z M 15 22 C 14 22, 13 20, 13 19 C 13 18, 14 17, 15 17 C 16 17, 17 18, 17 19 C 17 20, 16 22, 15 22 Z M 21 22 C 20 22, 19 20, 19 19 C 19 18, 20 17, 21 17 C 22 17, 23 18, 23 19 C 23 20, 22 22, 21 22 Z" />
+                                <circle cx="15.2" cy="18.8" r="0.8" fill="var(--bg-light)" />
+                                <circle cx="20.8" cy="18.8" r="0.8" fill="var(--bg-light)" />
+                                <polygon points="17,24 19,24 18,25.5" />
+                            </g>
+                            <text x="36" y="27" font-family="'Outfit', sans-serif" font-weight="800" font-size="22"
+                                fill="currentColor" letter-spacing="1">WWF</text>
+                        </svg>
                     </div>
                     <div class="marquee-item">
-                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=80&q=80" alt="Red Cross logo placeholder">
+                        <svg class="partner-logo logo-redcross" viewBox="0 0 140 40" width="140" height="40"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g class="logo-graphic" fill="currentColor">
+                                <rect x="15" y="8" width="6" height="24" rx="1.5" />
+                                <rect x="6" y="17" width="24" height="6" rx="1.5" />
+                            </g>
+                            <text x="40" y="25" font-family="'Outfit', sans-serif" font-weight="700" font-size="14"
+                                fill="currentColor" letter-spacing="0.5">RED CROSS</text>
+                        </svg>
                     </div>
                     <div class="marquee-item">
-                        <img src="https://images.unsplash.com/photo-1618005198143-e5283b519a7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=80&q=80" alt="UNESCO logo placeholder">
+                        <svg class="partner-logo logo-unesco" viewBox="0 0 140 40" width="140" height="40"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g class="logo-graphic" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="6,12 21,5 36,12" fill="currentColor" opacity="0.1" />
+                                <polyline points="6,12 21,5 36,12" />
+                                <line x1="8" y1="12" x2="34" y2="12" />
+                                <line x1="10" y1="12" x2="10" y2="24" />
+                                <line x1="14" y1="12" x2="14" y2="24" />
+                                <line x1="18" y1="12" x2="18" y2="24" />
+                                <line x1="22" y1="12" x2="22" y2="24" />
+                                <line x1="26" y1="12" x2="26" y2="24" />
+                                <line x1="30" y1="12" x2="30" y2="24" />
+                                <line x1="8" y1="24" x2="34" y2="24" stroke-width="2" />
+                                <line x1="6" y1="27" x2="36" y2="27" stroke-width="2.5" />
+                            </g>
+                            <text x="42" y="25" font-family="'Outfit', sans-serif" font-weight="700" font-size="16"
+                                fill="currentColor" letter-spacing="1.5">UNESCO</text>
+                        </svg>
                     </div>
                     <div class="marquee-item">
-                        <img src="https://images.unsplash.com/photo-1557200134-90327ee9fafa?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=80&q=80" alt="Greenpeace logo placeholder">
+                        <svg class="partner-logo logo-greenpeace" viewBox="0 0 140 40" width="140" height="40"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g class="logo-graphic" fill="currentColor">
+                                <path
+                                    d="M 18 10 C 23 10, 26 14, 26 18 C 26 25, 18 30, 18 30 C 18 30, 10 25, 10 18 C 10 14, 13 10, 18 10 Z" />
+                                <path d="M 18 10 C 18 10, 21 16, 18 24" stroke="var(--bg-light)" stroke-width="1.5"
+                                    fill="none" />
+                            </g>
+                            <text x="34" y="25" font-family="'Outfit', sans-serif" font-weight="800" font-size="14"
+                                fill="currentColor" letter-spacing="0.5">GREENPEACE</text>
+                        </svg>
                     </div>
                     <div class="marquee-item">
-                        <img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=80&q=80" alt="World Bank logo placeholder">
+                        <svg class="partner-logo logo-worldbank" viewBox="0 0 140 40" width="140" height="40"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g class="logo-graphic" stroke="currentColor" stroke-width="1.8" fill="none">
+                                <circle cx="18" cy="20" r="10" />
+                                <path d="M 9.5 16 A 10 10 0 0 0 26.5 16" stroke-width="1.2" />
+                                <path d="M 9.5 24 A 10 10 0 0 1 26.5 24" stroke-width="1.2" />
+                                <path d="M 18 10 A 10 10 0 0 0 18 30" stroke-width="1.2" />
+                                <path d="M 18 10 A 15 15 0 0 0 18 30" stroke-width="1.2" />
+                                <path d="M 18 10 A 15 15 0 0 1 18 30" stroke-width="1.2" />
+                            </g>
+                            <text x="35" y="21" font-family="'Outfit', sans-serif" font-weight="700" font-size="11"
+                                fill="currentColor" letter-spacing="0.5">THE WORLD</text>
+                            <text x="35" y="31" font-family="'Outfit', sans-serif" font-weight="700" font-size="11"
+                                fill="currentColor" letter-spacing="0.5">BANK</text>
+                        </svg>
+                    </div>
+
+                    <!-- Set 2 (Identical Copy for seamless looping) -->
+                    <div class="marquee-item">
+                        <svg class="partner-logo logo-unicef" viewBox="0 0 140 40" width="140" height="40"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g class="logo-graphic">
+                                <circle cx="18" cy="20" r="10" stroke="currentColor" stroke-width="1.5" fill="none"
+                                    opacity="0.6" />
+                                <path d="M 18 10 A 10 10 0 0 0 18 30" stroke="currentColor" stroke-width="1" fill="none"
+                                    stroke-dasharray="2 2" />
+                                <path d="M 8 20 A 10 10 0 0 0 28 20" stroke="currentColor" stroke-width="1" fill="none"
+                                    stroke-dasharray="2 2" />
+                                <circle cx="16" cy="18" r="2.5" fill="currentColor" />
+                                <path d="M 12 25 C 12 21, 20 21, 20 25" stroke="currentColor" stroke-width="1.5"
+                                    fill="none" />
+                                <circle cx="21" cy="15" r="1.5" fill="currentColor" />
+                            </g>
+                            <text x="36" y="26" font-family="'Outfit', sans-serif" font-weight="700" font-size="19"
+                                fill="currentColor" letter-spacing="-0.5">unicef</text>
+                        </svg>
+                    </div>
+                    <div class="marquee-item">
+                        <svg class="partner-logo logo-wwf" viewBox="0 0 140 40" width="140" height="40"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g class="logo-graphic" fill="currentColor">
+                                <circle cx="12" cy="14" r="3.5" />
+                                <circle cx="24" cy="14" r="3.5" />
+                                <path
+                                    d="M 18 13 C 12 13, 9 17, 9 23 C 9 28, 14 31, 18 31 C 22 31, 27 28, 27 23 C 27 17, 24 13, 18 13 Z M 15 22 C 14 22, 13 20, 13 19 C 13 18, 14 17, 15 17 C 16 17, 17 18, 17 19 C 17 20, 16 22, 15 22 Z M 21 22 C 20 22, 19 20, 19 19 C 19 18, 20 17, 21 17 C 22 17, 23 18, 23 19 C 23 20, 22 22, 21 22 Z" />
+                                <circle cx="15.2" cy="18.8" r="0.8" fill="var(--bg-light)" />
+                                <circle cx="20.8" cy="18.8" r="0.8" fill="var(--bg-light)" />
+                                <polygon points="17,24 19,24 18,25.5" />
+                            </g>
+                            <text x="36" y="27" font-family="'Outfit', sans-serif" font-weight="800" font-size="22"
+                                fill="currentColor" letter-spacing="1">WWF</text>
+                        </svg>
+                    </div>
+                    <div class="marquee-item">
+                        <svg class="partner-logo logo-redcross" viewBox="0 0 140 40" width="140" height="40"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g class="logo-graphic" fill="currentColor">
+                                <rect x="15" y="8" width="6" height="24" rx="1.5" />
+                                <rect x="6" y="17" width="24" height="6" rx="1.5" />
+                            </g>
+                            <text x="40" y="25" font-family="'Outfit', sans-serif" font-weight="700" font-size="14"
+                                fill="currentColor" letter-spacing="0.5">RED CROSS</text>
+                        </svg>
+                    </div>
+                    <div class="marquee-item">
+                        <svg class="partner-logo logo-unesco" viewBox="0 0 140 40" width="140" height="40"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g class="logo-graphic" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="6,12 21,5 36,12" fill="currentColor" opacity="0.1" />
+                                <polyline points="6,12 21,5 36,12" />
+                                <line x1="8" y1="12" x2="34" y2="12" />
+                                <line x1="10" y1="12" x2="10" y2="24" />
+                                <line x1="14" y1="12" x2="14" y2="24" />
+                                <line x1="18" y1="12" x2="18" y2="24" />
+                                <line x1="22" y1="12" x2="22" y2="24" />
+                                <line x1="26" y1="12" x2="26" y2="24" />
+                                <line x1="30" y1="12" x2="30" y2="24" />
+                                <line x1="8" y1="24" x2="34" y2="24" stroke-width="2" />
+                                <line x1="6" y1="27" x2="36" y2="27" stroke-width="2.5" />
+                            </g>
+                            <text x="42" y="25" font-family="'Outfit', sans-serif" font-weight="700" font-size="16"
+                                fill="currentColor" letter-spacing="1.5">UNESCO</text>
+                        </svg>
+                    </div>
+                    <div class="marquee-item">
+                        <svg class="partner-logo logo-greenpeace" viewBox="0 0 140 40" width="140" height="40"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g class="logo-graphic" fill="currentColor">
+                                <path
+                                    d="M 18 10 C 23 10, 26 14, 26 18 C 26 25, 18 30, 18 30 C 18 30, 10 25, 10 18 C 10 14, 13 10, 18 10 Z" />
+                                <path d="M 18 10 C 18 10, 21 16, 18 24" stroke="var(--bg-light)" stroke-width="1.5"
+                                    fill="none" />
+                            </g>
+                            <text x="34" y="25" font-family="'Outfit', sans-serif" font-weight="800" font-size="14"
+                                fill="currentColor" letter-spacing="0.5">GREENPEACE</text>
+                        </svg>
+                    </div>
+                    <div class="marquee-item">
+                        <svg class="partner-logo logo-worldbank" viewBox="0 0 140 40" width="140" height="40"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g class="logo-graphic" stroke="currentColor" stroke-width="1.8" fill="none">
+                                <circle cx="18" cy="20" r="10" />
+                                <path d="M 9.5 16 A 10 10 0 0 0 26.5 16" stroke-width="1.2" />
+                                <path d="M 9.5 24 A 10 10 0 0 1 26.5 24" stroke-width="1.2" />
+                                <path d="M 18 10 A 10 10 0 0 0 18 30" stroke-width="1.2" />
+                                <path d="M 18 10 A 15 15 0 0 0 18 30" stroke-width="1.2" />
+                                <path d="M 18 10 A 15 15 0 0 1 18 30" stroke-width="1.2" />
+                            </g>
+                            <text x="35" y="21" font-family="'Outfit', sans-serif" font-weight="700" font-size="11"
+                                fill="currentColor" letter-spacing="0.5">THE WORLD</text>
+                            <text x="35" y="31" font-family="'Outfit', sans-serif" font-weight="700" font-size="11"
+                                fill="currentColor" letter-spacing="0.5">BANK</text>
+                        </svg>
                     </div>
                 </div>
             </div>
@@ -471,8 +691,10 @@
                         <span class="section-subtitle">Get Involved Nearby</span>
                         <h2 class="section-title">Join Local Hope circles</h2>
                     </div>
-                    <p>HopeFund isn’t just global; it’s local. Hope Circles are community-led volunteer collectives meeting monthly to arrange cleanups, food distribution, and community support in local regions.</p>
-                    
+                    <p>HopeFund isn’t just global; it’s local. Hope Circles are community-led volunteer collectives
+                        meeting monthly to arrange cleanups, food distribution, and community support in local regions.
+                    </p>
+
                     <ul class="contact-details">
                         <li>
                             <i class="fa-solid fa-people-carry-box"></i>
@@ -493,7 +715,8 @@
 
                 <div class="contact-form-wrapper">
                     <h4 style="font-size:1.4rem; margin-bottom:10px;">Pledge Your Local Circle</h4>
-                    <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:25px;">Register your interest below and receive meeting invitations for local circles in your postal code.</p>
+                    <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:25px;">Register your interest
+                        below and receive meeting invitations for local circles in your postal code.</p>
                     <form id="contactForm" class="form">
                         <div class="form-group">
                             <label for="name">Your Name</label>
@@ -534,7 +757,8 @@
                             <i class="fa-solid fa-hands-holding-child"></i>
                             Hope<span>Fund</span>
                         </a>
-                        <p>Empowering communities and changing lives through sustainable development, education, and healthcare.</p>
+                        <p>Empowering communities and changing lives through sustainable development, education, and
+                            healthcare.</p>
                         <div class="social-links">
                             <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
                             <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
@@ -570,7 +794,8 @@
                         <p>Subscribe to our newsletter to receive the latest updates and stories of impact.</p>
                         <form id="newsletterForm" class="newsletter-form">
                             <input type="email" placeholder="Email Address" required>
-                            <button type="submit" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
+                            <button type="submit" aria-label="Subscribe"><i
+                                    class="fa-solid fa-paper-plane"></i></button>
                         </form>
                     </div>
                 </div>
@@ -636,7 +861,8 @@
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary w-100 mt-3">Donate <span id="donateBtnAmount">$50</span></button>
+                <button type="submit" class="btn btn-primary w-100 mt-3">Donate <span
+                        id="donateBtnAmount">$50</span></button>
             </form>
         </div>
     </div>
@@ -679,7 +905,8 @@
 
                 <div class="form-group">
                     <label for="volMessage">Why do you want to volunteer?</label>
-                    <textarea id="volMessage" rows="3" required placeholder="Tell us a bit about yourself..."></textarea>
+                    <textarea id="volMessage" rows="3" required
+                        placeholder="Tell us a bit about yourself..."></textarea>
                 </div>
 
                 <button type="submit" class="btn btn-primary w-100">Submit Application</button>

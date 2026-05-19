@@ -969,24 +969,69 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0.5;
+    cursor: pointer;
     transition: var(--transition);
 }
 
-.marquee-item img {
+.partner-logo {
     height: 40px;
-    object-fit: contain;
-    filter: grayscale(100%);
-    transition: var(--transition);
+    width: auto;
+    color: var(--text-muted);
+    opacity: 0.45;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.marquee-item:hover {
+/* Individual Brand Hover States */
+.marquee-item:hover .logo-unicef {
+    color: #00AADE;
     opacity: 1;
+    transform: scale(1.08);
+    filter: drop-shadow(0 4px 8px rgba(0, 170, 222, 0.15));
 }
 
-.marquee-item:hover img {
-    filter: grayscale(0%);
-    transform: scale(1.05);
+.marquee-item:hover .logo-wwf {
+    color: #111111;
+    opacity: 1;
+    transform: scale(1.08);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+[data-theme="dark"] .marquee-item:hover .logo-wwf {
+    color: #ffffff;
+    filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.15));
+}
+
+.marquee-item:hover .logo-redcross {
+    color: #EE1C25;
+    opacity: 1;
+    transform: scale(1.08);
+    filter: drop-shadow(0 4px 8px rgba(238, 28, 37, 0.15));
+}
+
+.marquee-item:hover .logo-unesco {
+    color: #0077C8;
+    opacity: 1;
+    transform: scale(1.08);
+    filter: drop-shadow(0 4px 8px rgba(0, 119, 200, 0.15));
+}
+
+.marquee-item:hover .logo-greenpeace {
+    color: #3B7A57;
+    opacity: 1;
+    transform: scale(1.08);
+    filter: drop-shadow(0 4px 8px rgba(59, 122, 87, 0.15));
+}
+
+.marquee-item:hover .logo-worldbank {
+    color: #003366;
+    opacity: 1;
+    transform: scale(1.08);
+    filter: drop-shadow(0 4px 8px rgba(0, 51, 102, 0.15));
+}
+
+[data-theme="dark"] .marquee-item:hover .logo-worldbank {
+    color: #79a6d2;
+    filter: drop-shadow(0 4px 8px rgba(121, 166, 210, 0.15));
 }
 
 /* ==========================================================================
