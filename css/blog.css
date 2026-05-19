@@ -1,6 +1,18 @@
-/* ==========================================================================
-   Blog Pages & Details Stylesheet
-   ========================================================================== */
+:root {
+    --blog-hero-bg: linear-gradient(135deg, rgba(248, 250, 252, 0.95) 0%, rgba(219, 234, 254, 0.9) 100%);
+    --blog-hero-text: #0F172A;
+    --blog-filter-btn-bg: rgba(30, 64, 175, 0.08);
+    --blog-filter-btn-border: rgba(30, 64, 175, 0.15);
+    --blog-filter-btn-color: var(--clr-primary);
+}
+
+[data-theme="dark"] {
+    --blog-hero-bg: linear-gradient(135deg, rgba(30, 64, 175, 0.8) 0%, rgba(15, 23, 42, 0.95) 100%);
+    --blog-hero-text: #FFF;
+    --blog-filter-btn-bg: rgba(255, 255, 255, 0.15);
+    --blog-filter-btn-border: rgba(255, 255, 255, 0.25);
+    --blog-filter-btn-color: #FFF;
+}
 
 /* Blog Layout Base */
 .blog-body {
@@ -30,10 +42,10 @@
 .blog-hero {
     position: relative;
     padding: 140px 0 80px;
-    background: linear-gradient(135deg, rgba(30, 64, 175, 0.8) 0%, rgba(15, 23, 42, 0.95) 100%), 
+    background: var(--blog-hero-bg), 
                 url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
     text-align: center;
-    color: #FFF;
+    color: var(--blog-hero-text);
     margin-bottom: 60px;
 }
 
@@ -44,7 +56,7 @@
 
 .blog-hero-title {
     font-size: 3.5rem;
-    color: #FFF;
+    color: var(--blog-hero-text);
     margin-bottom: 20px;
     letter-spacing: -1px;
 }
@@ -67,18 +79,18 @@
 .blog-filter-btn {
     padding: 8px 20px;
     border-radius: var(--radius-full);
-    background-color: rgba(255, 255, 255, 0.15);
-    color: #FFF;
+    background-color: var(--blog-filter-btn-bg);
+    color: var(--blog-filter-btn-color);
     font-weight: 500;
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    border: 1px solid var(--blog-filter-btn-border);
     backdrop-filter: blur(5px);
     transition: var(--transition);
 }
 
 .blog-filter-btn.active, .blog-filter-btn:hover {
-    background-color: #FFF;
-    color: var(--text-main);
-    border-color: #FFF;
+    background-color: var(--clr-primary);
+    color: #FFF;
+    border-color: var(--clr-primary);
     transform: translateY(-2px);
 }
 
@@ -534,8 +546,8 @@
 .article-detail-hero {
     position: relative;
     padding: 160px 0 80px;
-    background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.85) 100%);
-    color: #FFF;
+    background: var(--blog-hero-bg);
+    color: var(--blog-hero-text);
     text-align: center;
 }
 
@@ -558,7 +570,7 @@
 
 .article-title {
     font-size: 3.2rem;
-    color: #FFF;
+    color: var(--blog-hero-text);
     line-height: 1.2;
     margin-bottom: 25px;
     letter-spacing: -1px;

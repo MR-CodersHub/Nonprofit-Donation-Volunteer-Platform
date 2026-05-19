@@ -19,9 +19,23 @@
     <link rel="stylesheet" href="css/style.css">
 
     <style>
+        :root {
+            --volunteer-hero-bg: linear-gradient(135deg, rgba(30, 64, 175, 0.08) 0%, rgba(22, 163, 74, 0.08) 100%);
+            --bg-has-shift: rgba(22, 163, 74, 0.1);
+            --text-has-shift: #16A34A;
+            --border-has-shift: #16A34A;
+        }
+
+        [data-theme="dark"] {
+            --volunteer-hero-bg: linear-gradient(135deg, rgba(30, 64, 175, 0.15) 0%, rgba(22, 163, 74, 0.15) 100%), #0F172A;
+            --bg-has-shift: rgba(22, 163, 74, 0.2);
+            --text-has-shift: #4ADE80;
+            --border-has-shift: #4ADE80;
+        }
+
         .feature-hero {
             padding: 140px 20px 80px 20px;
-            background: linear-gradient(135deg, rgba(30, 64, 175, 0.08) 0%, rgba(22, 163, 74, 0.08) 100%);
+            background: var(--volunteer-hero-bg);
             text-align: center;
         }
 
@@ -111,9 +125,10 @@
         }
 
         .cal-date.has-shift {
-            border-color: var(--clr-secondary);
+            border-color: var(--border-has-shift);
             font-weight: 700;
-            background-color: rgba(22, 163, 74, 0.05);
+            background-color: var(--bg-has-shift);
+            color: var(--text-has-shift);
         }
 
         @media (max-width: 991px) {

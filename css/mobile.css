@@ -155,7 +155,9 @@ img, video, iframe, embed, object {
         display: none;
         position: fixed;
         inset: 0;
-        background: rgba(0,0,0,0.4);
+        background: var(--nav-overlay-bg);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
         z-index: 998;
     }
 
@@ -1277,7 +1279,7 @@ img, video, iframe, embed, object {
         display: block !important;
         opacity: 1 !important;
         z-index: 1100 !important;
-        background-color: rgba(0, 0, 0, 0.4) !important;
+        background-color: var(--nav-overlay-bg) !important;
         backdrop-filter: blur(4px) !important;
     }
 

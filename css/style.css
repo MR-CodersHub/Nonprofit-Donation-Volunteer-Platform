@@ -35,6 +35,39 @@
     /* Typography */
     --font-sans: 'Inter', sans-serif;
     --font-heading: 'Outfit', sans-serif;
+
+    /* Footer Theme variables */
+    --bg-footer: #F8FAFC;
+    --text-footer: #475569;
+    --border-footer: #E2E8F0;
+    --title-footer: #0F172A;
+    --bg-newsletter: #F1F5F9;
+
+    /* Transparent header variables */
+    --navbar-transparent-text: #0F172A;
+    --navbar-transparent-btn-color: #0F172A;
+    --navbar-transparent-btn-bg: rgba(15, 23, 42, 0.05);
+    --navbar-transparent-btn-border: rgba(15, 23, 42, 0.1);
+
+    /* Hero section variables */
+    --hero-overlay-bg: linear-gradient(135deg, rgba(248, 250, 252, 0.95) 0%, rgba(241, 245, 249, 0.8) 100%);
+    --hero-text-color: #0F172A;
+
+    /* Button outline white variables */
+    --btn-outline-white-border: var(--clr-primary);
+    --btn-outline-white-color: var(--clr-primary);
+    --btn-outline-white-hover-bg: var(--clr-primary);
+    --btn-outline-white-hover-color: #FFF;
+
+    /* Statistics variables */
+    --bg-stats: #F8FAFC;
+    --text-stats-label: #64748B;
+    --text-stats-number: #1E40AF;
+    --text-stats-suffix: #1E40AF;
+    --stat-icon-color: #F97316;
+
+    /* Mobile nav overlay */
+    --nav-overlay-bg: rgba(15, 23, 42, 0.15);
 }
 
 [data-theme="dark"] {
@@ -48,6 +81,39 @@
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4);
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4);
     --shadow-hover: 0 20px 25px -5px rgb(0 0 0 / 0.5);
+
+    /* Footer Theme variables */
+    --bg-footer: #0A0F1D;
+    --text-footer: #94A3B8;
+    --border-footer: #1E293B;
+    --title-footer: #FFF;
+    --bg-newsletter: #1E293B;
+
+    /* Transparent header variables */
+    --navbar-transparent-text: #FFF;
+    --navbar-transparent-btn-color: #FFF;
+    --navbar-transparent-btn-bg: rgba(255, 255, 255, 0.15);
+    --navbar-transparent-btn-border: rgba(255, 255, 255, 0.2);
+
+    /* Hero section variables */
+    --hero-overlay-bg: linear-gradient(to right, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.4) 100%);
+    --hero-text-color: #FFF;
+
+    /* Button outline white variables */
+    --btn-outline-white-border: #FFF;
+    --btn-outline-white-color: #FFF;
+    --btn-outline-white-hover-bg: #FFF;
+    --btn-outline-white-hover-color: #0F172A;
+
+    /* Statistics variables */
+    --bg-stats: #1E293B;
+    --text-stats-label: #94A3B8;
+    --text-stats-number: #FFF;
+    --text-stats-suffix: #FFF;
+    --stat-icon-color: #F97316;
+
+    /* Mobile nav overlay */
+    --nav-overlay-bg: rgba(0, 0, 0, 0.6);
 }
 
 /* ==========================================================================
@@ -213,13 +279,13 @@ button {
 
 .btn-outline-white {
     background-color: transparent;
-    color: #FFF;
-    border: 2px solid #FFF;
+    color: var(--btn-outline-white-color);
+    border: 2px solid var(--btn-outline-white-border);
 }
 
 .btn-outline-white:hover {
-    background-color: #FFF;
-    color: var(--text-main);
+    background-color: var(--btn-outline-white-hover-bg);
+    color: var(--btn-outline-white-hover-color);
 }
 
 .btn-outline-primary {
@@ -304,7 +370,7 @@ button {
 }
 
 .navbar-transparent:not(.scrolled) .logo {
-    color: #FFF;
+    color: var(--navbar-transparent-text);
 }
 
 .logo i {
@@ -340,7 +406,7 @@ button {
 }
 
 .navbar-transparent:not(.scrolled) .nav-link {
-    color: #FFF;
+    color: var(--navbar-transparent-text);
 }
 
 .nav-link:hover {
@@ -396,9 +462,9 @@ button {
 }
 
 .navbar-transparent:not(.scrolled) .theme-toggle {
-    color: #FFF;
-    background-color: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.2);
+    color: var(--navbar-transparent-btn-color);
+    background-color: var(--navbar-transparent-btn-bg);
+    border-color: var(--navbar-transparent-btn-border);
 }
 
 .theme-toggle:hover {
@@ -428,9 +494,9 @@ button {
 }
 
 .navbar-transparent:not(.scrolled) .user-menu-btn {
-    color: #FFF;
-    background-color: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.2);
+    color: var(--navbar-transparent-btn-color);
+    background-color: var(--navbar-transparent-btn-bg);
+    border-color: var(--navbar-transparent-btn-border);
 }
 
 .user-menu-btn:hover {
@@ -542,7 +608,7 @@ button {
 .hero-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to right, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.4) 100%);
+    background: var(--hero-overlay-bg);
 }
 
 .hero-container {
@@ -552,13 +618,13 @@ button {
 
 .hero-content {
     max-width: 650px;
-    color: #FFF;
+    color: var(--hero-text-color);
 }
 
 .hero-title {
     font-size: 4rem;
     margin-bottom: 20px;
-    color: #FFF;
+    color: var(--hero-text-color);
 }
 
 .hero-title span {
@@ -568,7 +634,8 @@ button {
 .hero-subtitle {
     font-size: 1.1rem;
     margin-bottom: 35px;
-    opacity: 0.9;
+    color: var(--hero-text-color);
+    opacity: 0.85;
 }
 
 .hero-buttons {
@@ -670,8 +737,10 @@ button {
    Statistics Section
    ========================================================================== */
 .statistics {
-    background-color: var(--clr-primary);
-    color: #FFF;
+    background-color: var(--bg-stats);
+    color: var(--text-main);
+    border-bottom: 1px solid var(--border-clr);
+    border-top: 1px solid var(--border-clr);
 }
 
 .stats-grid {
@@ -687,13 +756,13 @@ button {
 
 .stat-icon {
     font-size: 3rem;
-    color: var(--clr-accent);
+    color: var(--stat-icon-color);
     margin-bottom: 15px;
 }
 
 .stat-number {
     font-size: 3.5rem;
-    color: #FFF;
+    color: var(--text-stats-number);
     display: inline-block;
     line-height: 1;
 }
@@ -701,13 +770,13 @@ button {
 .stat-suffix {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #FFF;
+    color: var(--text-stats-suffix);
     font-family: var(--font-heading);
 }
 
 .stat-label {
     font-size: 1.1rem;
-    opacity: 0.9;
+    color: var(--text-stats-label);
     margin-top: 10px;
 }
 
@@ -1172,13 +1241,14 @@ input:focus, textarea:focus, select:focus {
    Footer
    ========================================================================== */
 .footer {
-    background-color: #0F172A;
-    color: #94A3B8;
+    background-color: var(--bg-footer);
+    color: var(--text-footer);
+    border-top: 1px solid var(--border-footer);
 }
 
 .footer-top {
     padding: 80px 0 40px;
-    border-bottom: 1px solid #1E293B;
+    border-bottom: 1px solid var(--border-footer);
 }
 
 .footer-grid {
@@ -1188,13 +1258,13 @@ input:focus, textarea:focus, select:focus {
 }
 
 .footer-widget h3 {
-    color: #FFF;
+    color: var(--title-footer);
     font-size: 1.2rem;
     margin-bottom: 25px;
 }
 
 .footer-logo {
-    color: #FFF !important;
+    color: var(--title-footer) !important;
     margin-bottom: 20px;
 }
 
@@ -1210,17 +1280,18 @@ input:focus, textarea:focus, select:focus {
 .social-links a {
     width: 40px;
     height: 40px;
-    background-color: #1E293B;
+    background-color: var(--bg-newsletter);
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    color: #FFF;
+    color: var(--title-footer);
     transition: var(--transition);
 }
 
 .social-links a:hover {
     background-color: var(--clr-primary);
+    color: #FFF;
     transform: translateY(-3px);
 }
 
@@ -1228,6 +1299,10 @@ input:focus, textarea:focus, select:focus {
     display: flex;
     flex-direction: column;
     gap: 12px;
+}
+
+.links-widget a {
+    color: var(--text-footer);
 }
 
 .links-widget a:hover {
@@ -1241,16 +1316,17 @@ input:focus, textarea:focus, select:focus {
 
 .newsletter-form {
     display: flex;
-    background-color: #1E293B;
+    background-color: var(--bg-newsletter);
     border-radius: var(--radius-md);
     overflow: hidden;
+    border: 1px solid var(--border-footer);
 }
 
 .newsletter-form input {
     background: none;
     border: none;
     padding: 15px;
-    color: #FFF;
+    color: var(--text-main);
 }
 
 .newsletter-form input:focus {
